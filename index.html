@@ -480,6 +480,8 @@
             <div class="ipp-img ipp-1 is-active" data-frame="1"></div>
             <div class="ipp-img ipp-2" data-frame="2"></div>
             <div class="ipp-img ipp-3" data-frame="3"></div>
+            <div class="ipp-img ipp-4" data-frame="4"></div>
+            <div class="ipp-img ipp-5" data-frame="5"></div>
             <div class="ipp-caption" style="display:none"></div>
           </div>
         </div>
@@ -638,9 +640,11 @@
     }
     .ipp-img.is-active{ opacity:1; }
     /* 10 editorial B&W images — legal, finance, real estate, global cities */
-    .ipp-1 { background-image:url('https://images.unsplash.com/PHfhyA7I-MM?auto=format&fit=crop&w=1600&q=80'); } /* dart hitting bullseye */
-    .ipp-2 { background-image:url('https://images.unsplash.com/DrbIJDvAlW0?auto=format&fit=crop&w=1600&q=80'); } /* chess set b&w */
-    .ipp-3 { background-image:url('https://images.unsplash.com/mM8Aq9bJINA?auto=format&fit=crop&w=1600&q=80'); } /* handshake b&w */
+    .ipp-1 { background-image:url('img/ipp-1.jpg'); }
+    .ipp-2 { background-image:url('img/ipp-2.jpg'); }
+    .ipp-3 { background-image:url('img/ipp-3.jpg'); }
+    .ipp-4 { background-image:url('img/ipp-4.jpg'); }
+    .ipp-5 { background-image:url('img/ipp-5.jpg'); }
 
     .intro-photo-pop.is-expanding .ipp-img.is-active{
       filter: grayscale(1) contrast(1.03) brightness(.8);
@@ -854,7 +858,7 @@
       var PHOTO_POP_AT    = 3100;
       var CYCLE_START     = 3100;   // same as PHOTO_POP_AT — first frame active when container fades in
       var CYCLE_INTERVAL  = 180;    // ms per frame during rapid cycle
-      var CYCLE_FRAMES    = 3;
+      var CYCLE_FRAMES    = 5;
       var PHOTO_EXPAND_AT = CYCLE_START + CYCLE_INTERVAL * CYCLE_FRAMES; // = 4950
       var HERO_REVEAL_AT  = PHOTO_EXPAND_AT + 600;                       // = 5550
       var SAFETY_FALLBACK = HERO_REVEAL_AT + 1600;
@@ -2063,6 +2067,36 @@
         el.contentEditable = 'true';
         el.style.outline = 'none';
       }
+    });
+  </script>
+
+  <style>
+    #save-btn {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 99999;
+      background: #0a0a0a; color: #fff;
+      font-family: 'Montserrat', sans-serif; font-size: 11px;
+      font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      border: none; padding: 0.65rem 1.2rem; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: background .2s;
+    }
+    #save-btn:hover { background: #333; }
+  </style>
+
+  <button id="save-btn">Save edits</button>
+  <script>
+    document.getElementById('save-btn').addEventListener('click', function() {
+      // Strip contenteditable attributes before saving
+      var clone = document.documentElement.cloneNode(true);
+      clone.querySelectorAll('[contenteditable]').forEach(function(el) {
+        el.removeAttribute('contenteditable');
+        el.style.outline = '';
+      });
+      var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      a.click();
     });
   </script>
 
