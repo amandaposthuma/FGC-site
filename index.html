@@ -455,10 +455,10 @@
   </div>
 
   <!-- ═══════════ HERO (logo-mask reveal → Shed-style photo flash → full-bleed B&W cycle) ═══════════ -->
-  <section id="hero" class="hero-shed">
+  <section id="hero" class="hero-shed revealed typed-done">
 
     <!-- Stage 0: BLACK → FGC logo types in (F → FG → FGC → FGC.) with 3 blinks → photo cycle plays UNDER the logo -->
-    <div class="shed-intro" id="shedIntro" aria-hidden="true">
+    <div class="shed-intro" id="shedIntro" aria-hidden="true" style="display:none">
       <div class="intro-center-stack">
         <!-- Typewriter layer — uses the ACTUAL FGC logo mask (clip-path reveal) -->
         <div class="intro-type-stage">
@@ -852,6 +852,7 @@
 
   <script>
     (function(){
+      return; // intro animation disabled
       var hero       = document.getElementById('hero');
       if(!hero) return;
       var logoMask   = document.getElementById('introLogoMask');
