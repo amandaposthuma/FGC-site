@@ -2090,27 +2090,6 @@
   })();
   </script>
 
-  <script>
-    var STORAGE_KEY = 'fgc-edits-v1';
-
-    var editables = Array.from(document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, blockquote'))
-      .filter(function(el) { return !el.closest('button, a, [role="button"]'); });
-
-    // Restore saved edits
-    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    editables.forEach(function(el, i) {
-      el.contentEditable = 'true';
-      el.style.outline = 'none';
-      if (saved[i] !== undefined) el.innerHTML = saved[i];
-    });
-
-    // Auto-save on any edit
-    document.addEventListener('input', function() {
-      var data = {};
-      editables.forEach(function(el, i) { data[i] = el.innerHTML; });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    });
-  </script>
 
 </body>
 </html>
