@@ -185,7 +185,8 @@
       display:block;
       position:relative;
       height: 1.4em;
-      overflow: clip;
+      overflow-x: visible;
+      overflow-y: clip;
       margin-top: 0.08em;
       padding-top: 0.12em;
     }
@@ -485,6 +486,8 @@
             <div class="ipp-img ipp-6" data-frame="6"></div>
             <div class="ipp-img ipp-7" data-frame="7"></div>
             <div class="ipp-img ipp-8" data-frame="8"></div>
+            <div class="ipp-img ipp-9" data-frame="9"></div>
+            <div class="ipp-img ipp-10" data-frame="10"></div>
             <div class="ipp-caption" style="display:none"></div>
           </div>
         </div>
@@ -504,6 +507,8 @@
       <div class="bg-frame bf-6"></div>
       <div class="bg-frame bf-7"></div>
       <div class="bg-frame bf-8"></div>
+      <div class="bg-frame bf-9"></div>
+      <div class="bg-frame bf-10"></div>
     </div>
     <div class="shed-vignette" aria-hidden="true"></div>
 
@@ -654,6 +659,8 @@
     .ipp-6 { background-image:url('https://images.unsplash.com/photo-1713946598432-9bb1f09acf9b?auto=format&fit=crop&w=1600&q=80'); } /* businessman smiling */
     .ipp-7 { background-image:url('https://images.unsplash.com/photo-1631015348651-0e9f3aba25a9?auto=format&fit=crop&w=1600&q=80'); } /* book pages */
     .ipp-8 { background-image:url('https://images.unsplash.com/photo-1729867302128-1448c291cd41?auto=format&fit=crop&w=1600&q=80'); } /* crowd at event */
+    .ipp-9 { background-image:url('https://images.unsplash.com/photo-1729938413350-cfb6fb1c018a?auto=format&fit=crop&w=1600&q=80'); } /* chess */
+    .ipp-10 { background-image:url('https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?auto=format&fit=crop&w=1600&q=80'); } /* handshake */
 
     .intro-photo-pop.is-expanding .ipp-img.is-active{
       filter: grayscale(1) contrast(1.03) brightness(.8);
@@ -720,7 +727,7 @@
       opacity:0;
     }
     #hero.hero-shed.revealed .bg-frame{
-      animation: bgCycle 16s infinite;
+      animation: bgCycle 20s infinite;
     }
     #hero.hero-shed.revealed .bf-1{ animation-delay: 0s; }
     #hero.hero-shed.revealed .bf-2{ animation-delay: 2s; }
@@ -730,6 +737,8 @@
     #hero.hero-shed.revealed .bf-6{ animation-delay: 10s; }
     #hero.hero-shed.revealed .bf-7{ animation-delay: 12s; }
     #hero.hero-shed.revealed .bf-8{ animation-delay: 14s; }
+    #hero.hero-shed.revealed .bf-9{ animation-delay: 16s; }
+    #hero.hero-shed.revealed .bf-10{ animation-delay: 18s; }
     @keyframes bgCycle{
       0%   { opacity:1; transform: scale(1.06); }
       18%  { opacity:1; transform: scale(1.00); }
@@ -753,6 +762,8 @@
     .bf-6{ background-image: url('https://images.unsplash.com/photo-1713946598432-9bb1f09acf9b?auto=format&fit=crop&w=2400&q=80'); }         /* businessman smiling */
     .bf-7{ background-image: url('https://images.unsplash.com/photo-1631015348651-0e9f3aba25a9?auto=format&fit=crop&w=2400&q=80'); }         /* book pages reading */
     .bf-8{ background-image: url('https://images.unsplash.com/photo-1729867302128-1448c291cd41?auto=format&fit=crop&w=2400&q=80'); }         /* crowd at event */
+    .bf-9{ background-image: url('https://images.unsplash.com/photo-1729938413350-cfb6fb1c018a?auto=format&fit=crop&w=2400&q=80'); }         /* chess */
+    .bf-10{ background-image: url('https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?auto=format&fit=crop&w=2400&q=80'); }        /* handshake */
     .ff-6      { background-image: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2400&q=80'); }
     .ff-7      { background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=2400&q=80'); }
     .ff-8      { background-image: url('https://images.unsplash.com/photo-1519619091416-f5d7e5200702?auto=format&fit=crop&w=2400&q=80'); }
@@ -874,7 +885,7 @@
       var PHOTO_POP_AT    = 3100;
       var CYCLE_START     = 3100;   // same as PHOTO_POP_AT — first frame active when container fades in
       var CYCLE_INTERVAL  = 180;    // ms per frame during rapid cycle
-      var CYCLE_FRAMES    = 8;
+      var CYCLE_FRAMES    = 10;
       var PHOTO_EXPAND_AT = CYCLE_START + CYCLE_INTERVAL * CYCLE_FRAMES; // = 4950
       var HERO_REVEAL_AT  = PHOTO_EXPAND_AT + 600;                       // = 5550
       var SAFETY_FALLBACK = HERO_REVEAL_AT + 1600;
