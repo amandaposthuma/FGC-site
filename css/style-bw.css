@@ -587,7 +587,7 @@ body::after {
 .we-col-nav button {
   background: none;
   border: 0;
-  color: rgba(0,0,0,0.38);
+  color: rgba(0,0,0,0.58);
   cursor: pointer;
   font-family: var(--font);
   font-size: 0.92rem;
@@ -1229,23 +1229,19 @@ a.we-contact-detail:hover { color: rgba(0,0,0,0.80); }
 
 .brief-outer {
   position: relative;
-  height: 250vh;               /* tall container drives horizontal progress */
   background: var(--bg);
   z-index: 10;
-  /* override .we-block defaults */
-  padding: 8vh 0 0 !important;
-  border-bottom: none !important;
+  padding: 60px 20px !important;
+  border-bottom: 1px solid var(--ink-12) !important;
+}
+
+@media (min-width: 1200px) {
+  .brief-outer { padding: 70px 80px !important; }
 }
 
 .brief-sticky {
-  position: sticky;
-  top: 80px;
-  height: calc(100vh - 80px);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: clamp(24px, 3vh, 40px) clamp(24px, 5vw, 80px) 0;
 }
 
 /* Header */
