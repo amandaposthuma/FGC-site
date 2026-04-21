@@ -185,7 +185,8 @@
       display:block;
       position:relative;
       height: 1.15em;
-      overflow:hidden;
+      overflow: visible;
+      overflow-y: hidden;
       margin-top: 0.08em;
       padding-top: 0.12em;
     }
@@ -193,6 +194,7 @@
       display:inline-flex;
       align-items:baseline;
       position:absolute; left:0; top:0;
+      white-space: nowrap;
       color: var(--fgc-accent);
       font-style: italic;
       font-family: 'Playfair Display', 'Barlow Condensed', serif;
