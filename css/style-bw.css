@@ -319,7 +319,7 @@ body::after {
 }
 
 .hero-heading {
-  font-size: clamp(28px, 3.0vw, 44px);
+  font-size: clamp(38px, 5vw, 72px);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.025em;
@@ -679,7 +679,7 @@ body::after {
 }
 
 @media (min-width: 1200px) {
-  .we-block { padding: 70px 80px; }
+  .we-block { padding: 110px 80px; }
 }
 
 /* ── Services ticker ────────────────────────────────────────── */
@@ -750,7 +750,7 @@ body::after {
 }
 
 .approach-card__title {
-  font-size: clamp(22px, 2.4vw, 36px);
+  font-size: clamp(30px, 3.5vw, 52px);
   font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -799,12 +799,12 @@ body::after {
 }
 
 .we-block--list {
-  padding: 8vh 0 8vh;
+  padding: 14vh 0 14vh;
 }
 
 /* ── Who We Are: statement ──────────────────────────────────── */
 .we-statement {
-  font-size: clamp(26px, 3vw, 44px);
+  font-size: clamp(36px, 5vw, 72px);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.01em;
@@ -849,7 +849,7 @@ body::after {
 .we-stat:last-child { padding-right: 0; }
 
 .we-stat-n {
-  font-size: clamp(24px, 2.4vw, 36px);
+  font-size: clamp(36px, 4.5vw, 64px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -948,7 +948,7 @@ body::after {
 }
 
 .we-row-name {
-  font-size: clamp(15px, 1.6vw, 28px);
+  font-size: clamp(22px, 2.6vw, 42px);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -963,7 +963,7 @@ body::after {
 
 /* Name expands slightly when row opens */
 .we-row.is-open .we-row-name {
-  font-size: clamp(18px, 2vw, 34px);
+  font-size: clamp(28px, 3.2vw, 52px);
   font-weight: 800;
   letter-spacing: 0.06em;
   transform: translateX(4px);
@@ -1138,7 +1138,7 @@ img.team-photo {
 /* ── Contact ────────────────────────────────────────────────── */
 .we-contact-email {
   display: block;
-  font-size: clamp(20px, 2.2vw, 34px);
+  font-size: clamp(28px, 3.5vw, 52px);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: rgba(0,0,0,0.85);
