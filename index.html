@@ -2061,42 +2061,24 @@
   </script>
 
   <script>
-    // Make all text nodes editable without breaking buttons/links
-    document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span:not([aria-hidden]), li, blockquote').forEach(function(el) {
-      if (!el.closest('button, a, [role="button"]')) {
-        el.contentEditable = 'true';
-        el.style.outline = 'none';
-      }
+    var STORAGE_KEY = 'fgc-edits-v1';
+
+    var editables = Array.from(document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, blockquote'))
+      .filter(function(el) { return !el.closest('button, a, [role="button"]'); });
+
+    // Restore saved edits
+    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    editables.forEach(function(el, i) {
+      el.contentEditable = 'true';
+      el.style.outline = 'none';
+      if (saved[i] !== undefined) el.innerHTML = saved[i];
     });
-  </script>
 
-  <style>
-    #save-btn {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 99999;
-      background: #0a0a0a; color: #fff;
-      font-family: 'Montserrat', sans-serif; font-size: 11px;
-      font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-      border: none; padding: 0.65rem 1.2rem; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: background .2s;
-    }
-    #save-btn:hover { background: #333; }
-  </style>
-
-  <button id="save-btn">Save edits</button>
-  <script>
-    document.getElementById('save-btn').addEventListener('click', function() {
-      // Strip contenteditable attributes before saving
-      var clone = document.documentElement.cloneNode(true);
-      clone.querySelectorAll('[contenteditable]').forEach(function(el) {
-        el.removeAttribute('contenteditable');
-        el.style.outline = '';
-      });
-      var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'index.html';
-      a.click();
+    // Auto-save on any edit
+    document.addEventListener('input', function() {
+      var data = {};
+      editables.forEach(function(el, i) { data[i] = el.innerHTML; });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     });
   </script>
 
