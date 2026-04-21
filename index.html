@@ -1077,13 +1077,7 @@
       transition: transform .4s cubic-bezier(.2,.9,.2,1), opacity .3s ease;
     }
     .we-row-n{
-      order: -1;
-      flex: 0 0 auto;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 13px;
-      letter-spacing: 0.22em;
-      color: var(--ink-40, #666);
-      align-self: center;
+      display: none !important;
     }
     .we-row-name{
       order: 0;
@@ -1101,9 +1095,6 @@
       transform: rotate(45deg) scale(1.05);
     }
 
-    /* The .we-row-n was hidden on mobile-ish breakpoint originally; make sure
-       it is visible since it's now part of the horizontal row layout */
-    .we-row-n{ display: inline-block !important; }
 
     @media (max-width: 720px){
       .we-row-head{ padding: 28px 20px; gap: 14px; }
