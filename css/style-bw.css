@@ -1310,7 +1310,6 @@ a.we-contact-detail:hover { color: rgba(0,0,0,0.80); }
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  aspect-ratio: 3 / 4;
   transition: background 0.3s ease;
 }
 
