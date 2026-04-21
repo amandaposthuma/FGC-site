@@ -1149,10 +1149,13 @@
         }
       });
 
+      var subBtns = document.querySelectorAll('.we-col-subnav button[data-service]');
       rows.forEach(function(row, i){
         var isActive = (i === activeIdx);
         row.classList.toggle('is-active', isActive);
         row.classList.toggle('is-open',   isActive);
+        var li = subBtns[i] && subBtns[i].parentElement;
+        if (li) li.classList.toggle('active', isActive);
       });
     }
 
