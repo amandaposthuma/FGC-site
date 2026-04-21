@@ -408,46 +408,6 @@
 
   </style>
 
-  <!-- ═══════════ INTRO LOADER ═══════════ -->
-  <div id="intro-loader">
-    <div class="intro-logo-wrap">
-      <img src="FGC-logo.png" class="il-logo" alt="FGC." id="il-logo-main">
-    </div>
-  </div>
-  <script>
-  /* Intro scanner — runs inline so no external main.js needed */
-  (function () {
-    var loader = document.getElementById('intro-loader');
-    var wrap   = loader && loader.querySelector('.intro-logo-wrap');
-    var logo   = document.getElementById('il-logo-main');
-    if (!loader || !logo) { if (loader) loader.classList.add('done'); return; }
-    var scan = document.createElement('div');
-    scan.className = 'il-scan';
-    wrap.appendChild(scan);
-    function run() {
-      var W = logo.offsetWidth;
-      scan.style.opacity = '1';
-      scan.style.left    = '0px';
-      logo.getBoundingClientRect();
-      requestAnimationFrame(function () {
-        logo.classList.add('revealed');
-        scan.style.left = W + 'px';
-      });
-      setTimeout(function () {
-        scan.style.opacity = '0';
-        setTimeout(function () {
-          loader.classList.add('done');
-        }, 900);
-      }, 750);
-    }
-    if (logo.complete && logo.naturalWidth) {
-      setTimeout(run, 350);
-    } else {
-      logo.addEventListener('load',  function () { setTimeout(run, 350); });
-      logo.addEventListener('error', function () { loader.classList.add('done'); });
-    }
-  })();
-  </script>
 
   <!-- WebGL fluid background -->
   <canvas id="gradient-canvas"></canvas>
@@ -672,17 +632,17 @@
       transition: opacity .08s steps(1,end);
     }
     .ipp-img.is-active{ opacity:1; }
-    /* 10 distinct editorial B&W images — Miami, real-estate, bridges, skylines, finance */
-    .ipp-1  { background-image:url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-2  { background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-3  { background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-4  { background-image:url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-5  { background-image:url('https://images.unsplash.com/photo-1444084316824-dc26d6657664?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-6  { background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-7  { background-image:url('https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-8  { background-image:url('https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-9  { background-image:url('https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1600&q=80'); }
-    .ipp-10 { background-image:url('https://images.unsplash.com/photo-1444492696363-332accd0cfa6?auto=format&fit=crop&w=1600&q=80'); }
+    /* 10 editorial B&W images — legal, finance, real estate, global cities */
+    .ipp-1  { background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80'); } /* boardroom */
+    .ipp-2  { background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80'); } /* business documents */
+    .ipp-3  { background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80'); } /* city skyline */
+    .ipp-4  { background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80'); } /* contract signing */
+    .ipp-5  { background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80'); } /* professionals walking */
+    .ipp-6  { background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80'); } /* Seattle skyline */
+    .ipp-7  { background-image:url('https://images.unsplash.com/photo-1444041654720-0468f9ee0d9d?auto=format&fit=crop&w=1600&q=80'); } /* aerial coastline */
+    .ipp-8  { background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80'); } /* modern architecture */
+    .ipp-9  { background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80'); } /* executive meeting */
+    .ipp-10 { background-image:url('https://images.unsplash.com/photo-1523365154888-8a758819b722?auto=format&fit=crop&w=1600&q=80'); } /* conference room */
 
     .intro-photo-pop.is-expanding .ipp-img.is-active{
       filter: grayscale(1) contrast(1.03) brightness(.8);
@@ -999,12 +959,9 @@
           flyingLogo.style.margin   = '0';
           flyingLogo.style.zIndex   = '9999';
           flyingLogo.style.opacity  = '1';
-          flyingLogo.style.willChange = 'transform, filter';
-          // Drop the white invert — the nav logo is black on light, black-ish on hero.
-          // Remove our custom filter so it can match the nav logo's filter rules.
+          flyingLogo.style.willChange = 'transform';
           flyingLogo.style.filter = 'invert(1) brightness(1.4)';
-          flyingLogo.style.transition =
-            'transform 1100ms cubic-bezier(.65,.02,.3,1), filter 500ms ease 600ms';
+          flyingLogo.style.transition = 'transform 480ms ease-out';
 
           // Also kill the orbit nudge animation that might still be running
           logoMask.style.animation = 'none';
@@ -2122,50 +2079,6 @@
   })();
   </script>
 
-  <!-- ═══════════ SLINGSHOT LOGO ANIMATION ═══════════ -->
-  <script>
-  (function () {
-    if (typeof gsap === 'undefined') return;
-    var loader   = document.getElementById('intro-loader');
-    var ilLogo   = document.getElementById('il-logo-main');
-    /* Target: the logo sitting above the photo slideshow in the hero */
-    var heroLogo = document.querySelector('#introLogoMask .intro-logo-full');
-    if (!loader || !ilLogo || !heroLogo) return;
-
-    var observer = new MutationObserver(function () {
-      if (loader.classList.contains('done')) {
-        observer.disconnect();
-        fireSling();
-      }
-    });
-    observer.observe(loader, { attributes: true, attributeFilter: ['class'] });
-
-    function fireSling() {
-      loader.classList.remove('done', 'exit');
-      loader.style.cssText += ';opacity:1;animation:none;pointer-events:none;';
-
-      var fromRect = ilLogo.getBoundingClientRect();
-      var toRect   = heroLogo.getBoundingClientRect();
-      var scaleEnd = toRect.height / fromRect.height;
-      var dx = (toRect.left + toRect.width  / 2) - (fromRect.left + fromRect.width  / 2);
-      var dy = (toRect.top  + toRect.height / 2) - (fromRect.top  + fromRect.height / 2);
-
-      gsap.timeline()
-        .to(ilLogo, { scale: 1.07, duration: 0.16, ease: 'power2.in' })
-        .to(ilLogo, {
-          x: dx, y: dy, scale: scaleEnd,
-          duration: 0.68, ease: 'back.out(1.6)',
-          onComplete: function () {
-            /* Loader fades out — hero is revealed with its own logo already in place */
-            gsap.to(loader, {
-              opacity: 0, duration: 0.32, ease: 'power1.out',
-              onComplete: function () { loader.style.display = 'none'; }
-            });
-          }
-        });
-    }
-  })();
-  </script>
 
 </body>
 </html>
