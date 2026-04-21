@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FGC Advisors — Simple Solutions. One Relationship.</title>
+  <meta name="description" content="FGC is a full-suite advisory serving cross-border families and institutions across every stage of wealth planning and business strategy. Headquartered in Miami.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Condensed:wght@400;600;700&family=Roboto+Mono:wght@100;400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style-bw.css">
+
+  <!-- GSAP (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- ═══════════ SVG SYMBOL LIBRARY ═══════════ -->
+  <!-- G-arrow: the "G" from FGC logo — open circle with crossbar/arrowhead that reads as → -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- G-arrow: closely mirrors the FGC logo G shape -->
+      <symbol id="g-arrow" viewBox="0 0 48 48">
+        <!-- G arc — opens to the right like the logo G -->
+        <path d="M 36 12
+                 A 16 16 0 1 0 36 36"
+              fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Crossbar — the arrow shaft emerging from the G's mouth -->
+        <path d="M 22 24 L 44 24"
+              fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Arrowhead at the crossbar tip -->
+        <path d="M 37 17 L 44 24 L 37 31"
+              fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <!-- Up-right G-arrow variant for external/link affordance -->
+      <symbol id="g-arrow-ne" viewBox="0 0 48 48">
+        <path d="M 14 34
+                 A 14 14 0 1 1 28 20"
+              fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="M 22 26 L 38 10"
+              fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="M 30 10 L 38 10 L 38 18"
+              fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ═══════════ INTRO LOADER ═══════════ -->
+  <div id="intro-loader">
+    <div class="intro-logo-wrap">
+      <img src="FGC-logo.png" class="il-logo" alt="FGC." id="il-logo-main">
+      <!-- Orange square dot removed -->
+    </div>
+  </div>
+
+  <!-- WebGL fluid background -->
+  <canvas id="gradient-canvas"></canvas>
+  <canvas id="noise-canvas"></canvas>
+
+  <!-- Custom cursor -->
+  <div id="cursor-glow"></div>
+  <div id="cursor"></div>
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <nav id="nav">
+    <a href="/" class="nav-logo" aria-label="FGC Advisors home">
+      <img src="FGC-logo.png" alt="FGC." id="nav-logo-img">
+    </a>
+    <button id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════ HAMBURGER MENU ═══════════ -->
+  <div id="nav-menu" aria-hidden="true">
+    <button id="nav-menu-close" aria-label="Close menu">✕</button>
+    <nav class="nav-menu-links">
+      <a href="#about">About Us</a>
+      <a href="#services">What We Do</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#team">Our Team</a>
+      <a href="#brief">The FGC Brief</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- ═══════════ HERO (Shed-inspired photo intro) ═══════════ -->
+  <section id="hero" class="hero-shed">
+    <div class="hero-shed-stage">
+      <!-- Scattered photo tiles that settle into a neat row — real photos, no city labels -->
+      <div class="shed-photos" id="shedPhotos">
+        <div class="shed-photo p1" style="--dx:-42vw;--dy:-28vh;--dr:-14deg;--i:0">
+          <img class="shed-swatch-img" src="01-v2-intro.png" alt="" draggable="false">
+        </div>
+        <div class="shed-photo p2" style="--dx:36vw;--dy:-32vh;--dr:11deg;--i:1">
+          <img class="shed-swatch-img" src="02-v2-intro.png" alt="" draggable="false">
+        </div>
+        <div class="shed-photo p3" style="--dx:-30vw;--dy:30vh;--dr:8deg;--i:2">
+          <img class="shed-swatch-img" src="03-v2-intro.png" alt="" draggable="false">
+        </div>
+        <div class="shed-photo p4" style="--dx:38vw;--dy:28vh;--dr:-10deg;--i:3">
+          <img class="shed-swatch-img" src="04-v2-intro.png" alt="" draggable="false">
+        </div>
+        <div class="shed-photo p5" style="--dx:-8vw;--dy:-38vh;--dr:5deg;--i:4">
+          <img class="shed-swatch-img" src="01-v2-intro.png" alt="" draggable="false">
+        </div>
+      </div>
+
+      <!-- Centered typewriter line -->
+      <div class="shed-caption">
+        <span class="shed-text" id="shedType"></span><span class="shed-cursor"></span>
+        <img src="FGC-logo.png" class="shed-logo" id="shedLogo" alt="FGC">
+        <span class="shed-period" id="shedPeriod">.</span>
+      </div>
+    </div>
+
+    <!-- Bottom meta -->
+    <div class="hero-bottom hero-bottom--shed">
+      <div class="hero-left">
+        <h1 class="hero-heading">
+          Simple solutions.<br>One relationship.
+        </h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-sub">
+          FGC is a full-suite advisory serving cross-border families and institutions across every stage of wealth planning and business strategy. One trusted relationship — every service.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* ——— Shed-inspired hero ——— */
+    #hero.hero-shed{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+    .hero-shed-stage{position:relative;flex:1;min-height:78vh;display:grid;place-items:center}
+    .shed-photos{position:absolute;inset:0;pointer-events:none}
+    .shed-photo{
+      position:absolute;left:50%;top:50%;
+      width:clamp(90px,11vw,160px);aspect-ratio:3/4;
+      transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) rotate(var(--dr)) scale(0.6);
+      opacity:0;
+      animation:shed-in 1s cubic-bezier(.2,.8,.2,1) forwards,shed-settle 1.1s cubic-bezier(.2,.8,.2,1) forwards;
+      animation-delay:calc(.4s + var(--i) * .12s),calc(2.2s + var(--i) * .08s);
+      box-shadow:0 8px 30px rgba(0,0,0,0.18);
+      overflow:hidden;
+    }
+    @keyframes shed-in{
+      0%{opacity:0;transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) rotate(var(--dr)) scale(0.6)}
+      100%{opacity:1;transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) rotate(var(--dr)) scale(1)}
+    }
+    @keyframes shed-settle{
+      to{transform:translate(-50%,-50%) translate(calc((var(--i) - 2) * 14vw),0) rotate(0deg) scale(0.9)}
+    }
+    /* Real photo images fill each card, B&W treated */
+    .shed-swatch-img{
+      width:100%;height:100%;object-fit:cover;display:block;
+      filter:grayscale(1) contrast(1.05);
+      pointer-events:none;
+    }
+
+    .shed-caption{
+      position:relative;z-index:2;
+      display:inline-flex;align-items:center;gap:0.35em;
+      font-family:'Barlow Condensed','Montserrat',sans-serif;
+      font-weight:300;letter-spacing:-0.02em;line-height:1;
+      font-size:clamp(3rem,10vw,8.5rem);
+      color:currentColor;
+    }
+    .shed-text{white-space:nowrap}
+    .shed-cursor{display:inline-block;width:0.06em;height:0.85em;background:currentColor;animation:shed-blink 0.55s step-end infinite;margin-left:0.04em}
+    .shed-cursor.hide{display:none}
+    @keyframes shed-blink{50%{opacity:0}}
+    .shed-logo{
+      height:0.82em;width:auto;margin-left:0.1em;opacity:0;
+      transform:translateY(6px);
+      transition:opacity .5s ease,transform .5s ease;
+    }
+    .shed-logo.show{opacity:1;transform:translateY(0)}
+    .shed-period{opacity:0;transition:opacity .3s ease .15s}
+    .shed-period.show{opacity:1}
+
+    .hero-bottom--shed{opacity:0;animation:shed-fade 0.8s 3.4s ease forwards;padding:0 clamp(1.25rem,3vw,3rem) clamp(1.5rem,3vh,2.5rem)}
+    @keyframes shed-fade{to{opacity:1}}
+
+    @media (max-width:700px){
+      .shed-photo{width:22vw}
+      .shed-caption{font-size:clamp(2.2rem,11vw,4.5rem)}
+    }
+
+    /* ——— Slingshot: hide nav logo until it lands ——— */
+    #nav-logo-img.sling-hidden { opacity: 0; }
+
+    /* ——— What We Do open state: muted tint, black text ——— */
+    .we-row.is-open {
+      background: rgba(232, 91, 26, 0.07) !important;
+      box-shadow: inset 0 0 0 1px rgba(232,91,26,0.18), 0 4px 32px rgba(0,0,0,0.04) !important;
+    }
+    .we-row.is-open .we-row-name,
+    .we-row.is-open .we-row-desc,
+    .we-row.is-open .we-row-head,
+    .we-row.is-open .we-row-n {
+      color: #000000 !important;
+    }
+    .we-row.is-open .we-row-arrow {
+      color: rgba(0,0,0,0.35) !important;
+      transform: rotate(45deg) !important;
+    }
+    .we-row:hover:not(.is-open) .we-row-arrow {
+      color: rgba(232,91,26,0.5) !important;
+      transform: translateX(6px) !important;
+    }
+  </style>
+
+  <script>
+    /* ——— Typewriter ——— */
+    (function(){
+      var textEl=document.getElementById('shedType');
+      var cursor=document.querySelector('.shed-cursor');
+      var logo=document.getElementById('shedLogo');
+      var period=document.getElementById('shedPeriod');
+      if(!textEl)return;
+      var phrase='This is ';
+      var i=0;
+      function tick(){
+        if(i<=phrase.length){
+          textEl.textContent=phrase.slice(0,i++);
+          setTimeout(tick, 85);
+        } else {
+          setTimeout(function(){
+            if(logo){logo.classList.add('show')}
+            setTimeout(function(){
+              if(period)period.classList.add('show');
+              if(cursor)cursor.classList.add('hide');
+            },500);
+          },200);
+        }
+      }
+      setTimeout(tick, 1100);
+    })();
+  </script>
+
+  <!-- ═══════════ ABOUT FGC ═══════════ -->
+  <section class="section-content">
+    <div class="we-section">
+
+      <!-- Sticky left column -->
+      <div class="we-col-label">
+        <ul class="we-col-nav">
+          <li class="active"><button data-block="about">About Us</button></li>
+          <li><button data-block="services">What We Do</button>
+            <ul class="we-col-subnav" id="services-subnav">
+              <li><button data-service="0">Wealth Planning</button></li>
+              <li><button data-service="1">Title &amp; Real Estate</button></li>
+              <li><button data-service="2">Tax Strategy</button></li>
+              <li><button data-service="3">Corporate Structuring</button></li>
+              <li><button data-service="4">M&amp;A Advisory</button></li>
+              <li><button data-service="5">Business Strategy</button></li>
+              <li><button data-service="6">Mediation &amp; Negotiation</button></li>
+            </ul>
+          </li>
+          <li><button data-block="approach">Our Approach</button></li>
+          <li><button data-block="team">Our Team</button></li>
+          <li><button data-block="brief">The FGC Brief</button></li>
+          <li><button data-block="contact">Contact</button></li>
+        </ul>
+      </div>
+
+      <!-- Scrollable right column -->
+      <div class="we-col-content we-col-content--blocks">
+
+        <!-- ── About Us ── -->
+        <div class="we-block we-block--reveal" id="about">
+          <p class="we-statement reveal-item" style="--i:1">Simple solutions for lives and capital that span borders.</p>
+          <div class="we-body we-body--single">
+            <p class="reveal-item" style="--i:2">FGC is a full-suite advisory serving cross-border families and institutions across every stage of wealth planning and business strategy. We exist to offer simple solutions to clients whose lives and capital span borders.</p>
+          </div>
+          <div class="we-body we-body--single">
+            <p class="reveal-item" style="--i:3">We have a global footprint: headquartered in Miami, with deep roots in Latin America, particularly Brazil, and a network of clients and partners around the world. This gives us the global acumen, jurisdictional knowledge, and language fluency to serve clients wherever they are.</p>
+          </div>
+          <div class="we-stats reveal-item" style="--i:4">
+            <div class="we-stat"><span class="we-stat-n" data-count="30" data-suffix="+">30+</span><span class="we-stat-l">Years in wealth planning</span></div>
+            <div class="we-stat"><span class="we-stat-n" data-count="1000" data-suffix="+" data-prefix="" data-display="1,000+">1,000+</span><span class="we-stat-l">Active companies managed</span></div>
+            <div class="we-stat"><span class="we-stat-n" data-count="20" data-suffix="B+" data-prefix="$">$20B+</span><span class="we-stat-l">Transacted</span></div>
+          </div>
+        </div>
+
+        <!-- ── What We Do ── -->
+        <div class="we-block we-block--list" id="services">
+          <div class="we-list">
+            <div class="we-row">
+              <div class="we-row-head"><svg class="we-row-arrow" viewBox="0 0 48 48" width="64" height="64" aria-hidden="true"><use href="#g-arrow"/></svg><span class="we-row-n">01</span><h3 class="we-row-name">Wealth Planning</h3></div>
+              <p class="we-row-desc">Develop personalized strategies to preserve and transition wealth, integrating family governance and succession planning.</p>
+            </div>
+            <div class="we-row">
+              <div class="we-row-head"><svg class="we-row-arrow" viewBox="0 0 48 48" width="64" height="64" aria-hidden="true"><use href="#g-arrow"/></svg><span class="we-row-n">02</span><h3 class="we-row-name">Title &amp; Real Estate</h3></div>
+              <p class="we-row-desc">Manage all aspects of real estate transactions, including title searches, closings, and compliance to ensure smooth transactions.</p>
+            </div>
+            <div class="we-row">
+              <div class="we-row-head"><svg class="we-row-arrow" viewBox="0 0 48 48" width="64" height="64" aria-hidden="true"><use href="#g-arrow"/></svg><span class="we-row-n">03</span><h3 class="we-row-name">Tax Strategy</h3></div>
+              <p class="we-row-desc">Prepare tax filings, financial statements, and optimize tax strategies to minimize risks and ensure compliance.</p>
+            </div>
+            <div class="we-row">
+              <div class="we-row-head"><svg class="we-row-arrow" viewBox="0 0 48 48" width="64" height="64" aria-hidden="true"><use href="#g-arrow"/></svg><span class="we-row-n">04</span><h3 class="we-row-name">Corporate Structuring</h3></div>
+              <p class="we-row-desc">Manage entity formation, restructuring, compliance, and annual maintenance for seamless global business operations.</p>
+            </div>
+            <div class="we-row">
+              <div class="we-row-head"><svg class="we-row-arrow" viewBox="0 0 48 48" width="64" height="64" aria-hidden="true"><use href="#g-arrow"/></svg><span class="we-row-n">05</span><h3 class="we-row-name">M&amp;A Advisory</h3></div>
+              <p class="we-row-desc">Facilitate deal structuring, due diligence, and transaction management to maximize deal value.</p>
+            </div>
+            <div class="we-row">
+              <div class="we-row-head"><svg class="we-row-arrow" viewBox="0 0 48 48" width="64" height="64" aria-hidden="true"><use href="#g-arrow"/></svg><span class="we-row-n">06</span><h3 class="we-row-name">Business Strategy</h3></div>
+              <p class="we-row-desc">Expert guidance on business strategy, financial planning, operational optimization, and regulatory compliance to support sustainable growth and informed decision-making.</p>
+            </div>
+            <div class="we-row">
+              <div class="we-row-head"><svg class="we-row-arrow" viewBox="0 0 48 48" width="64" height="64" aria-hidden="true"><use href="#g-arrow"/></svg><span class="we-row-n">07</span><h3 class="we-row-name">Mediation &amp; Negotiation</h3></div>
+              <p class="we-row-desc">Facilitate high-stakes conversations — from family governance disputes to partnership negotiations — to transform conflict into lasting consensus.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Our Approach ── -->
+        <div class="we-block we-block--reveal we-block--approach" id="approach">
+          <p class="we-statement reveal-item" style="--i:1">Every piece of your wealth is connected.</p>
+          <div class="approach-cards reveal-item" style="--i:2">
+
+            <div class="approach-card">
+              <div class="approach-card__top">
+                <span class="approach-card__num">01</span>
+                <span class="approach-card__title">Connected</span>
+              </div>
+              <hr class="approach-card__rule">
+              <p class="approach-card__desc">Every decision considers the whole picture of your wealth across jurisdictions, entities, and generations. A tax decision shapes your corporate structure, which shapes your real estate strategy — we account for all of it.</p>
+            </div>
+
+            <div class="approach-card">
+              <div class="approach-card__top">
+                <span class="approach-card__num">02</span>
+                <span class="approach-card__title">Borderless</span>
+              </div>
+              <hr class="approach-card__rule">
+              <p class="approach-card__desc">Headquartered in Miami with deep roots in Latin America and a network spanning the world's key financial jurisdictions. We understand the rules of every arena you operate in.</p>
+            </div>
+
+            <div class="approach-card">
+              <div class="approach-card__top">
+                <span class="approach-card__num">03</span>
+                <span class="approach-card__title">Relationship-Driven</span>
+              </div>
+              <hr class="approach-card__rule">
+              <p class="approach-card__desc">One relationship, one point of contact. We orchestrate across your lawyers, accountants, and advisors — so you never have to manage the complexity yourself.</p>
+            </div>
+
+            <div class="approach-card">
+              <div class="approach-card__top">
+                <span class="approach-card__num">04</span>
+                <span class="approach-card__title">Long-Term</span>
+              </div>
+              <hr class="approach-card__rule">
+              <p class="approach-card__desc">We guide our clients through every chapter of their lives. When your circumstances shift, so does our strategy. Always tailored, never templated, never transactional.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Our Team ── -->
+        <div class="we-block team-block" id="team">
+          <div class="team-grid">
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Fabiana Ciobataru</span>
+                <span class="team-role">Founder &amp; Managing Partner</span>
+              </div>
+              <div class="team-bio">
+                <p>30+ years in legal, tax strategy, and cross-border wealth advisory across multiple jurisdictions.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Claudia Frankel Grosman</span>
+                <span class="team-role">Conflict Resolution &amp; Mediation</span>
+              </div>
+              <div class="team-bio">
+                <p>16+ years in structured mediation for families and corporations.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Paloma Coelho</span>
+                <span class="team-role">Head of Corporate</span>
+              </div>
+              <div class="team-bio">
+                <p>Entity formation, governance, and corporate structuring across US and offshore structures.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Team Member</span>
+                <span class="team-role">Role</span>
+              </div>
+              <div class="team-bio">
+                <p>Placeholder bio — replace with real team member details.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Team Member</span>
+                <span class="team-role">Role</span>
+              </div>
+              <div class="team-bio">
+                <p>Placeholder bio — replace with real team member details.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Team Member</span>
+                <span class="team-role">Role</span>
+              </div>
+              <div class="team-bio">
+                <p>Placeholder bio — replace with real team member details.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Team Member</span>
+                <span class="team-role">Role</span>
+              </div>
+              <div class="team-bio">
+                <p>Placeholder bio — replace with real team member details.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Team Member</span>
+                <span class="team-role">Role</span>
+              </div>
+              <div class="team-bio">
+                <p>Placeholder bio — replace with real team member details.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Team Member</span>
+                <span class="team-role">Role</span>
+              </div>
+              <div class="team-bio">
+                <p>Placeholder bio — replace with real team member details.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-photo"></div>
+              <div class="team-info">
+                <span class="team-name">Team Member</span>
+                <span class="team-role">Role</span>
+              </div>
+              <div class="team-bio">
+                <p>Placeholder bio — replace with real team member details.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── The FGC Brief ── -->
+        <div class="we-block brief-outer" id="brief">
+          <div class="brief-sticky">
+            <div class="brief-sticky-header">
+              <button id="brief-view-btn" class="brief-view-btn">View All Newsletters</button>
+            </div>
+
+            <div class="brief-track-wrap">
+              <div class="brief-track">
+
+                <article class="brief-card">
+                  <span class="brief-cat">Tax · Brazil</span>
+                  <h3 class="brief-card-title">Filing your return is step one. Most families stop there.</h3>
+                  <div class="brief-card-stats">
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">Apr 30</span>
+                      <span class="brief-stat-label">IRPF filing deadline 2026</span>
+                    </div>
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">R$250K</span>
+                      <span class="brief-stat-label">Max penalty for non-compliance</span>
+                    </div>
+                  </div>
+                  <p class="brief-card-so-what">The Receita Federal now cross-references DIRPF, DCBE, BACEN registrations, and offshore financial statements. Filing the income tax return alone is no longer enough — all four need to tell the same story.</p>
+                  <a href="#" class="brief-card-link">Read more <svg class="inline-g-arrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-arrow"/></svg></a>
+                </article>
+
+                <article class="brief-card">
+                  <span class="brief-cat">Real Estate</span>
+                  <h3 class="brief-card-title">Brazilian buyers in Florida hit record highs. Most aren't ready for what comes next.</h3>
+                  <div class="brief-card-stats">
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">$762M</span>
+                      <span class="brief-stat-label">Brazilian purchases in Miami</span>
+                    </div>
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">13%</span>
+                      <span class="brief-stat-label">Brazil share of Miami international</span>
+                    </div>
+                  </div>
+                  <p class="brief-card-so-what">Whether an asset is held personally or through an LLC carries meaningful tax and estate planning consequences. These need to be evaluated before closing, not after.</p>
+                  <a href="#" class="brief-card-link">Read more <svg class="inline-g-arrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-arrow"/></svg></a>
+                </article>
+
+                <article class="brief-card">
+                  <span class="brief-cat">Wealth Planning</span>
+                  <h3 class="brief-card-title">A new US tax law changed estate planning limits permanently.</h3>
+                  <div class="brief-card-stats">
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">40%</span>
+                      <span class="brief-stat-label">US estate tax rate without treaty protection</span>
+                    </div>
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">$15M+</span>
+                      <span class="brief-stat-label">Exemption via Brazil-US treaty</span>
+                    </div>
+                  </div>
+                  <p class="brief-card-so-what">The treaty protection that shields Brazilian investors from full US estate tax exposure is not automatic. It must be structured properly to apply. If you own US assets, this is worth a review.</p>
+                  <a href="#" class="brief-card-link">Read more <svg class="inline-g-arrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-arrow"/></svg></a>
+                </article>
+
+                <article class="brief-card">
+                  <span class="brief-cat">Corporate</span>
+                  <h3 class="brief-card-title">You opened a US LLC. You probably owe a filing you don't know about.</h3>
+                  <div class="brief-card-stats">
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">$25K</span>
+                      <span class="brief-stat-label">Automatic penalty · Form 5472 · per year</span>
+                    </div>
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">Apr 15</span>
+                      <span class="brief-stat-label">Single-member LLC filing deadline</span>
+                    </div>
+                  </div>
+                  <p class="brief-card-so-what">This applies even to inactive LLCs with no US business activity. There is no grace period and no easy waiver process. The exposure compounds every year it goes unaddressed.</p>
+                  <a href="#" class="brief-card-link">Read more <svg class="inline-g-arrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-arrow"/></svg></a>
+                </article>
+
+                <article class="brief-card">
+                  <span class="brief-cat">Immigration</span>
+                  <h3 class="brief-card-title">Buying US property doesn't give you a visa. Here's what does.</h3>
+                  <div class="brief-card-stats">
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">1.4 yrs</span>
+                      <span class="brief-stat-label">Brazil avg EB-5 processing · no backlog</span>
+                    </div>
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">Sep 30</span>
+                      <span class="brief-stat-label">Deadline to file under current rules</span>
+                    </div>
+                  </div>
+                  <p class="brief-card-so-what">Brazil currently has no EB-5 backlog and one of the fastest processing timelines globally. For families considering a move to the US, the window to act under current rules closes September 30, 2026.</p>
+                  <a href="#" class="brief-card-link">Read more <svg class="inline-g-arrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-arrow"/></svg></a>
+                </article>
+
+                <article class="brief-card">
+                  <span class="brief-cat">Mediation &amp; Negotiation</span>
+                  <h3 class="brief-card-title">The conversation you're avoiding is usually the most important one.</h3>
+                  <div class="brief-card-stats">
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">16+</span>
+                      <span class="brief-stat-label">Years of experience, Claudia Frankel Grosman</span>
+                    </div>
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">VOL. 1</span>
+                      <span class="brief-stat-label">Q1 2026 · The FGC Brief</span>
+                    </div>
+                  </div>
+                  <p class="brief-card-so-what">Succession planning, ownership transitions, and family business governance involve conversations that are easy to delay and costly to mishandle. FGC has in-house expertise to help structure and facilitate them.</p>
+                  <a href="#" class="brief-card-link">Read more <svg class="inline-g-arrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-arrow"/></svg></a>
+                </article>
+
+                <article class="brief-card brief-card--roadmap">
+                  <span class="brief-cat">Real Estate · Guide</span>
+                  <h3 class="brief-card-title">The FGC Real Estate Roadmap for Cross-Border Buyers.</h3>
+                  <div class="brief-card-stats">
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">$762M</span>
+                      <span class="brief-stat-label">Brazilian purchases in Miami 2024</span>
+                    </div>
+                    <div class="brief-stat">
+                      <span class="brief-stat-val">40%</span>
+                      <span class="brief-stat-label">US estate tax without treaty protection</span>
+                    </div>
+                  </div>
+                  <p class="brief-card-so-what">A complete guide to buying real estate in the US as a cross-border family — from structure selection and tax exposure to title, closing, and ongoing compliance. Everything your broker won't tell you.</p>
+                  <a href="FGC-Real-Estate-Roadmap.pdf" class="brief-card-link" target="_blank">Download PDF <svg class="inline-g-arrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-arrow"/></svg></a>
+                </article>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="brief-grid-view" id="brief-grid-view" hidden>
+          <div class="brief-grid"></div>
+        </div>
+
+        <!-- ── Contact ── -->
+        <div class="we-block we-block--dark" id="contact">
+          <a href="mailto:contact@fgcadvisors.com" class="we-contact-email">contact@fgcadvisors.com <svg class="inline-g-arrow inline-g-arrow--ne" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-arrow-ne"/></svg></a>
+          <div class="we-contact-details">
+            <a href="tel:+13054323009" class="we-contact-detail">+1 305 432 3009</a>
+            <span class="we-contact-detail">1001 Brickell Bay Drive #2110, Miami FL 33131</span>
+            <a href="https://fgcadvisors.com" class="we-contact-detail" target="_blank">fgcadvisors.com</a>
+          </div>
+          <div class="we-footer">
+            <div class="we-footer-meta">
+              <span>© 2026 FGC Advisors — Miami, FL</span>
+              <span>Simple solutions. One relationship.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="js/shader.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- ═══════════ SLINGSHOT LOGO ANIMATION ═══════════ -->
+  <script>
+  (function () {
+    /* After the intro scanner completes, instead of a blast-scale fade,
+       the loader logo physically flies from center to nav top-left. */
+
+    var loader  = document.getElementById('intro-loader');
+    var ilLogo  = document.getElementById('il-logo-main');
+    var navImg  = document.getElementById('nav-logo-img');
+    if (!loader || !ilLogo || !navImg || typeof gsap === 'undefined') return;
+
+    /* Keep nav logo invisible until the sling lands */
+    navImg.classList.add('sling-hidden');
+
+    /* Watch for main.js to fire the 'done' class on the loader */
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function () {
+        if (loader.classList.contains('done')) {
+          observer.disconnect();
+          fireSling();
+        }
+      });
+    });
+    observer.observe(loader, { attributes: true, attributeFilter: ['class'] });
+
+    function fireSling() {
+      /* Cancel the fade/blast that main.js applied */
+      loader.classList.remove('done', 'exit');
+      loader.style.cssText += ';opacity:1;animation:none;pointer-events:none;';
+
+      /* Measure: where the logo is now (center-screen) and where it's going (nav) */
+      var fromRect = ilLogo.getBoundingClientRect();
+      var toRect   = navImg.getBoundingClientRect();
+
+      var scaleEnd = toRect.height / fromRect.height;
+      var dx = (toRect.left + toRect.width  / 2) - (fromRect.left + fromRect.width  / 2);
+      var dy = (toRect.top  + toRect.height / 2) - (fromRect.top  + fromRect.height / 2);
+
+      gsap.timeline()
+        /* Wind-up: tiny scale-up before the throw */
+        .to(ilLogo, { scale: 1.07, duration: 0.16, ease: 'power2.in' })
+        /* Sling: arc to nav with elastic overshoot */
+        .to(ilLogo, {
+          x: dx,
+          y: dy,
+          scale: scaleEnd,
+          duration: 0.68,
+          ease: 'back.out(1.6)',
+          onComplete: function () {
+            navImg.style.opacity = '1';
+            navImg.classList.remove('sling-hidden');
+            gsap.to(loader, {
+              opacity: 0,
+              duration: 0.22,
+              ease: 'power1.out',
+              onComplete: function () { loader.style.display = 'none'; }
+            });
+          }
+        });
+    }
+  })();
+  </script>
+
+  <!-- ═══════════ SCROLL REVEAL ═══════════ -->
+  <script>
+  (function () {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    function init() {
+      document.querySelectorAll('.we-block--reveal').forEach(function (block) {
+        io.observe(block);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+
+  <!-- ═══════════ HAMBURGER MENU ═══════════ -->
+  <script>
+  (function () {
+    var btn   = document.getElementById('nav-hamburger');
+    var menu  = document.getElementById('nav-menu');
+    var close = document.getElementById('nav-menu-close');
+
+    function openMenu() {
+      menu.removeAttribute('aria-hidden');
+      menu.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.setAttribute('aria-hidden', 'true');
+      menu.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', openMenu);
+    close.addEventListener('click', closeMenu);
+
+    menu.querySelectorAll('.nav-menu-links a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+  </script>
+
+  <!-- ═══════════ BRIEF VIEW ALL ═══════════ -->
+  <script>
+  (function () {
+    var viewBtn    = document.getElementById('brief-view-btn');
+    var gridView   = document.getElementById('brief-grid-view');
+    var briefOuter = document.getElementById('brief');
+    var isGrid     = false;
+
+    function buildGrid() {
+      var grid = gridView.querySelector('.brief-grid');
+      if (grid.children.length) return;
+      document.querySelectorAll('.brief-track .brief-card').forEach(function (card) {
+        grid.appendChild(card.cloneNode(true));
+      });
+    }
+
+    viewBtn.addEventListener('click', function () {
+      isGrid = !isGrid;
+      buildGrid();
+      if (isGrid) {
+        briefOuter.classList.add('brief--grid-mode');
+        gridView.removeAttribute('hidden');
+        viewBtn.textContent = 'Scroll View';
+      } else {
+        briefOuter.classList.remove('brief--grid-mode');
+        gridView.setAttribute('hidden', '');
+        viewBtn.textContent = 'View All';
+      }
+    });
+  })();
+  </script>
+
+  <!-- ═══════════ SERVICES SUBNAV ═══════════ -->
+  <script>
+  (function () {
+    var subBtns = document.querySelectorAll('.we-col-subnav button[data-service]');
+    var rows    = document.querySelectorAll('.we-list .we-row');
+    if (!subBtns.length || !rows.length) return;
+
+    subBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var idx = parseInt(btn.dataset.service, 10);
+        var row = rows[idx];
+        if (!row) return;
+        var navH = (document.getElementById('nav') || {}).offsetHeight || 80;
+        var top  = row.getBoundingClientRect().top + window.scrollY - navH - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+
+    function syncActive() {
+      rows.forEach(function (row, i) {
+        var li = subBtns[i] && subBtns[i].parentElement;
+        if (li) li.classList.toggle('active', row.classList.contains('is-open'));
+      });
+    }
+
+    var mo = new MutationObserver(syncActive);
+    rows.forEach(function (row) {
+      mo.observe(row, { attributes: true, attributeFilter: ['class'] });
+    });
+    syncActive();
+  })();
+  </script>
+
+  <!-- ═══════════ INLINE EDIT MODE ═══════════ -->
+  <style>
+    #edit-toggle-btn {
+      position: fixed; bottom: 32px; right: 32px; z-index: 9999;
+      width: 44px; height: 44px; border-radius: 50%; border: none;
+      background: #3d5450; color: #F2EFE6; font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.28);
+      transition: background 0.2s, transform 0.15s;
+    }
+    #edit-toggle-btn:hover { background: #2e3f3c; transform: scale(1.08); }
+    #edit-toolbar {
+      position: fixed; bottom: 88px; right: 32px; z-index: 9999;
+      background: #3d5450; color: #F2EFE6; border-radius: 10px;
+      padding: 12px 16px; display: none; flex-direction: column; gap: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.32); min-width: 220px;
+      font-family: 'Montserrat', sans-serif; font-size: 13px;
+    }
+    #edit-toolbar.visible { display: flex; }
+    #edit-toolbar-label { font-size: 11px; opacity: 0.7; letter-spacing: 0.04em; text-transform: uppercase; }
+    #edit-done-btn, #edit-reset-btn {
+      border: none; border-radius: 6px; padding: 7px 14px;
+      cursor: pointer; font-size: 13px; font-family: inherit; transition: opacity 0.15s;
+    }
+    #edit-done-btn { background: #F2EFE6; color: #3d5450; font-weight: 600; }
+    #edit-reset-btn { background: transparent; color: #9AB4B0; border: 1px solid rgba(154,180,176,0.4); }
+    #edit-done-btn:hover { opacity: 0.85; }
+    #edit-reset-btn:hover { opacity: 0.7; }
+    body.edit-mode [data-editable] {
+      outline: 1.5px dashed rgba(154,180,176,0.5); outline-offset: 2px;
+      cursor: text; transition: outline-color 0.2s;
+    }
+    body.edit-mode [data-editable]:hover { outline-color: rgba(61,84,80,0.7); }
+    body.edit-mode [data-editable]:focus { outline: 2px solid #3d5450; outline-offset: 2px; }
+  </style>
+
+  <button id="edit-toggle-btn" title="Edit page content" aria-label="Toggle edit mode">✎</button>
+  <div id="edit-toolbar">
+    <span id="edit-toolbar-label">Editing — click any text to change it</span>
+    <button id="edit-done-btn">Done</button>
+    <button id="edit-reset-btn">Reset edits</button>
+  </div>
+
+  <script>
+  (function () {
+    var SELECTORS = [
+      '.hero-heading', '.hero-sub',
+      '.we-statement', '.we-body p',
+      '.we-stat-n', '.we-stat-l',
+      '.we-row-name', '.we-row-desc',
+      '.brief-cat', '.brief-card-title',
+      '.brief-stat-val', '.brief-stat-label', '.brief-card-so-what',
+      '.team-name', '.team-role', '.team-bio p',
+      '.we-contact-email', '.we-contact-detail'
+    ];
+    var LS_PREFIX = 'fgc-e3-';
+    var editables = [];
+
+    function buildKey(sel, i) {
+      return LS_PREFIX + sel.replace(/[^a-z0-9]/gi, '_') + '-' + i;
+    }
+
+    function initEditables() {
+      editables = [];
+      SELECTORS.forEach(function (sel) {
+        document.querySelectorAll(sel).forEach(function (el, i) {
+          el.setAttribute('data-editable', '');
+          editables.push({ el: el, key: buildKey(sel, i) });
+        });
+      });
+    }
+
+    function loadSaved() {
+      editables.forEach(function (e) {
+        var s = localStorage.getItem(e.key);
+        if (s !== null) e.el.innerHTML = s;
+      });
+    }
+
+    function saveAll() {
+      editables.forEach(function (e) { localStorage.setItem(e.key, e.el.innerHTML); });
+    }
+
+    function enterEditMode() {
+      document.body.classList.add('edit-mode');
+      editables.forEach(function (e) { e.el.contentEditable = 'true'; });
+      document.getElementById('edit-toolbar').classList.add('visible');
+      document.getElementById('edit-toggle-btn').textContent = '✕';
+    }
+
+    function exitEditMode() {
+      saveAll();
+      document.body.classList.remove('edit-mode');
+      editables.forEach(function (e) { e.el.contentEditable = 'false'; });
+      document.getElementById('edit-toolbar').classList.remove('visible');
+      document.getElementById('edit-toggle-btn').textContent = '✎';
+    }
+
+    var inEditMode = false;
+    document.getElementById('edit-toggle-btn').addEventListener('click', function () {
+      inEditMode = !inEditMode;
+      if (inEditMode) enterEditMode(); else exitEditMode();
+    });
+    document.getElementById('edit-done-btn').addEventListener('click', function () {
+      inEditMode = false; exitEditMode();
+    });
+    document.getElementById('edit-reset-btn').addEventListener('click', function () {
+      if (confirm('Reset all edits?')) {
+        editables.forEach(function (e) { localStorage.removeItem(e.key); });
+        location.reload();
+      }
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { initEditables(); loadSaved(); });
+    } else {
+      initEditables(); loadSaved();
+    }
+  })();
+  </script>
+
+</body>
+</html>
