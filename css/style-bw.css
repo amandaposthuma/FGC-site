@@ -590,7 +590,7 @@ body::after {
   color: rgba(0,0,0,0.58);
   cursor: pointer;
   font-family: var(--font);
-  font-size: 0.92rem;
+  font-size: clamp(1rem, 1.2vw, 1.35rem);
   font-weight: 500;
   display: block;
   text-align: left;
@@ -825,7 +825,7 @@ body::after {
 }
 
 .we-body p {
-  font-size: clamp(15px, 1.1vw, 17px);
+  font-size: clamp(18px, 1.6vw, 26px);
   line-height: 1.85;
   color: var(--ink);
 }
@@ -1003,7 +1003,7 @@ body::after {
 
 /* Description slides in from below */
 .we-row-desc {
-  font-size: clamp(15px, 1.1vw, 17px);
+  font-size: clamp(18px, 1.6vw, 26px);
   line-height: 1.75;
   color: var(--ink);
   padding: 0 20px 36px 20px;
