@@ -482,6 +482,9 @@
             <div class="ipp-img ipp-3" data-frame="3"></div>
             <div class="ipp-img ipp-4" data-frame="4"></div>
             <div class="ipp-img ipp-5" data-frame="5"></div>
+            <div class="ipp-img ipp-6" data-frame="6"></div>
+            <div class="ipp-img ipp-7" data-frame="7"></div>
+            <div class="ipp-img ipp-8" data-frame="8"></div>
             <div class="ipp-caption" style="display:none"></div>
           </div>
         </div>
@@ -643,11 +646,14 @@
     }
     .ipp-img.is-active{ opacity:1; }
     /* 10 editorial B&W images — legal, finance, real estate, global cities */
-    .ipp-1 { background-image:url('img/ipp-1.jpg'); }
-    .ipp-2 { background-image:url('img/ipp-2.jpg'); }
-    .ipp-3 { background-image:url('img/ipp-3.jpg'); }
-    .ipp-4 { background-image:url('img/ipp-4.jpg'); }
-    .ipp-5 { background-image:url('img/ipp-5.jpg'); }
+    .ipp-1 { background-image:url('https://images.unsplash.com/photo-1756363212224-dca8af2eac90?auto=format&fit=crop&w=1600&q=80'); } /* dart bullseye */
+    .ipp-2 { background-image:url('https://images.unsplash.com/photo-1718809070379-775da172aff0?auto=format&fit=crop&w=1600&q=80'); } /* city skyline night */
+    .ipp-3 { background-image:url('https://images.unsplash.com/photo-1758691737492-48e8fdd336f7?auto=format&fit=crop&w=1600&q=80'); } /* team celebrating */
+    .ipp-4 { background-image:url('https://images.unsplash.com/photo-1729062188586-0406bfaf5b18?auto=format&fit=crop&w=1600&q=80'); } /* hands together */
+    .ipp-5 { background-image:url('https://images.unsplash.com/photo-1688395197725-c29fc740ed1b?auto=format&fit=crop&w=1600&q=80'); } /* woman fist raised */
+    .ipp-6 { background-image:url('https://images.unsplash.com/photo-1713946598432-9bb1f09acf9b?auto=format&fit=crop&w=1600&q=80'); } /* businessman smiling */
+    .ipp-7 { background-image:url('https://images.unsplash.com/photo-1631015348651-0e9f3aba25a9?auto=format&fit=crop&w=1600&q=80'); } /* book pages */
+    .ipp-8 { background-image:url('https://images.unsplash.com/photo-1729867302128-1448c291cd41?auto=format&fit=crop&w=1600&q=80'); } /* crowd at event */
 
     .intro-photo-pop.is-expanding .ipp-img.is-active{
       filter: grayscale(1) contrast(1.03) brightness(.8);
@@ -868,7 +874,7 @@
       var PHOTO_POP_AT    = 3100;
       var CYCLE_START     = 3100;   // same as PHOTO_POP_AT — first frame active when container fades in
       var CYCLE_INTERVAL  = 180;    // ms per frame during rapid cycle
-      var CYCLE_FRAMES    = 5;
+      var CYCLE_FRAMES    = 8;
       var PHOTO_EXPAND_AT = CYCLE_START + CYCLE_INTERVAL * CYCLE_FRAMES; // = 4950
       var HERO_REVEAL_AT  = PHOTO_EXPAND_AT + 600;                       // = 5550
       var SAFETY_FALLBACK = HERO_REVEAL_AT + 1600;
