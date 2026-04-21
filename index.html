@@ -455,10 +455,10 @@
   </div>
 
   <!-- ═══════════ HERO (logo-mask reveal → Shed-style photo flash → full-bleed B&W cycle) ═══════════ -->
-  <section id="hero" class="hero-shed revealed typed-done">
+  <section id="hero" class="hero-shed">
 
     <!-- Stage 0: BLACK → FGC logo types in (F → FG → FGC → FGC.) with 3 blinks → photo cycle plays UNDER the logo -->
-    <div class="shed-intro" id="shedIntro" aria-hidden="true" style="display:none">
+    <div class="shed-intro" id="shedIntro" aria-hidden="true">
       <div class="intro-center-stack">
         <!-- Typewriter layer — uses the ACTUAL FGC logo mask (clip-path reveal) -->
         <div class="intro-type-stage">
@@ -852,7 +852,6 @@
 
   <script>
     (function(){
-      return; // intro animation disabled
       var hero       = document.getElementById('hero');
       if(!hero) return;
       var logoMask   = document.getElementById('introLogoMask');
@@ -1989,7 +1988,8 @@
       '.brief-cat', '.brief-card-title',
       '.brief-stat-val', '.brief-stat-label', '.brief-card-so-what',
       '.team-name', '.team-role', '.team-bio p',
-      '.we-contact-email', '.we-contact-detail'
+      '.we-contact-email', '.we-contact-detail',
+      '.approach-buzz__intro', '.approach-tilt__body', '.abt-prefix'
     ];
     var LS_PREFIX = 'fgc-e3-';
     var editables = [];
@@ -2030,6 +2030,7 @@
       document.body.classList.add('edit-mode');
       editables.forEach(function (entry) {
         entry.el.contentEditable = 'true';
+        entry.el.addEventListener('input', saveAll);
       });
       document.getElementById('edit-toolbar').classList.add('visible');
       document.getElementById('edit-toggle-btn').textContent = '✕';
@@ -2041,6 +2042,7 @@
       document.body.classList.remove('edit-mode');
       editables.forEach(function (entry) {
         entry.el.contentEditable = 'false';
+        entry.el.removeEventListener('input', saveAll);
       });
       document.getElementById('edit-toolbar').classList.remove('visible');
       document.getElementById('edit-toggle-btn').textContent = '✎';
