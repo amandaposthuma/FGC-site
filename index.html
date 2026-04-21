@@ -406,8 +406,6 @@
     }
     .brief-card-link:hover .g-ltr { transform: translateX(3px); }
 
-    /* ── Slingshot: hide nav logo until it lands ── */
-    #nav-logo-img.sling-hidden { opacity: 0; }
   </style>
 
   <!-- ═══════════ INTRO LOADER ═══════════ -->
@@ -2128,12 +2126,11 @@
   <script>
   (function () {
     if (typeof gsap === 'undefined') return;
-    var loader = document.getElementById('intro-loader');
-    var ilLogo = document.getElementById('il-logo-main');
-    var navImg = document.getElementById('nav-logo-img');
-    if (!loader || !ilLogo || !navImg) return;
-
-    navImg.classList.add('sling-hidden');
+    var loader   = document.getElementById('intro-loader');
+    var ilLogo   = document.getElementById('il-logo-main');
+    /* Target: the logo sitting above the photo slideshow in the hero */
+    var heroLogo = document.querySelector('#introLogoMask .intro-logo-full');
+    if (!loader || !ilLogo || !heroLogo) return;
 
     var observer = new MutationObserver(function () {
       if (loader.classList.contains('done')) {
@@ -2148,7 +2145,7 @@
       loader.style.cssText += ';opacity:1;animation:none;pointer-events:none;';
 
       var fromRect = ilLogo.getBoundingClientRect();
-      var toRect   = navImg.getBoundingClientRect();
+      var toRect   = heroLogo.getBoundingClientRect();
       var scaleEnd = toRect.height / fromRect.height;
       var dx = (toRect.left + toRect.width  / 2) - (fromRect.left + fromRect.width  / 2);
       var dy = (toRect.top  + toRect.height / 2) - (fromRect.top  + fromRect.height / 2);
@@ -2159,10 +2156,9 @@
           x: dx, y: dy, scale: scaleEnd,
           duration: 0.68, ease: 'back.out(1.6)',
           onComplete: function () {
-            navImg.style.opacity = '1';
-            navImg.classList.remove('sling-hidden');
+            /* Loader fades out — hero is revealed with its own logo already in place */
             gsap.to(loader, {
-              opacity: 0, duration: 0.22, ease: 'power1.out',
+              opacity: 0, duration: 0.32, ease: 'power1.out',
               onComplete: function () { loader.style.display = 'none'; }
             });
           }
