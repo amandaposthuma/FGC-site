@@ -477,7 +477,7 @@
         <!-- Photo layer — cycles UNDER the logo, stays small & editorial -->
         <div class="intro-photo-pop" id="introPhotoPop" aria-hidden="true">
           <div class="ipp-frame" id="ippFrame">
-            <div class="ipp-img ipp-1" data-frame="1"></div>
+            <div class="ipp-img ipp-1 is-active" data-frame="1"></div>
             <div class="ipp-img ipp-2" data-frame="2"></div>
             <div class="ipp-img ipp-3" data-frame="3"></div>
             <div class="ipp-img ipp-4" data-frame="4"></div>
@@ -487,6 +487,9 @@
             <div class="ipp-img ipp-8" data-frame="8"></div>
             <div class="ipp-img ipp-9" data-frame="9"></div>
             <div class="ipp-img ipp-10" data-frame="10"></div>
+            <div class="ipp-img ipp-11" data-frame="11"></div>
+            <div class="ipp-img ipp-12" data-frame="12"></div>
+            <div class="ipp-img ipp-13" data-frame="13"></div>
             <div class="ipp-caption" style="display:none"></div>
           </div>
         </div>
@@ -655,6 +658,9 @@
     .ipp-8  { background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80'); } /* modern architecture */
     .ipp-9  { background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80'); } /* executive meeting */
     .ipp-10 { background-image:url('https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1600&q=80'); } /* conference room */
+    .ipp-11 { background-image:url('https://images.unsplash.com/PHfhyA7I-MM?auto=format&fit=crop&w=1600&q=80'); } /* dart hitting bullseye */
+    .ipp-12 { background-image:url('https://images.unsplash.com/DrbIJDvAlW0?auto=format&fit=crop&w=1600&q=80'); } /* chess set b&w */
+    .ipp-13 { background-image:url('https://images.unsplash.com/mM8Aq9bJINA?auto=format&fit=crop&w=1600&q=80'); } /* handshake b&w */
 
     .intro-photo-pop.is-expanding .ipp-img.is-active{
       filter: grayscale(1) contrast(1.03) brightness(.8);
@@ -866,9 +872,9 @@
       ];
       var BLINK_AT        = 1500;
       var PHOTO_POP_AT    = 3100;
-      var CYCLE_START     = 3150;   // slightly after pop so frame scales in first
+      var CYCLE_START     = 3100;   // same as PHOTO_POP_AT — first frame active when container fades in
       var CYCLE_INTERVAL  = 180;    // ms per frame during rapid cycle
-      var CYCLE_FRAMES    = 10;
+      var CYCLE_FRAMES    = 13;
       var PHOTO_EXPAND_AT = CYCLE_START + CYCLE_INTERVAL * CYCLE_FRAMES; // = 4950
       var HERO_REVEAL_AT  = PHOTO_EXPAND_AT + 600;                       // = 5550
       var SAFETY_FALLBACK = HERO_REVEAL_AT + 1600;
