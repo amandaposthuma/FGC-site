@@ -2060,7 +2060,13 @@
   </script>
 
   <script>
-    document.designMode = 'on';
+    // Make all text nodes editable without breaking buttons/links
+    document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span:not([aria-hidden]), li, blockquote').forEach(function(el) {
+      if (!el.closest('button, a, [role="button"]')) {
+        el.contentEditable = 'true';
+        el.style.outline = 'none';
+      }
+    });
   </script>
 
 </body>
