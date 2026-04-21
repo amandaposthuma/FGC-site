@@ -165,7 +165,7 @@
     .approach-buzz__title{
       font-family: 'Barlow Condensed','Playfair Display', serif;
       font-weight: 700;
-      font-size: clamp(2.6rem, 5.5vw, 6rem);
+      font-size: clamp(38px, 4.5vw, 60px);
       line-height: 0.95;
       letter-spacing: -0.03em;
       color: #0a0a0a;
@@ -446,10 +446,12 @@
     <button id="nav-menu-close" aria-label="Close menu">✕</button>
     <nav class="nav-menu-links">
       <a href="#about">About Us</a>
-      <a href="#services">What We Do</a>
-      <a href="#approach">Our Approach</a>
-      <a href="#team">Our Team</a>
-      <a href="#brief">The FGC Brief</a>
+      <a href="#services">Expertise</a>
+      <a href="#approach">Approach</a>
+      <a href="#track-record">Track Record</a>
+      <a href="#team">Team</a>
+      <a href="#clients">Clients</a>
+      <a href="#insights">Insights</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -883,12 +885,12 @@
       ];
       var BLINK_AT        = 1500;
       var PHOTO_POP_AT    = 3100;
-      var CYCLE_START     = 3100;   // same as PHOTO_POP_AT — first frame active when container fades in
-      var CYCLE_INTERVAL  = 180;    // ms per frame during rapid cycle
+      var CYCLE_START     = 3100;
+      var CYCLE_INTERVAL  = 180;
       var CYCLE_FRAMES    = 10;
-      var PHOTO_EXPAND_AT = CYCLE_START + CYCLE_INTERVAL * CYCLE_FRAMES; // = 4950
-      var HERO_REVEAL_AT  = PHOTO_EXPAND_AT + 600;                       // = 5550
-      var SAFETY_FALLBACK = HERO_REVEAL_AT + 1600;
+      var PHOTO_EXPAND_AT = CYCLE_START + CYCLE_INTERVAL * CYCLE_FRAMES;
+      var HERO_REVEAL_AT  = 2600;   // intro lasts ~3s total
+      var SAFETY_FALLBACK = 3200;
 
       // Ordering: we don't want the top nav's FGC logo showing during the black
       // dramatic opening. The stylesheet's `fadeDown` keyframe animation on #nav
@@ -1191,7 +1193,7 @@
       <div class="we-col-label">
         <ul class="we-col-nav">
           <li class="active" data-nav="about"><button data-block="about"><span class="we-nav-txt">About Us</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
-          <li data-nav="services"><button data-block="services"><span class="we-nav-txt">What We Do</span><span class="we-nav-dot" aria-hidden="true"></span></button>
+          <li data-nav="services"><button data-block="services"><span class="we-nav-txt">Expertise</span><span class="we-nav-dot" aria-hidden="true"></span></button>
             <ul class="we-col-subnav" id="services-subnav">
               <li><button data-service="0">Wealth Planning</button></li>
               <li><button data-service="1">Title &amp; Real Estate</button></li>
@@ -1202,9 +1204,11 @@
               <li><button data-service="6">Mediation &amp; Negotiation</button></li>
             </ul>
           </li>
-          <li data-nav="approach"><button data-block="approach"><span class="we-nav-txt">Our Approach</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
-          <li data-nav="team"><button data-block="team"><span class="we-nav-txt">Our Team</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
-          <li data-nav="brief"><button data-block="brief"><span class="we-nav-txt">The FGC Brief</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
+          <li data-nav="approach"><button data-block="approach"><span class="we-nav-txt">Approach</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
+          <li data-nav="track-record"><button data-block="track-record"><span class="we-nav-txt">Track Record</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
+          <li data-nav="team"><button data-block="team"><span class="we-nav-txt">Team</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
+          <li data-nav="clients"><button data-block="clients"><span class="we-nav-txt">Clients</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
+          <li data-nav="insights"><button data-block="insights"><span class="we-nav-txt">Insights</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
           <li data-nav="contact"><button data-block="contact"><span class="we-nav-txt">Contact</span><span class="we-nav-dot" aria-hidden="true"></span></button></li>
         </ul>
       </div>
@@ -1220,11 +1224,6 @@
           </div>
           <div class="we-body we-body--single">
             <p class="reveal-item" style="--i:3">We have a global footprint: headquartered in Miami, with deep roots in Latin America, particularly Brazil, and a network of clients and partners around the world. This gives us the global acumen, jurisdictional knowledge, and language fluency to serve clients wherever they are.</p>
-          </div>
-          <div class="we-stats reveal-item" style="--i:4">
-            <div class="we-stat"><span class="we-stat-n" data-count="30" data-suffix="+">30+</span><span class="we-stat-l">Years in wealth planning</span></div>
-            <div class="we-stat"><span class="we-stat-n" data-count="1000" data-suffix="+" data-prefix="" data-display="1,000+">1,000+</span><span class="we-stat-l">Active companies managed</span></div>
-            <div class="we-stat"><span class="we-stat-n" data-count="20" data-suffix="B+" data-prefix="$">$20B+</span><span class="we-stat-l">Transacted</span></div>
           </div>
         </div>
 
@@ -1295,7 +1294,7 @@
           <div class="approach-buzz">
             <!-- Sticky left: eyebrow + giant cycling word + intro copy -->
             <div class="approach-buzz__left">
-              <span class="approach-eyebrow">Our Approach</span>
+              <span class="approach-eyebrow">Approach</span>
               <h2 class="approach-buzz__title reveal-item" style="--i:1">
                 <span class="abt-prefix">Our approach is</span>
                 <span class="abt-cycle" aria-hidden="true">
@@ -1350,7 +1349,16 @@
           </div>
         </div>
 
-        <!-- ── Our Team ── -->
+        <!-- ── Track Record ── -->
+        <div class="we-block we-block--reveal" id="track-record">
+          <div class="we-stats reveal-item" style="--i:1">
+            <div class="we-stat"><span class="we-stat-n" data-count="30" data-suffix="+">30+</span><span class="we-stat-l">Years in wealth planning</span></div>
+            <div class="we-stat"><span class="we-stat-n" data-count="1000" data-suffix="+" data-prefix="" data-display="1,000+">1,000+</span><span class="we-stat-l">Active companies managed</span></div>
+            <div class="we-stat"><span class="we-stat-n" data-count="20" data-suffix="B+" data-prefix="$">$20B+</span><span class="we-stat-l">Transacted</span></div>
+          </div>
+        </div>
+
+        <!-- ── Team ── -->
         <div class="we-block team-block" id="team">
           <div class="team-grid">
 
@@ -1467,8 +1475,13 @@
           </div>
         </div>
 
-        <!-- ── The FGC Brief ── -->
-        <div class="we-block brief-outer" id="brief">
+        <!-- ── Clients ── -->
+        <div class="we-block we-block--reveal" id="clients">
+          <p class="we-statement reveal-item" style="--i:1">Our clients. Coming soon.</p>
+        </div>
+
+        <!-- ── Insights ── -->
+        <div class="we-block brief-outer" id="insights">
           <div class="brief-sticky">
             <div class="brief-sticky-header">
               <button id="brief-view-btn" class="brief-view-btn">View All Newsletters</button>
@@ -1572,7 +1585,7 @@
                     </div>
                     <div class="brief-stat">
                       <span class="brief-stat-val">VOL. 1</span>
-                      <span class="brief-stat-label">Q1 2026 · The FGC Brief</span>
+                      <span class="brief-stat-label">Q1 2026 · Insights</span>
                     </div>
                   </div>
                   <p class="brief-card-so-what">Succession planning, ownership transitions, and family business governance involve conversations that are easy to delay and costly to mishandle. FGC has in-house expertise to help structure and facilitate them.</p>

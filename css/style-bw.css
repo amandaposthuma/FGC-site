@@ -319,7 +319,7 @@ body::after {
 }
 
 .hero-heading {
-  font-size: clamp(38px, 5vw, 72px);
+  font-size: clamp(38px, 4.5vw, 60px);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.025em;
@@ -590,7 +590,7 @@ body::after {
   color: rgba(0,0,0,0.58);
   cursor: pointer;
   font-family: var(--font);
-  font-size: clamp(1rem, 1.2vw, 1.35rem);
+  font-size: clamp(18px, 1.4vw, 22px);
   font-weight: 500;
   display: block;
   text-align: left;
@@ -750,7 +750,7 @@ body::after {
 }
 
 .approach-card__title {
-  font-size: clamp(30px, 3.5vw, 52px);
+  font-size: clamp(38px, 4.5vw, 60px);
   font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -804,7 +804,7 @@ body::after {
 
 /* ── Who We Are: statement ──────────────────────────────────── */
 .we-statement {
-  font-size: clamp(36px, 5vw, 72px);
+  font-size: clamp(18px, 1.4vw, 22px);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.01em;
@@ -825,7 +825,7 @@ body::after {
 }
 
 .we-body p {
-  font-size: clamp(18px, 1.6vw, 26px);
+  font-size: clamp(18px, 1.4vw, 22px);
   line-height: 1.85;
   color: var(--ink);
 }
@@ -849,7 +849,7 @@ body::after {
 .we-stat:last-child { padding-right: 0; }
 
 .we-stat-n {
-  font-size: clamp(36px, 4.5vw, 64px);
+  font-size: clamp(38px, 4.5vw, 60px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -948,7 +948,7 @@ body::after {
 }
 
 .we-row-name {
-  font-size: clamp(22px, 2.6vw, 42px);
+  font-size: clamp(38px, 4.5vw, 60px);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -963,7 +963,7 @@ body::after {
 
 /* Name expands slightly when row opens */
 .we-row.is-open .we-row-name {
-  font-size: clamp(28px, 3.2vw, 52px);
+  font-size: clamp(38px, 4.5vw, 60px);
   font-weight: 800;
   letter-spacing: 0.06em;
   transform: translateX(4px);
@@ -1003,7 +1003,7 @@ body::after {
 
 /* Description slides in from below */
 .we-row-desc {
-  font-size: clamp(18px, 1.6vw, 26px);
+  font-size: clamp(18px, 1.4vw, 22px);
   line-height: 1.75;
   color: var(--ink);
   padding: 0 20px 36px 20px;
@@ -1138,7 +1138,7 @@ img.team-photo {
 /* ── Contact ────────────────────────────────────────────────── */
 .we-contact-email {
   display: block;
-  font-size: clamp(28px, 3.5vw, 52px);
+  font-size: clamp(38px, 4.5vw, 60px);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: rgba(0,0,0,0.85);
