@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Condensed:wght@400;600;700&family=Roboto+Mono:wght@100;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Condensed:wght@400;600;700&family=Roboto+Mono:wght@100;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style-bw.css">
@@ -160,26 +160,7 @@
       position:sticky; top: clamp(6rem, 12vh, 9rem);
       align-self:start;
     }
-    .approach-eyebrow{
-      display:block;
-      font-family:'Montserrat',sans-serif;
-      font-size:11px; font-weight:600;
-      letter-spacing:.28em; text-transform:uppercase;
-      color:var(--fgc-accent);
-      margin-bottom: clamp(1.25rem, 2.5vh, 2rem);
-      position:relative; padding-left: 26px;
-    }
-    /* Little G-arrow mark next to the eyebrow */
-    .approach-eyebrow::before{
-      content:""; position:absolute;
-      left:0; top:50%; transform:translateY(-50%);
-      width:16px; height:2px; background:var(--fgc-accent);
-    }
-    .approach-eyebrow::after{
-      content:""; position:absolute;
-      left:15px; top:50%; transform:translateY(-50%);
-      width:5px; height:5px; background:var(--fgc-accent);
-    }
+    .approach-eyebrow{ display:none; }
 
     .approach-buzz__title{
       font-family: 'Barlow Condensed','Playfair Display', serif;
@@ -393,16 +374,45 @@
     .we-row.is-open .we-row-head,
     .we-row.is-open .we-row-n { color: #000 !important; }
 
-    /* ── G-letter arrow: used in service rows and brief "Read more" ── */
+    /* ── Exact FGC logo G — shared mask utility ── */
+    /* Logo 424×146px: G is at x≈100, width≈85, full height */
+
+    /* Service row version — sized to match row glyph scale */
+    .g-mark-logo {
+      display: inline-block;
+      flex-shrink: 0;
+      background-color: currentColor;
+      width: 37px;
+      height: 64px;
+      -webkit-mask-image: url('FGC-logo.png');
+              mask-image: url('FGC-logo.png');
+      -webkit-mask-size: 186px 64px;
+              mask-size: 186px 64px;
+      -webkit-mask-position: -44px center;
+              mask-position: -44px center;
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Brief "Read more" inline version — scales with em */
     .g-ltr {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1em;
-      line-height: 1;
       display: inline-block;
       vertical-align: middle;
       margin-left: 0.3em;
-      transition: transform 0.3s ease, color 0.2s ease;
+      background-color: currentColor;
+      width: 0.58em;
+      height: 1em;
+      font-size: 0;   /* hide any text content */
+      -webkit-mask-image: url('FGC-logo.png');
+              mask-image: url('FGC-logo.png');
+      -webkit-mask-size: 2.9em 1em;
+              mask-size: 2.9em 1em;
+      -webkit-mask-position: -0.69em center;
+              mask-position: -0.69em center;
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      transition: transform 0.3s ease;
     }
     .brief-card-link:hover .g-ltr { transform: translateX(3px); }
 
@@ -1054,14 +1064,17 @@
       gap: 24px;
       padding: 48px 56px;
     }
-    /* Arrow now leads (was trailing). We keep the existing .we-row-arrow SVG
-       for layout, but swap its paths to the G-arrow motif via JS. */
-    .we-row-arrow{
+    /* G logo mark leads the row */
+    .g-mark-logo{
       order: -2;
       flex: 0 0 auto;
-      width: 44px !important;
-      height: 44px !important;
-      transition: transform .4s cubic-bezier(.2,.9,.2,1), color .3s ease;
+      width: 27px !important;
+      height: 47px !important;
+      mask-size: 136px 47px !important;
+      -webkit-mask-size: 136px 47px !important;
+      mask-position: -32px center !important;
+      -webkit-mask-position: -32px center !important;
+      transition: transform .4s cubic-bezier(.2,.9,.2,1), opacity .3s ease;
     }
     .we-row-n{
       order: -1;
@@ -1080,11 +1093,11 @@
     /* ACTIVE (in-view) row → orange everything */
     .we-row.is-active .we-row-name,
     .we-row.is-active .we-row-n,
-    .we-row.is-active .we-row-arrow{
+    .we-row.is-active .g-mark-logo{
       color: var(--fgc-accent) !important;
     }
-    /* Open row arrow rotates as a "now playing" cue */
-    .we-row.is-open .we-row-arrow{
+    /* Open row: G rotates as "now playing" cue */
+    .we-row.is-open .g-mark-logo{
       transform: rotate(45deg) scale(1.05);
     }
 
@@ -1094,22 +1107,19 @@
 
     @media (max-width: 720px){
       .we-row-head{ padding: 28px 20px; gap: 14px; }
-      .we-row-arrow{ width: 28px !important; height: 28px !important; }
+      .g-mark-logo{ width: 18px !important; height: 31px !important; }
       .we-row-n{ font-size: 11px; }
     }
   </style>
 
-  <!-- Swap the stock → arrow SVG inside every .we-row-arrow with a G-arrow glyph -->
+  <!-- Replace arrow SVG with exact FGC logo G via CSS mask -->
   <script>
   document.addEventListener('DOMContentLoaded', function(){
-    /* G-arrow: the actual bold G character from Barlow Condensed — matches FGC logo */
-    var GARROW_PATHS =
-      '<text y="56" font-family="\'Barlow Condensed\',sans-serif" font-weight="700"'
-    + ' font-size="64" fill="currentColor" letter-spacing="-2">G</text>';
-
     document.querySelectorAll('.we-row-arrow').forEach(function(svg){
-      svg.setAttribute('viewBox','0 8 52 56');
-      svg.innerHTML = GARROW_PATHS;
+      var mark = document.createElement('span');
+      mark.className = 'g-mark-logo';
+      mark.setAttribute('aria-hidden', 'true');
+      svg.parentNode.replaceChild(mark, svg);
     });
   });
   </script>
