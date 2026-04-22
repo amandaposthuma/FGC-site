@@ -1184,6 +1184,15 @@ a.we-contact-detail:hover { color: rgba(0,0,0,0.80); }
   align-items: center;
 }
 
+.we-footer-social-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+  font-family: 'Roboto Mono', monospace;
+  margin-right: 4px;
+}
+
 .we-footer-social a {
   color: rgba(0,0,0,0.45);
   transition: color 0.2s ease;
