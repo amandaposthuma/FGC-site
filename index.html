@@ -813,9 +813,10 @@
     }
     .shed-blurb{
       margin:0; font-family:'Montserrat',sans-serif;
-      font-size: clamp(1.3rem, 2vw, 1.9rem); line-height:1.6; max-width: 38ch;
-      color:rgba(242,239,231,.85);
+      font-size: clamp(0.85rem, 1.1vw, 1.2rem); line-height:1.6; max-width: 32ch;
+      color:rgba(242,239,231,.75);
       margin-left: auto;
+      text-align: right;
     }
     .shed-scroll{
       justify-self:end; align-self:end;
@@ -1583,8 +1584,7 @@
             });
           }
 
-          var active = N; // start at middle repetition index 0
-          // opacity by distance: 0→1, 1→0.28, 2→0.11, 3→0.05, 4+→0.02
+          var active = N; // start at middle repetition
           var OPS = [1, 0.28, 0.11, 0.05, 0.02];
 
           function applyStyles(animate) {
@@ -1592,7 +1592,7 @@
             var offset = -(active - RADIUS) * h;
             list.style.transition = animate ? 'transform 0.6s cubic-bezier(0.4,0,0.2,1)' : 'none';
             list.style.transform = 'translateY(' + offset + 'px)';
-            if (!animate) list.offsetHeight; // reflow
+            if (!animate) list.offsetHeight; // force reflow
             allItems.forEach(function(el, i) {
               var dist = Math.abs(i - active);
               el.style.opacity = dist < OPS.length ? OPS[dist] : 0.02;
@@ -1609,9 +1609,16 @@
             setInterval(function() {
               active++;
               applyStyles(true);
-              // seamless reset when we leave the middle repetition
+              // After transition ends, silently snap back to same visual position
+              // in the middle repetition — no visible jump, loops forever
               if (active >= N * 2) {
-                setTimeout(function() { active -= N; applyStyles(false); }, 650);
+                setTimeout(function() {
+                  list.style.transition = 'none';
+                  active -= N;
+                  var h2 = allItems[0].offsetHeight;
+                  list.style.transform = 'translateY(' + (-(active - RADIUS) * h2) + 'px)';
+                  list.offsetHeight; // force reflow before next transition
+                }, 700);
               }
             }, 2600);
           }
@@ -1832,10 +1839,10 @@
     /* ── 2. About Us statement — title-sized ── */
     /* ── About Us statement: true title-level size ── */
     .we-statement {
-      font-size: clamp(2.4rem, 5vw, 7rem) !important;
-      line-height: 1.06 !important;
+      font-size: clamp(1.5rem, 2.2vw, 2.8rem) !important;
+      line-height: 1.15 !important;
       font-weight: 300 !important;
-      letter-spacing: -0.04em !important;
+      letter-spacing: -0.02em !important;
       max-width: none !important;
     }
 
@@ -1855,6 +1862,7 @@
     .we-col-nav > li {
       width: 100% !important;
       text-align: center !important;
+      margin-bottom: clamp(4px, 0.9vh, 10px) !important;
     }
     .we-col-nav > li > button,
     .we-col-nav > li > button .we-nav-txt {
@@ -1866,15 +1874,20 @@
     }
     .we-col-subnav {
       text-align: center !important;
+      margin-top: 4px !important;
+    }
+    .we-col-subnav li {
+      margin-bottom: 4px !important;
     }
     .we-col-subnav button {
-      font-size: var(--fs-body) !important;
+      font-size: clamp(0.7rem, 0.88vw, 0.82rem) !important;
       font-weight: 400 !important;
       text-transform: none !important;
       letter-spacing: 0 !important;
+      line-height: 1.3 !important;
     }
 
-    /* ── 4. Top nav: logo centered between the 2 column bars ── */
+    /* ── 4. Top nav: logo centered within LHS nav column ── */
     #nav {
       padding-left:  var(--pad-x) !important;
       padding-right: var(--pad-x) !important;
@@ -1882,13 +1895,13 @@
       align-items: center !important;
       justify-content: space-between !important;
     }
-    /* Logo container matches LHS column width → logo sits centered between bars */
+    /* Logo width = LHS column width so it sits centered within that column */
     .nav-logo {
       width: 200px !important;
       min-width: 200px !important;
-      justify-content: center !important;
       display: flex !important;
       align-items: center !important;
+      justify-content: center !important;
     }
     @media (min-width: 1200px) {
       .nav-logo { width: 273px !important; min-width: 273px !important; }
@@ -1988,7 +2001,7 @@
       flex-shrink: 0 !important;
     }
     .clients-label {
-      font-size: clamp(1.6rem, 2.8vw, 3.5rem) !important;
+      font-size: clamp(1.1rem, 1.8vw, 2.2rem) !important;
       font-weight: 300 !important;
       text-transform: none !important;
       letter-spacing: -0.02em !important;
@@ -2856,6 +2869,14 @@
         <button class="fgc-btn" onclick="fgcAdj('title',1)">+</button>
       </div>
       <hr class="fgc-divider">
+      <!-- Logo position -->
+      <div class="fgc-ctrl">
+        <span class="fgc-ctrl-label">Logo position</span>
+        <button class="fgc-btn" onclick="fgcAdj('logo',-10)">←</button>
+        <span class="fgc-ctrl-val" id="fgc-logo-val">0px</span>
+        <button class="fgc-btn" onclick="fgcAdj('logo',10)">→</button>
+      </div>
+      <hr class="fgc-divider">
       <!-- Accent color -->
       <div class="fgc-ctrl">
         <span class="fgc-ctrl-label">Accent</span>
@@ -2884,7 +2905,8 @@
       accent:  localStorage.getItem('fgc-accent')              || '#E85B1A',
       body:    parseInt(localStorage.getItem('fgc-body')       || '20'),
       navfont: parseInt(localStorage.getItem('fgc-navfont')    || '22'),
-      title:   parseInt(localStorage.getItem('fgc-title')      || '26')
+      title:   parseInt(localStorage.getItem('fgc-title')      || '26'),
+      logo:    parseInt(localStorage.getItem('fgc-logo')       || '0')
     };
     var spacingLabels = ['XS','S','M','L','XL'];
     var spacingPads   = ['40px 40px','50px 60px','60px 80px','80px 100px','100px 120px'];
@@ -2892,7 +2914,7 @@
     function applyFonts() {
       var b = state.body, n = state.navfont, t = state.title;
       document.getElementById('fgc-font-overrides').textContent = [
-        '.we-body p, .we-row-desc, .we-statement, .we-contact-detail { font-size:' + b + 'px !important; }',
+        '.we-body p, .we-row-desc, .we-contact-detail { font-size:' + b + 'px !important; }',
         '.we-col-nav button { font-size:' + n + 'px !important; }',
         '.we-row-name, .we-row.is-open .we-row-name { font-size:' + t + 'px !important; }'
       ].join('\n');
@@ -2918,10 +2940,14 @@
       });
       var pad = spacingPads[state.spacing] || spacingPads[2];
       document.querySelectorAll('.we-block').forEach(function(b){ b.style.padding = pad; });
+      var logoEl = document.querySelector('.nav-logo');
+      if (logoEl) logoEl.style.marginLeft = state.logo + 'px';
+      document.getElementById('fgc-logo-val').textContent = state.logo + 'px';
       localStorage.setItem('fgc-zoom',    state.zoom);
       localStorage.setItem('fgc-spacing', state.spacing);
       localStorage.setItem('fgc-nav',     state.nav);
       localStorage.setItem('fgc-accent',  state.accent);
+      localStorage.setItem('fgc-logo',    state.logo);
       applyFonts();
     }
 
@@ -2932,6 +2958,7 @@
       if (key === 'body')    state.body    = Math.min(36,  Math.max(12,  state.body + delta));
       if (key === 'navfont') state.navfont = Math.min(42,  Math.max(12,  state.navfont + delta));
       if (key === 'title')   state.title   = Math.min(52,  Math.max(14,  state.title + delta));
+      if (key === 'logo')    state.logo    = Math.min(200, Math.max(-100, state.logo + delta));
       applyAll();
     };
     window.fgcSetAccent    = function(color) { state.accent = color; applyAll(); };
@@ -2950,11 +2977,10 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
-      padding: 10px 0;
+      padding: 26px 0;
       margin-bottom: clamp(2rem, 4vh, 3.5rem);
-      border-top: 1px solid rgba(0,0,0,0.1);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      /* Break out of parent block padding to span full content-column width */
+      border-top: 1.5px solid rgba(0,0,0,0.13);
+      border-bottom: 1.5px solid rgba(0,0,0,0.13);
       margin-left: calc(-1 * clamp(24px, 5vw, 80px));
       margin-right: calc(-1 * clamp(24px, 5vw, 80px));
       background: transparent;
@@ -2962,12 +2988,12 @@
     }
     #fgc-ticker-track {
       display: inline-flex;
-      gap: 3.5rem;
+      gap: 4rem;
       animation: fgcTicker 22s linear infinite;
-      font-size: 10px;
-      letter-spacing: 0.26em;
+      font-size: 13px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: rgba(0,0,0,0.35);
+      color: rgba(0,0,0,0.38);
       font-family: var(--font);
     }
     #fgc-ticker-track .tk-dot { color: var(--fgc-accent); margin-right: 0.5em; }
@@ -3081,12 +3107,12 @@
       if (!about) return;
       var ITEMS = [
         'Wealth Planning',
-        'Real Estate Structuring',
+        'Title & Real Estate',
         'Tax Strategy',
+        'Corporate Structuring',
         'M&A Advisory',
-        'Corporate Formation',
-        'Family Office Services',
-        'International Planning',
+        'Business Strategy',
+        'Mediation & Negotiation',
       ];
       var doubled = ITEMS.concat(ITEMS);
       var inner = doubled.map(function(t){
@@ -3167,6 +3193,203 @@
         btn.style.transitionDelay = (i * 0.04) + 's';
       });
     })();
+
+  })();
+  </script>
+
+  <!-- ═══════════ DISRUPTIVE LAYER ═══════════ -->
+  <style>
+
+    /* ── 1. GRAIN TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    /* ── 2. ALTERNATING SECTION BACKGROUNDS ── */
+    #about        { background: #ffffff; }
+    #services     { background: #f4f3f1; }
+    #approach     { background: #ffffff; }
+    #track-record { background: #f4f3f1; }
+    #team         { background: #ffffff; }
+    #clients      { background: #f4f3f1; }
+    #insights     { background: #ffffff; }
+    #contact      { background: #f4f3f1; }
+
+    /* ── 3. Nav labels stay Inter, no cursive ── */
+    .we-col-nav > li > button .we-nav-txt {
+      font-family: var(--font) !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
+    }
+    /* Statement uses Playfair but upright, no italic */
+    .we-statement {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
+    }
+
+    /* ── 4. CUSTOM CURSOR ── */
+    html { cursor: none !important; }
+    #fgc-cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--fgc-accent);
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+      mix-blend-mode: multiply;
+    }
+    #fgc-cursor-ring {
+      position: fixed;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(199,90,30,0.5);
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: left 0.18s ease, top 0.18s ease, width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
+    }
+    body:has(a:hover) #fgc-cursor,
+    body:has(button:hover) #fgc-cursor { width: 18px; height: 18px; }
+
+    /* ── 5. SERVICE ROW ORANGE SWEEP ── */
+    .we-row {
+      position: relative;
+      overflow: hidden;
+    }
+    .we-row::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(199,90,30,0.07) 0%, transparent 100%);
+      transform: translateX(-101%);
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .we-row:hover::before { transform: translateX(0); }
+    .we-row > * { position: relative; z-index: 1; }
+
+    /* ── 6. WORD-BY-WORD REVEAL ── */
+    .fgc-word-reveal .word {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+    }
+    .fgc-word-reveal .word-inner {
+      display: inline-block;
+      transform: translateY(110%);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fgc-word-reveal.is-visible .word-inner {
+      transform: translateY(0);
+    }
+    .fgc-word-reveal .word:nth-child(1)  .word-inner { transition-delay: 0.00s; }
+    .fgc-word-reveal .word:nth-child(2)  .word-inner { transition-delay: 0.06s; }
+    .fgc-word-reveal .word:nth-child(3)  .word-inner { transition-delay: 0.12s; }
+    .fgc-word-reveal .word:nth-child(4)  .word-inner { transition-delay: 0.18s; }
+    .fgc-word-reveal .word:nth-child(5)  .word-inner { transition-delay: 0.24s; }
+    .fgc-word-reveal .word:nth-child(6)  .word-inner { transition-delay: 0.30s; }
+    .fgc-word-reveal .word:nth-child(7)  .word-inner { transition-delay: 0.36s; }
+    .fgc-word-reveal .word:nth-child(8)  .word-inner { transition-delay: 0.42s; }
+    .fgc-word-reveal .word:nth-child(9)  .word-inner { transition-delay: 0.48s; }
+    .fgc-word-reveal .word:nth-child(10) .word-inner { transition-delay: 0.54s; }
+    .fgc-word-reveal .word:nth-child(11) .word-inner { transition-delay: 0.60s; }
+    .fgc-word-reveal .word:nth-child(12) .word-inner { transition-delay: 0.66s; }
+
+    /* ── 7. TRACK RECORD: large stats, contained ── */
+    .we-block--track {
+      padding: clamp(2rem, 5vh, 4rem) clamp(24px, 5vw, 80px) !important;
+      overflow: hidden !important;
+    }
+    .tr-row {
+      padding: clamp(1.5rem, 4vh, 3rem) 0 !important;
+    }
+    .tr-num {
+      font-size: clamp(2.5rem, 5.5vw, 7rem) !important;
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.04em !important;
+      color: var(--ink) !important;
+    }
+    .tr-label {
+      font-size: clamp(0.75rem, 1vw, 1rem) !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      color: rgba(0,0,0,0.4) !important;
+      font-weight: 300 !important;
+      text-align: right !important;
+      max-width: 40% !important;
+    }
+
+    /* ── Body copy: lighter grey ── */
+    .we-body p {
+      color: rgba(0,0,0,0.52) !important;
+    }
+
+  </style>
+
+  <script>
+  (function() {
+
+    /* ── Custom cursor ── */
+    var dot  = document.createElement('div'); dot.id  = 'fgc-cursor';
+    var ring = document.createElement('div'); ring.id = 'fgc-cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+    var mx = window.innerWidth/2, my = window.innerHeight/2;
+    var rx = mx, ry = my;
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    });
+    (function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+    document.addEventListener('mouseleave', function() {
+      dot.style.opacity = '0'; ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', function() {
+      dot.style.opacity = '1'; ring.style.opacity = '1';
+    });
+
+    /* ── Word-by-word reveal ── */
+    function wrapWords(el) {
+      var text = el.textContent;
+      var words = text.split(' ');
+      el.innerHTML = words.map(function(w) {
+        return '<span class="word"><span class="word-inner">' + w + '</span></span>';
+      }).join(' ');
+      el.classList.add('fgc-word-reveal');
+    }
+
+    /* Apply to the statement heading */
+    var stmt = document.querySelector('.we-statement');
+    if (stmt) wrapWords(stmt);
+
+    /* IntersectionObserver to trigger reveal */
+    var revealIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); revealIO.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fgc-word-reveal').forEach(function(el) {
+      revealIO.observe(el);
+    });
 
   })();
   </script>
