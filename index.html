@@ -1470,9 +1470,96 @@
         </div>
 
         <!-- ── Clients ── -->
-        <div class="we-block we-block--reveal" id="clients">
-          <p class="we-statement reveal-item" style="--i:1">Our clients. Coming soon.</p>
+        <div class="we-block we-block--clients" id="clients">
+          <div class="clients-scene">
+            <div class="clients-sticky">
+              <div class="clients-lhs">
+                <p class="clients-label">We are<br>trusted by</p>
+              </div>
+              <ul class="clients-list" role="list">
+                <li class="client-item">International entrepreneurs</li>
+                <li class="client-item">Individuals and families</li>
+                <li class="client-item">Businesses</li>
+                <li class="client-item">Foreign nationals</li>
+                <li class="client-item">Real estate investors</li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <style>
+          .we-block--clients {
+            padding: 0 !important;
+            min-height: 400vh !important;
+            display: block !important;
+            position: relative;
+          }
+          .clients-scene {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+          }
+          .clients-sticky {
+            display: flex;
+            align-items: center;
+            gap: clamp(2rem, 5vw, 6rem);
+            padding: 0 clamp(24px, 5vw, 80px);
+            width: 100%;
+          }
+          .clients-lhs {
+            flex: 0 0 auto;
+            width: clamp(100px, 12vw, 160px);
+          }
+          .clients-label {
+            font-size: clamp(12px, 0.9vw, 15px);
+            color: rgba(0,0,0,0.4);
+            line-height: 1.6;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-family: 'Roboto Mono', monospace;
+          }
+          .clients-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+          }
+          .client-item {
+            font-size: clamp(28px, 4vw, 62px);
+            font-weight: 400;
+            line-height: 1.2;
+            color: rgba(0,0,0,0.1);
+            transition: color 0.5s ease;
+            cursor: default;
+            letter-spacing: -0.02em;
+            font-family: var(--font);
+            padding: 0.1em 0;
+          }
+          .client-item.is-active {
+            color: var(--ink);
+          }
+        </style>
+
+        <script>
+        (function(){
+          var section = document.getElementById('clients');
+          var items   = section ? section.querySelectorAll('.client-item') : [];
+          if (!items.length) return;
+          items[0].classList.add('is-active');
+          function update() {
+            var rect      = section.getBoundingClientRect();
+            var scrollable = section.offsetHeight - window.innerHeight;
+            if (scrollable <= 0) { items[0].classList.add('is-active'); return; }
+            var progress  = Math.max(0, Math.min(1, -rect.top / scrollable));
+            var idx       = Math.round(progress * (items.length - 1));
+            items.forEach(function(el, i){ el.classList.toggle('is-active', i === idx); });
+          }
+          window.addEventListener('scroll', update, { passive: true });
+          update();
+        })();
+        </script>
 
         <!-- ── Insights ── -->
         <div class="we-block brief-outer" id="insights">
