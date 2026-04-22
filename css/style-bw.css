@@ -271,7 +271,7 @@ body::after {
 
 .nav-menu-links a {
   font-size: clamp(32px, 6vw, 72px);
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.03em;
   color: rgba(242,239,230,0.75);
   line-height: 1.1;
@@ -320,7 +320,7 @@ body::after {
 
 .hero-heading {
   font-size: clamp(38px, 4.5vw, 60px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.0;
   letter-spacing: -0.025em;
   color: var(--ink);
@@ -545,7 +545,7 @@ body::after {
 /* ── Section title (matches we.com.br txt--size-64 txt--marr) ── */
 .we-label {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   color: var(--ink);
   line-height: 1.0;
@@ -590,8 +590,8 @@ body::after {
   color: rgba(0,0,0,0.58);
   cursor: pointer;
   font-family: var(--font);
-  font-size: clamp(18px, 1.4vw, 22px);
-  font-weight: 500;
+  font-size: clamp(27px, 2.1vw, 33px);
+  font-weight: 400;
   display: block;
   text-align: left;
   padding: 4px 0;
@@ -603,7 +603,7 @@ body::after {
 
 .we-col-nav li.active button {
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .we-col-nav button:hover { color: var(--ink-60); }
@@ -647,7 +647,7 @@ body::after {
 }
 
 .we-col-subnav li.active button {
-  font-weight: 600 !important;
+  font-weight: 400 !important;
   opacity: 1;
 }
 
@@ -804,8 +804,8 @@ body::after {
 
 /* ── Who We Are: statement ──────────────────────────────────── */
 .we-statement {
-  font-size: clamp(18px, 1.4vw, 22px);
-  font-weight: 800;
+  font-size: clamp(20px, 1.6vw, 24px);
+  font-weight: 400;
   line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -825,7 +825,7 @@ body::after {
 }
 
 .we-body p {
-  font-size: clamp(18px, 1.4vw, 22px);
+  font-size: clamp(20px, 1.6vw, 24px);
   line-height: 1.85;
   color: var(--ink);
 }
@@ -850,7 +850,7 @@ body::after {
 
 .we-stat-n {
   font-size: clamp(38px, 4.5vw, 60px);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1;
   color: var(--ink);
@@ -948,8 +948,8 @@ body::after {
 }
 
 .we-row-name {
-  font-size: clamp(38px, 4.5vw, 60px);
-  font-weight: 800;
+  font-size: clamp(26px, 2.1vw, 31px);
+  font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink);
@@ -963,8 +963,8 @@ body::after {
 
 /* Name expands slightly when row opens */
 .we-row.is-open .we-row-name {
-  font-size: clamp(38px, 4.5vw, 60px);
-  font-weight: 800;
+  font-size: clamp(26px, 2.1vw, 31px);
+  font-weight: 400;
   letter-spacing: 0.06em;
   transform: translateX(4px);
 }
@@ -1003,7 +1003,7 @@ body::after {
 
 /* Description slides in from below */
 .we-row-desc {
-  font-size: clamp(18px, 1.4vw, 22px);
+  font-size: clamp(20px, 1.6vw, 24px);
   line-height: 1.75;
   color: var(--ink);
   padding: 0 20px 36px 20px;
@@ -1081,7 +1081,7 @@ img.team-photo {
 
 .team-name {
   font-size: clamp(14px, 1.1vw, 17px);
-  font-weight: 600;
+  font-weight: 400;
   color: #FFFFFF;
   line-height: 1.2;
   font-family: var(--font);
@@ -1139,7 +1139,7 @@ img.team-photo {
 .we-contact-email {
   display: block;
   font-size: clamp(38px, 4.5vw, 60px);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.02em;
   color: rgba(0,0,0,0.85);
   transition: opacity 0.2s ease;
@@ -1178,6 +1178,21 @@ a.we-contact-detail:hover { color: rgba(0,0,0,0.80); }
   gap: 5px;
 }
 
+.we-footer-social {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.we-footer-social a {
+  color: rgba(0,0,0,0.45);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.we-footer-social a:hover { color: var(--ink); }
+
 .we-footer-meta span {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
@@ -1188,7 +1203,7 @@ a.we-contact-detail:hover { color: rgba(0,0,0,0.80); }
 
 .we-footer-brand {
   font-size: clamp(56px, 9vw, 140px);
-  font-weight: 900;
+  font-weight: 400;
   letter-spacing: -0.04em;
   color: #000000;
   line-height: 1;
@@ -1258,7 +1273,7 @@ a.we-contact-detail:hover { color: rgba(0,0,0,0.80); }
 
 .brief-title {
   font-size: clamp(28px, 3.5vw, 52px);
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.025em;
   color: var(--ink);
   line-height: 1;
