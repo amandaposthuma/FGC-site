@@ -1289,7 +1289,7 @@
                 <span class="sr-only">integrated.</span>
               </h2>
               <p class="approach-buzz__intro reveal-item" style="--i:2">
-                Every client has a different story. We start by understanding yours.<br>Then, we structure solutions across every dimension of your wealth — wealth planning, tax, corporate, real estate— moving you from complexity to clarity, so you can solve what matters most.
+                Every client has a different story. We start by understanding yours.<br>Then, we structure solutions across every dimension of your wealth — wealth planning, tax, corporate, real estate— moving you from complexity to clarity, so you can focus on what matters most.
               </p>
             </div>
 
@@ -3240,27 +3240,17 @@
     html { cursor: none !important; }
     #fgc-cursor {
       position: fixed;
-      width: 10px; height: 10px;
-      border-radius: 50%;
+      width: 8px; height: 8px;
+      border-radius: 0;
       background: var(--fgc-accent);
       pointer-events: none;
       z-index: 99999;
       transform: translate(-50%, -50%);
-      transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
       mix-blend-mode: multiply;
     }
-    #fgc-cursor-ring {
-      position: fixed;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(199,90,30,0.5);
-      pointer-events: none;
-      z-index: 99998;
-      transform: translate(-50%, -50%);
-      transition: left 0.18s ease, top 0.18s ease, width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
-    }
+    #fgc-cursor-ring { display: none; }
     body:has(a:hover) #fgc-cursor,
-    body:has(button:hover) #fgc-cursor { width: 18px; height: 18px; }
+    body:has(button:hover) #fgc-cursor { width: 14px; height: 14px; }
 
     /* ── 5. SERVICE ROW ORANGE SWEEP ── */
     .we-row {
@@ -3316,20 +3306,27 @@
       padding: clamp(1.5rem, 4vh, 3rem) 0 !important;
     }
     .tr-num {
-      font-size: clamp(2.5rem, 5.5vw, 7rem) !important;
+      font-size: clamp(1.8rem, 3vw, 4rem) !important;
       font-family: 'Playfair Display', Georgia, serif !important;
       font-weight: 400 !important;
-      letter-spacing: -0.04em !important;
+      letter-spacing: -0.03em !important;
       color: var(--ink) !important;
     }
     .tr-label {
-      font-size: clamp(0.75rem, 1vw, 1rem) !important;
+      font-size: clamp(0.72rem, 0.9vw, 0.9rem) !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
       color: rgba(0,0,0,0.4) !important;
       font-weight: 300 !important;
       text-align: right !important;
-      max-width: 40% !important;
+      max-width: 45% !important;
+    }
+
+    /* ── Expertise row names: consistent with body ── */
+    .we-row-name {
+      font-size: clamp(14px, 1.3vw, 20px) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.02em !important;
     }
 
     /* ── Body copy: lighter grey ── */
