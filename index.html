@@ -147,8 +147,12 @@
       position:relative;
     }
     .approach-buzz__left{
-      position:sticky; top: clamp(6rem, 12vh, 9rem);
+      position:sticky; top: 0;
       align-self:start;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .approach-eyebrow{ display:none; }
 
@@ -2188,6 +2192,28 @@
         <button class="fgc-btn" onclick="fgcAdj('nav',10)">+</button>
       </div>
       <hr class="fgc-divider">
+      <!-- Body font -->
+      <div class="fgc-ctrl">
+        <span class="fgc-ctrl-label">Body text</span>
+        <button class="fgc-btn" onclick="fgcAdj('body',-1)">−</button>
+        <span class="fgc-ctrl-val" id="fgc-body-val">20px</span>
+        <button class="fgc-btn" onclick="fgcAdj('body',1)">+</button>
+      </div>
+      <!-- Nav font -->
+      <div class="fgc-ctrl">
+        <span class="fgc-ctrl-label">Nav text</span>
+        <button class="fgc-btn" onclick="fgcAdj('navfont',-1)">−</button>
+        <span class="fgc-ctrl-val" id="fgc-navfont-val">22px</span>
+        <button class="fgc-btn" onclick="fgcAdj('navfont',1)">+</button>
+      </div>
+      <!-- Title font -->
+      <div class="fgc-ctrl">
+        <span class="fgc-ctrl-label">Section titles</span>
+        <button class="fgc-btn" onclick="fgcAdj('title',-1)">−</button>
+        <span class="fgc-ctrl-val" id="fgc-title-val">26px</span>
+        <button class="fgc-btn" onclick="fgcAdj('title',1)">+</button>
+      </div>
+      <hr class="fgc-divider">
       <!-- Accent color -->
       <div class="fgc-ctrl">
         <span class="fgc-ctrl-label">Accent</span>
@@ -2206,46 +2232,68 @@
     </div>
   </div>
 
+  <style id="fgc-font-overrides"></style>
   <script>
   (function(){
     var state = {
-      zoom: parseFloat(localStorage.getItem('fgc-zoom') || '1'),
-      spacing: parseInt(localStorage.getItem('fgc-spacing') || '2'),
-      nav: parseInt(localStorage.getItem('fgc-nav') || '280'),
-      accent: localStorage.getItem('fgc-accent') || '#E85B1A'
+      zoom:    parseFloat(localStorage.getItem('fgc-zoom')     || '1'),
+      spacing: parseInt(localStorage.getItem('fgc-spacing')    || '2'),
+      nav:     parseInt(localStorage.getItem('fgc-nav')        || '280'),
+      accent:  localStorage.getItem('fgc-accent')              || '#E85B1A',
+      body:    parseInt(localStorage.getItem('fgc-body')       || '20'),
+      navfont: parseInt(localStorage.getItem('fgc-navfont')    || '22'),
+      title:   parseInt(localStorage.getItem('fgc-title')      || '26')
     };
     var spacingLabels = ['XS','S','M','L','XL'];
-    var spacingPads = ['40px 40px','50px 60px','60px 80px','80px 100px','100px 120px'];
+    var spacingPads   = ['40px 40px','50px 60px','60px 80px','80px 100px','100px 120px'];
+
+    function applyFonts() {
+      var b = state.body, n = state.navfont, t = state.title;
+      document.getElementById('fgc-font-overrides').textContent = [
+        '.we-body p, .we-row-desc, .we-statement, .we-contact-detail { font-size:' + b + 'px !important; }',
+        '.we-col-nav button { font-size:' + n + 'px !important; }',
+        '.we-row-name, .we-row.is-open .we-row-name { font-size:' + t + 'px !important; }'
+      ].join('\n');
+      document.getElementById('fgc-body-val').textContent    = b + 'px';
+      document.getElementById('fgc-navfont-val').textContent = n + 'px';
+      document.getElementById('fgc-title-val').textContent   = t + 'px';
+      localStorage.setItem('fgc-body',    b);
+      localStorage.setItem('fgc-navfont', n);
+      localStorage.setItem('fgc-title',   t);
+    }
 
     function applyAll() {
-      var section = document.querySelector('.we-section');
+      var section  = document.querySelector('.we-section');
       var colLabel = document.querySelector('.we-col-label');
-      if (section) section.style.zoom = state.zoom;
+      if (section)  section.style.zoom  = state.zoom;
       if (colLabel) colLabel.style.width = state.nav + 'px';
       document.documentElement.style.setProperty('--fgc-accent', state.accent);
-      document.getElementById('fgc-zoom-val').textContent = Math.round(state.zoom * 100) + '%';
+      document.getElementById('fgc-zoom-val').textContent    = Math.round(state.zoom * 100) + '%';
       document.getElementById('fgc-spacing-val').textContent = spacingLabels[state.spacing] || 'M';
-      document.getElementById('fgc-nav-val').textContent = state.nav + 'px';
+      document.getElementById('fgc-nav-val').textContent     = state.nav + 'px';
       document.querySelectorAll('.fgc-accent-swatch').forEach(function(s){
         s.classList.toggle('active', s.dataset.color === state.accent);
       });
-      /* spacing: patch we-block padding inline */
       var pad = spacingPads[state.spacing] || spacingPads[2];
       document.querySelectorAll('.we-block').forEach(function(b){ b.style.padding = pad; });
-      localStorage.setItem('fgc-zoom', state.zoom);
+      localStorage.setItem('fgc-zoom',    state.zoom);
       localStorage.setItem('fgc-spacing', state.spacing);
-      localStorage.setItem('fgc-nav', state.nav);
-      localStorage.setItem('fgc-accent', state.accent);
+      localStorage.setItem('fgc-nav',     state.nav);
+      localStorage.setItem('fgc-accent',  state.accent);
+      applyFonts();
     }
 
     window.fgcAdj = function(key, delta) {
-      if (key === 'zoom') state.zoom = Math.min(1.5, Math.max(0.6, +(state.zoom + delta).toFixed(2)));
-      if (key === 'spacing') state.spacing = Math.min(4, Math.max(0, state.spacing + delta));
-      if (key === 'nav') state.nav = Math.min(420, Math.max(180, state.nav + delta));
+      if (key === 'zoom')    state.zoom    = Math.min(1.5, Math.max(0.6, +(state.zoom + delta).toFixed(2)));
+      if (key === 'spacing') state.spacing = Math.min(4,   Math.max(0,   state.spacing + delta));
+      if (key === 'nav')     state.nav     = Math.min(420, Math.max(180, state.nav + delta));
+      if (key === 'body')    state.body    = Math.min(36,  Math.max(12,  state.body + delta));
+      if (key === 'navfont') state.navfont = Math.min(42,  Math.max(12,  state.navfont + delta));
+      if (key === 'title')   state.title   = Math.min(52,  Math.max(14,  state.title + delta));
       applyAll();
     };
-    window.fgcSetAccent = function(color) { state.accent = color; applyAll(); };
-    window.fgcTogglePanel = function() {
+    window.fgcSetAccent    = function(color) { state.accent = color; applyAll(); };
+    window.fgcTogglePanel  = function() {
       document.getElementById('fgc-editor-panel').classList.toggle('open');
     };
 
