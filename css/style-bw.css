@@ -1036,7 +1036,7 @@ body::after {
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3px;
+  gap: clamp(8px, 1.2vw, 16px);
 }
 
 @media (min-width: 900px) {
@@ -1133,7 +1133,7 @@ img.team-photo {
 
 /* ── Contact block ──────────────────────────────────────────── */
 .we-block--dark {
-  background: var(--fgc-accent);
+  background: #efefed;
   min-height: 50vh !important;
   padding: clamp(40px, 6vh, 72px) clamp(24px, 5vw, 80px);
   justify-content: flex-end !important;
@@ -1145,12 +1145,12 @@ img.team-photo {
   font-size: clamp(22px, 1.8vw, 28px);
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--ink);
   transition: opacity 0.2s ease;
   line-height: 1.2;
   margin-bottom: clamp(16px, 2.5vh, 32px);
 }
-.we-contact-email:hover { opacity: 0.7; }
+.we-contact-email:hover { opacity: 0.6; }
 
 .we-contact-details {
   display: flex;
@@ -1161,11 +1161,11 @@ img.team-photo {
 .we-contact-detail {
   display: block;
   font-size: clamp(14px, 1.1vw, 17px);
-  color: #fff;
+  color: rgba(0,0,0,0.65);
   line-height: 1.6;
   transition: opacity 0.2s ease;
 }
-a.we-contact-detail:hover { opacity: 0.7; }
+a.we-contact-detail:hover { opacity: 0.6; }
 
 /* ── Footer ─────────────────────────────────────────────────── */
 .we-footer {
@@ -1173,7 +1173,7 @@ a.we-contact-detail:hover { opacity: 0.7; }
   align-items: center;
   justify-content: space-between;
   padding: clamp(24px, 3vh, 40px) 0 0;
-  border-top: 1px solid rgba(255,255,255,0.30);
+  border-top: 1px solid rgba(0,0,0,0.15);
   margin-top: clamp(28px, 4vh, 48px);
 }
 
@@ -1193,24 +1193,24 @@ a.we-contact-detail:hover { opacity: 0.7; }
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
+  color: rgba(0,0,0,0.5);
   font-family: 'Roboto Mono', monospace;
   margin-right: 4px;
 }
 
 .we-footer-social a {
-  color: #fff;
+  color: rgba(0,0,0,0.5);
   transition: opacity 0.2s ease;
   display: flex;
   align-items: center;
 }
 
-.we-footer-social a:hover { opacity: 0.7; }
+.we-footer-social a:hover { opacity: 0.6; }
 
 .we-footer-meta span {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  color: #fff;
+  color: rgba(0,0,0,0.5);
   text-transform: uppercase;
   font-family: 'Roboto Mono', monospace;
 }
