@@ -582,7 +582,7 @@ body::after {
   text-align: left;
 }
 
-.we-col-nav li { margin-bottom: 16px; }
+.we-col-nav li { margin-bottom: 28px; }
 
 .we-col-nav button {
   background: none;
@@ -590,7 +590,7 @@ body::after {
   color: rgba(0,0,0,0.58);
   cursor: pointer;
   font-family: var(--font);
-  font-size: clamp(27px, 2.1vw, 33px);
+  font-size: clamp(22px, 1.7vw, 27px);
   font-weight: 400;
   display: block;
   text-align: left;
