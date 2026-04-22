@@ -141,7 +141,7 @@
 
     .approach-buzz{
       display:grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
       gap: clamp(2rem, 5vw, 5rem);
       align-items:start;
       position:relative;
@@ -289,7 +289,7 @@
     .approach-tilt__title{
       font-family:'Playfair Display', serif;
       font-weight:500;
-      font-size: clamp(1.5rem, 2.2vw, 2rem);
+      font-size: clamp(1.8rem, 2.8vw, 2.8rem);
       color:#0a0a0a;
       letter-spacing: -0.015em;
     }
@@ -307,7 +307,7 @@
     }
     .approach-tilt__desc{
       font-family:'Montserrat', sans-serif;
-      font-size: clamp(0.85rem, 0.95vw, 0.95rem);
+      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
       line-height: 1.65;
       color: #333;
       margin: 0;
@@ -1513,7 +1513,7 @@
             </div>
             <div class="clients-cycle-wrap">
               <ul class="clients-list" role="list">
-                <li class="client-item is-active">International entrepreneurs</li>
+                <li class="client-item">International entrepreneurs</li>
                 <li class="client-item">Individuals and families</li>
                 <li class="client-item">Businesses</li>
                 <li class="client-item">Foreign nationals</li>
@@ -1540,62 +1540,101 @@
             width: clamp(160px, 18vw, 260px);
           }
           .clients-label {
-            font-size: clamp(16px, 1.4vw, 22px);
-            color: rgba(0,0,0,0.6);
+            font-size: clamp(14px, 1.2vw, 18px);
+            color: rgba(0,0,0,0.55);
             line-height: 1.5;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             font-family: 'Roboto Mono', monospace;
           }
           .clients-cycle-wrap {
             flex: 1;
             overflow: hidden;
-            height: 2.8em;
             position: relative;
           }
           .clients-list {
             list-style: none;
             padding: 0;
             margin: 0;
-            position: relative;
+            will-change: transform;
           }
           .client-item {
-            font-size: clamp(20px, 2.4vw, 38px);
+            font-size: clamp(22px, 3vw, 50px);
             font-weight: 400;
-            line-height: 1.3;
+            line-height: 1.45;
             color: var(--ink);
             letter-spacing: -0.02em;
             font-family: var(--font);
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transform: translateY(100%);
-            transition: opacity 0.55s ease, transform 0.55s ease;
-          }
-          .client-item.is-active {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          .client-item.is-leaving {
-            opacity: 0;
-            transform: translateY(-100%);
+            transition: opacity 0.55s ease;
+            white-space: normal;
           }
         </style>
 
         <script>
         (function(){
-          var items = document.querySelectorAll('#clients .client-item');
-          if (!items.length) return;
-          var current = 0;
-          setInterval(function(){
-            items[current].classList.remove('is-active');
-            items[current].classList.add('is-leaving');
-            var prev = current;
-            current = (current + 1) % items.length;
-            items[current].classList.add('is-active');
-            setTimeout(function(){ items[prev].classList.remove('is-leaving'); }, 600);
-          }, 2500);
+          var NAMES = [
+            'International entrepreneurs',
+            'Individuals and families',
+            'Businesses',
+            'Foreign nationals',
+            'Real estate investors'
+          ];
+          var N = NAMES.length;
+          var SHOW = 7;
+          var RADIUS = Math.floor(SHOW / 2);
+
+          var list = document.querySelector('#clients .clients-list');
+          list.innerHTML = '';
+          var allItems = [];
+          // 3 repetitions for seamless infinite loop
+          for (var rep = 0; rep < 3; rep++) {
+            NAMES.forEach(function(name) {
+              var li = document.createElement('li');
+              li.className = 'client-item';
+              li.textContent = name;
+              list.appendChild(li);
+              allItems.push(li);
+            });
+          }
+
+          var active = N; // start at middle repetition index 0
+          // opacity by distance: 0→1, 1→0.28, 2→0.11, 3→0.05, 4+→0.02
+          var OPS = [1, 0.28, 0.11, 0.05, 0.02];
+
+          function applyStyles(animate) {
+            var h = allItems[0].offsetHeight;
+            var offset = -(active - RADIUS) * h;
+            list.style.transition = animate ? 'transform 0.6s cubic-bezier(0.4,0,0.2,1)' : 'none';
+            list.style.transform = 'translateY(' + offset + 'px)';
+            if (!animate) list.offsetHeight; // reflow
+            allItems.forEach(function(el, i) {
+              var dist = Math.abs(i - active);
+              el.style.opacity = dist < OPS.length ? OPS[dist] : 0.02;
+            });
+          }
+
+          var wrap = document.querySelector('#clients .clients-cycle-wrap');
+
+          function init() {
+            var h = allItems[0].offsetHeight;
+            wrap.style.height = (h * SHOW) + 'px';
+            applyStyles(false);
+
+            setInterval(function() {
+              active++;
+              applyStyles(true);
+              // seamless reset when we leave the middle repetition
+              if (active >= N * 2) {
+                setTimeout(function() { active -= N; applyStyles(false); }, 650);
+              }
+            }, 2600);
+          }
+
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+          } else {
+            setTimeout(init, 80);
+          }
         })();
         </script>
 
