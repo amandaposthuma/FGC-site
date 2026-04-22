@@ -1134,11 +1134,9 @@ img.team-photo {
 /* ── Contact block ──────────────────────────────────────────── */
 .we-block--dark {
   background: var(--fgc-accent);
-  padding: 60px 20px;
-}
-
-@media (min-width: 1200px) {
-  .we-block--dark { padding: 80px 80px; }
+  min-height: 50vh !important;
+  padding: clamp(40px, 6vh, 72px) clamp(24px, 5vw, 80px);
+  justify-content: flex-end !important;
 }
 
 /* ── Contact ────────────────────────────────────────────────── */
@@ -1150,7 +1148,7 @@ img.team-photo {
   color: #fff;
   transition: opacity 0.2s ease;
   line-height: 1.2;
-  margin-bottom: clamp(24px, 3vh, 40px);
+  margin-bottom: clamp(16px, 2.5vh, 32px);
 }
 .we-contact-email:hover { opacity: 0.7; }
 
@@ -1162,20 +1160,21 @@ img.team-photo {
 
 .we-contact-detail {
   display: block;
-  font-size: clamp(12px, 0.9vw, 14px);
-  color: rgba(255,255,255,0.70);
+  font-size: clamp(14px, 1.1vw, 17px);
+  color: #fff;
   line-height: 1.6;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
-a.we-contact-detail:hover { color: #fff; }
+a.we-contact-detail:hover { opacity: 0.7; }
 
 /* ── Footer ─────────────────────────────────────────────────── */
 .we-footer {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  padding: clamp(32px, 4vh, 56px) var(--pad-x) clamp(24px, 3vh, 40px);
-  border-top: 1px solid rgba(255,255,255,0.20);
+  padding: clamp(24px, 3vh, 40px) 0 0;
+  border-top: 1px solid rgba(255,255,255,0.30);
+  margin-top: clamp(28px, 4vh, 48px);
 }
 
 .we-footer-meta {
@@ -1191,27 +1190,27 @@ a.we-contact-detail:hover { color: #fff; }
 }
 
 .we-footer-social-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.45);
+  color: #fff;
   font-family: 'Roboto Mono', monospace;
   margin-right: 4px;
 }
 
 .we-footer-social a {
-  color: rgba(0,0,0,0.45);
-  transition: color 0.2s ease;
+  color: #fff;
+  transition: opacity 0.2s ease;
   display: flex;
   align-items: center;
 }
 
-.we-footer-social a:hover { color: var(--ink); }
+.we-footer-social a:hover { opacity: 0.7; }
 
 .we-footer-meta span {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.65);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #fff;
   text-transform: uppercase;
   font-family: 'Roboto Mono', monospace;
 }
