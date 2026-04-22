@@ -2129,28 +2129,128 @@
     });
   </script>
 
-  <!-- ── Font size adjuster (editor tool) ── -->
-  <div id="fgc-sizer" style="position:fixed;bottom:24px;left:24px;z-index:9999;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(0,0,0,0.12);border-radius:100px;padding:6px 14px;box-shadow:0 2px 12px rgba(0,0,0,0.1);font-family:var(--font);font-size:11px;letter-spacing:0.08em;color:rgba(0,0,0,0.5);user-select:none;">
-    <span style="text-transform:uppercase;letter-spacing:0.12em;font-size:10px;">Size</span>
-    <button onclick="fgcSizerAdj(-0.05)" style="background:none;border:none;cursor:pointer;font-size:16px;color:rgba(0,0,0,0.5);padding:0 2px;line-height:1;">−</button>
-    <span id="fgc-sizer-pct" style="min-width:36px;text-align:center;font-size:11px;">100%</span>
-    <button onclick="fgcSizerAdj(0.05)" style="background:none;border:none;cursor:pointer;font-size:16px;color:rgba(0,0,0,0.5);padding:0 2px;line-height:1;">+</button>
+  <!-- ── UI Editor panel ── -->
+  <style>
+    #fgc-editor { position:fixed; bottom:24px; left:24px; z-index:9999; font-family:var(--font); user-select:none; }
+    #fgc-editor-toggle {
+      display:flex; align-items:center; gap:6px;
+      background:#fff; border:1px solid rgba(0,0,0,0.12); border-radius:100px;
+      padding:7px 16px; box-shadow:0 2px 12px rgba(0,0,0,0.1);
+      font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+      color:rgba(0,0,0,0.55); cursor:pointer;
+    }
+    #fgc-editor-toggle:hover { color:#000; }
+    #fgc-editor-panel {
+      display:none; flex-direction:column; gap:10px;
+      background:#fff; border:1px solid rgba(0,0,0,0.10);
+      border-radius:16px; padding:16px 18px;
+      box-shadow:0 4px 24px rgba(0,0,0,0.10);
+      margin-bottom:10px; min-width:220px;
+    }
+    #fgc-editor-panel.open { display:flex; }
+    .fgc-ctrl { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .fgc-ctrl-label { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(0,0,0,0.45); flex:1; }
+    .fgc-ctrl-val { font-size:11px; color:rgba(0,0,0,0.6); min-width:36px; text-align:center; }
+    .fgc-btn { background:none; border:none; cursor:pointer; font-size:16px; color:rgba(0,0,0,0.45); padding:0 4px; line-height:1; }
+    .fgc-btn:hover { color:#000; }
+    .fgc-divider { border:none; border-top:1px solid rgba(0,0,0,0.07); margin:2px 0; }
+    .fgc-accents { display:flex; gap:6px; }
+    .fgc-accent-swatch {
+      width:18px; height:18px; border-radius:50%; cursor:pointer;
+      border:2px solid transparent; transition:border-color 0.15s;
+    }
+    .fgc-accent-swatch.active { border-color:#000; }
+  </style>
+
+  <div id="fgc-editor">
+    <div id="fgc-editor-panel">
+      <!-- Size -->
+      <div class="fgc-ctrl">
+        <span class="fgc-ctrl-label">Size</span>
+        <button class="fgc-btn" onclick="fgcAdj('zoom',-0.05)">−</button>
+        <span class="fgc-ctrl-val" id="fgc-zoom-val">100%</span>
+        <button class="fgc-btn" onclick="fgcAdj('zoom',0.05)">+</button>
+      </div>
+      <hr class="fgc-divider">
+      <!-- Spacing -->
+      <div class="fgc-ctrl">
+        <span class="fgc-ctrl-label">Spacing</span>
+        <button class="fgc-btn" onclick="fgcAdj('spacing',-1)">−</button>
+        <span class="fgc-ctrl-val" id="fgc-spacing-val">M</span>
+        <button class="fgc-btn" onclick="fgcAdj('spacing',1)">+</button>
+      </div>
+      <hr class="fgc-divider">
+      <!-- Nav width -->
+      <div class="fgc-ctrl">
+        <span class="fgc-ctrl-label">Nav width</span>
+        <button class="fgc-btn" onclick="fgcAdj('nav',-10)">−</button>
+        <span class="fgc-ctrl-val" id="fgc-nav-val">280px</span>
+        <button class="fgc-btn" onclick="fgcAdj('nav',10)">+</button>
+      </div>
+      <hr class="fgc-divider">
+      <!-- Accent color -->
+      <div class="fgc-ctrl">
+        <span class="fgc-ctrl-label">Accent</span>
+        <div class="fgc-accents">
+          <div class="fgc-accent-swatch" data-color="#E85B1A" style="background:#E85B1A" onclick="fgcSetAccent('#E85B1A')"></div>
+          <div class="fgc-accent-swatch" data-color="#3d5450" style="background:#3d5450" onclick="fgcSetAccent('#3d5450')"></div>
+          <div class="fgc-accent-swatch" data-color="#1a1a1a" style="background:#1a1a1a" onclick="fgcSetAccent('#1a1a1a')"></div>
+          <div class="fgc-accent-swatch" data-color="#1a3a6b" style="background:#1a3a6b" onclick="fgcSetAccent('#1a3a6b')"></div>
+          <div class="fgc-accent-swatch" data-color="#8B5E3C" style="background:#8B5E3C" onclick="fgcSetAccent('#8B5E3C')"></div>
+        </div>
+      </div>
+    </div>
+    <div id="fgc-editor-toggle" onclick="fgcTogglePanel()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Edit UI
+    </div>
   </div>
+
   <script>
-    (function(){
-      var scale = parseFloat(localStorage.getItem('fgc-size-scale') || '1');
-      var target = document.querySelector('.we-section');
-      function apply() {
-        if (target) target.style.zoom = scale;
-        document.getElementById('fgc-sizer-pct').textContent = Math.round(scale * 100) + '%';
-        localStorage.setItem('fgc-size-scale', scale);
-      }
-      apply();
-      window.fgcSizerAdj = function(delta) {
-        scale = Math.min(1.5, Math.max(0.6, +(scale + delta).toFixed(2)));
-        apply();
-      };
-    })();
+  (function(){
+    var state = {
+      zoom: parseFloat(localStorage.getItem('fgc-zoom') || '1'),
+      spacing: parseInt(localStorage.getItem('fgc-spacing') || '2'),
+      nav: parseInt(localStorage.getItem('fgc-nav') || '280'),
+      accent: localStorage.getItem('fgc-accent') || '#E85B1A'
+    };
+    var spacingLabels = ['XS','S','M','L','XL'];
+    var spacingPads = ['40px 40px','50px 60px','60px 80px','80px 100px','100px 120px'];
+
+    function applyAll() {
+      var section = document.querySelector('.we-section');
+      var colLabel = document.querySelector('.we-col-label');
+      if (section) section.style.zoom = state.zoom;
+      if (colLabel) colLabel.style.width = state.nav + 'px';
+      document.documentElement.style.setProperty('--fgc-accent', state.accent);
+      document.getElementById('fgc-zoom-val').textContent = Math.round(state.zoom * 100) + '%';
+      document.getElementById('fgc-spacing-val').textContent = spacingLabels[state.spacing] || 'M';
+      document.getElementById('fgc-nav-val').textContent = state.nav + 'px';
+      document.querySelectorAll('.fgc-accent-swatch').forEach(function(s){
+        s.classList.toggle('active', s.dataset.color === state.accent);
+      });
+      /* spacing: patch we-block padding inline */
+      var pad = spacingPads[state.spacing] || spacingPads[2];
+      document.querySelectorAll('.we-block').forEach(function(b){ b.style.padding = pad; });
+      localStorage.setItem('fgc-zoom', state.zoom);
+      localStorage.setItem('fgc-spacing', state.spacing);
+      localStorage.setItem('fgc-nav', state.nav);
+      localStorage.setItem('fgc-accent', state.accent);
+    }
+
+    window.fgcAdj = function(key, delta) {
+      if (key === 'zoom') state.zoom = Math.min(1.5, Math.max(0.6, +(state.zoom + delta).toFixed(2)));
+      if (key === 'spacing') state.spacing = Math.min(4, Math.max(0, state.spacing + delta));
+      if (key === 'nav') state.nav = Math.min(420, Math.max(180, state.nav + delta));
+      applyAll();
+    };
+    window.fgcSetAccent = function(color) { state.accent = color; applyAll(); };
+    window.fgcTogglePanel = function() {
+      document.getElementById('fgc-editor-panel').classList.toggle('open');
+    };
+
+    applyAll();
+  })();
   </script>
 
 </body>

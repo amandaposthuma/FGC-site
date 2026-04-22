@@ -48,6 +48,8 @@ a {
   body { cursor: auto; }
 }
 
+[contenteditable="true"] { cursor: none !important; }
+
 /* ── WebGL canvases — grayscale in B&W version ──────────────── */
 #gradient-canvas {
   position: fixed;
@@ -1127,12 +1129,12 @@ img.team-photo {
 
 /* ── Contact block ──────────────────────────────────────────── */
 .we-block--dark {
-  background: var(--bg);
+  background: #0a0a0a;
   padding: 60px 20px;
 }
 
 @media (min-width: 1200px) {
-  .we-block--dark { padding: 70px 80px; }
+  .we-block--dark { padding: 80px 80px; }
 }
 
 /* ── Contact ────────────────────────────────────────────────── */
@@ -1141,7 +1143,7 @@ img.team-photo {
   font-size: clamp(22px, 1.8vw, 28px);
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: rgba(0,0,0,0.85);
+  color: rgba(255,255,255,0.90);
   transition: opacity 0.2s ease;
   line-height: 1.2;
   margin-bottom: clamp(24px, 3vh, 40px);
@@ -1157,11 +1159,11 @@ img.team-photo {
 .we-contact-detail {
   display: block;
   font-size: clamp(12px, 0.9vw, 14px);
-  color: rgba(0,0,0,0.70);
+  color: rgba(255,255,255,0.50);
   line-height: 1.6;
   transition: color 0.2s ease;
 }
-a.we-contact-detail:hover { color: rgba(0,0,0,0.80); }
+a.we-contact-detail:hover { color: rgba(255,255,255,0.80); }
 
 /* ── Footer ─────────────────────────────────────────────────── */
 .we-footer {
