@@ -1344,13 +1344,47 @@
         </div>
 
         <!-- ── Track Record ── -->
-        <div class="we-block we-block--reveal" id="track-record">
-          <div class="we-stats reveal-item" style="--i:1">
-            <div class="we-stat"><span class="we-stat-n" data-count="30" data-suffix="+">30+</span><span class="we-stat-l">Years in wealth planning</span></div>
-            <div class="we-stat"><span class="we-stat-n" data-count="1000" data-suffix="+" data-prefix="" data-display="1,000+">1,000+</span><span class="we-stat-l">Active companies managed</span></div>
-            <div class="we-stat"><span class="we-stat-n" data-count="20" data-suffix="B+" data-prefix="$">$20B+</span><span class="we-stat-l">Transacted</span></div>
+        <div class="we-block we-block--track" id="track-record">
+          <div class="tr-row">
+            <span class="tr-label">Years in wealth planning</span>
+            <span class="tr-num">30+</span>
+          </div>
+          <div class="tr-row">
+            <span class="tr-label">Active companies managed</span>
+            <span class="tr-num">1,000+</span>
+          </div>
+          <div class="tr-row">
+            <span class="tr-label">Transacted</span>
+            <span class="tr-num">$20B+</span>
           </div>
         </div>
+
+        <style>
+          .we-block--track { padding: 0 clamp(24px, 5vw, 80px) !important; }
+          .tr-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: clamp(28px, 5vh, 56px) 0;
+            border-top: 1px solid rgba(0,0,0,0.12);
+          }
+          .tr-row:last-child { border-bottom: 1px solid rgba(0,0,0,0.12); }
+          .tr-label {
+            font-size: clamp(14px, 1.1vw, 18px);
+            color: rgba(0,0,0,0.5);
+            font-family: var(--font);
+            font-weight: 400;
+            letter-spacing: 0.01em;
+          }
+          .tr-num {
+            font-size: clamp(52px, 8vw, 120px);
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            font-family: var(--font);
+            line-height: 1;
+          }
+        </style>
 
         <!-- ── Team ── -->
         <div class="we-block team-block" id="team">
