@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Condensed:wght@400;600;700&family=Roboto+Mono:wght@100;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Condensed:wght@400;600;700&family=Roboto+Mono:wght@100;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style-bw.css">
@@ -102,22 +102,8 @@
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
-    /* ═════════ SIDE NAV: black FGC logo + G-arrow + square-bullet indicators ═════════ */
+    /* ═════════ SIDE NAV: centered nav items ═════════ */
     .we-col-label{ padding-top: 1rem; }
-    .we-col-brandmark{
-      display:block;
-      padding: 0 0 1.25rem 0;
-      margin-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      transition: opacity .25s ease;
-    }
-    .we-col-brandmark:hover{ opacity:.7; }
-    .we-col-brand-img{
-      display:block;
-      height: 28px; width:auto;
-      /* Force logo to black from 2nd section onwards (light background) */
-      filter: brightness(0) saturate(100%);
-    }
 
     /* Each nav item is a flex row: [label] ........... [square bullet] */
     .we-col-nav > li > button{
@@ -827,7 +813,7 @@
     }
     .shed-blurb{
       margin:0; font-family:'Montserrat',sans-serif;
-      font-size: clamp(1rem, 1.5vw, 1.4rem); line-height:1.6; max-width: 38ch;
+      font-size: clamp(1.3rem, 2vw, 1.9rem); line-height:1.6; max-width: 38ch;
       color:rgba(242,239,231,.85);
       margin-left: auto;
     }
@@ -1328,7 +1314,7 @@
 
               <article class="approach-tilt approach-tilt--c" data-idx="03">
                 <div class="approach-tilt__head">
-                  <span class="approach-tilt__title">Relationship-Driven</span>
+                  <span class="approach-tilt__title">Relationship&#8209;Driven</span>
                 </div>
                 <p class="approach-tilt__desc">One relationship, one point of contact. We orchestrate across your lawyers, accountants, and advisors — so you never have to manage the complexity yourself.</p>
                 <span class="approach-tilt__rule"></span>
@@ -1357,7 +1343,7 @@
           </div>
           <div class="tr-row">
             <span class="tr-num">$20B+</span>
-            <span class="tr-label">Transacted</span>
+            <span class="tr-label">Transacted in real estate deals</span>
           </div>
         </div>
 
@@ -1566,7 +1552,7 @@
             letter-spacing: -0.01em;
             font-family: 'Playfair Display', serif;
             transition: opacity 0.6s ease;
-            white-space: nowrap;
+            white-space: normal;
           }
         </style>
 
@@ -1789,7 +1775,7 @@
           <div class="we-footer">
             <div class="we-footer-meta">
               <span>© 2026 FGC Advisors — Miami, FL</span>
-              <span>Simple solutions. One relationship.</span>
+              <span>FGC Advisors LLC is not a licensed investment adviser or broker-dealer. Nothing on this site constitutes legal, tax, financial, or investment advice. Content is for informational purposes only and subject to change without notice.</span>
             </div>
             <div class="we-footer-social">
               <span class="we-footer-social-label">Check us out</span>
@@ -1810,7 +1796,497 @@
     </div>
   </section>
 
+  <!-- ═══════════ TYPOGRAPHY + SECTION OVERRIDES ═══════════ -->
+  <style>
+    /* ── 1. Font system: Inter everywhere, 2 sizes only ── */
+    :root {
+      --font: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+      --fs-title: clamp(1.1rem, 1.55vw, 1.4rem);
+      --fs-body:  clamp(0.82rem, 0.98vw, 0.94rem);
+    }
+
+    /* Apply Inter to everything — override Barlow Condensed, Playfair Display, etc. */
+    body, button, input, textarea, select,
+    .approach-buzz__title, .abt-prefix, .abt-word,
+    .approach-tilt__title, .approach-tilt__desc, .approach-buzz__intro,
+    .shed-subhead, .shed-blurb,
+    .we-statement, .we-body p,
+    .we-row-name, .we-row-desc,
+    .client-item, .clients-label,
+    .abm-n, .abm-l,
+    .brief-card-title, .brief-card-link, .brief-cat, .brief-card-so-what,
+    .tr-num, .tr-label,
+    .team-name, .team-role, .team-bio p,
+    .we-contact-email, .we-contact-detail,
+    .we-footer, .we-footer-meta, .we-footer-meta span,
+    .nav-menu-links a,
+    h1, h2, h3, h4, h5, h6, p, span, li, a {
+      font-family: var(--font) !important;
+    }
+
+    /* No cursive, no italic, no bold */
+    em, i { font-style: normal !important; }
+    strong, b { font-weight: 400 !important; }
+    .abt-word { font-style: normal !important; }
+
+    /* ── 2. About Us statement — title-sized ── */
+    /* ── About Us statement: true title-level size ── */
+    .we-statement {
+      font-size: clamp(2.4rem, 5vw, 7rem) !important;
+      line-height: 1.06 !important;
+      font-weight: 300 !important;
+      letter-spacing: -0.04em !important;
+      max-width: none !important;
+    }
+
+    /* ── 3. LHS nav — title font size, no caps, centered in column ── */
+    .we-col-label {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+    .we-col-nav {
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+    .we-col-nav > li {
+      width: 100% !important;
+      text-align: center !important;
+    }
+    .we-col-nav > li > button,
+    .we-col-nav > li > button .we-nav-txt {
+      font-size: var(--fs-title) !important;
+      font-weight: 400 !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      justify-content: center !important;
+    }
+    .we-col-subnav {
+      text-align: center !important;
+    }
+    .we-col-subnav button {
+      font-size: var(--fs-body) !important;
+      font-weight: 400 !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+    }
+
+    /* ── 4. Top nav: logo centered between the 2 column bars ── */
+    #nav {
+      padding-left:  var(--pad-x) !important;
+      padding-right: var(--pad-x) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+    /* Logo container matches LHS column width → logo sits centered between bars */
+    .nav-logo {
+      width: 200px !important;
+      min-width: 200px !important;
+      justify-content: center !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    @media (min-width: 1200px) {
+      .nav-logo { width: 273px !important; min-width: 273px !important; }
+    }
+
+    /* ── 5. Approach section — overflow fix + wider / larger cards ── */
+    .approach-buzz {
+      grid-template-columns: minmax(0, 0.68fr) minmax(0, 1.32fr) !important;
+    }
+    .approach-buzz__left {
+      overflow: visible !important;
+    }
+    /* Allow cycling word to show fully — clip only vertically */
+    .abt-cycle {
+      overflow-x: visible !important;
+      overflow-y: clip !important;
+      width: 100% !important;
+    }
+    .approach-buzz__title {
+      font-size: clamp(22px, 3vw, 42px) !important;
+      font-weight: 400 !important;
+      line-height: 1.1 !important;
+      letter-spacing: -0.02em !important;
+    }
+    .abt-word {
+      color: var(--fgc-accent) !important;
+      font-weight: 400 !important;
+    }
+    /* Cards: no clipping, full shadows visible */
+    .approach-buzz__right {
+      overflow: visible !important;
+      padding: 0 clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem) !important;
+    }
+    .approach-tilt {
+      width: 90% !important;
+      max-width: none !important;
+      overflow: visible !important;
+    }
+    /* "Our approach is" stays on one line */
+    .abt-prefix {
+      white-space: nowrap !important;
+    }
+    .approach-tilt__title {
+      font-size: clamp(1.3rem, 1.8vw, 1.8rem) !important;
+      font-weight: 400 !important;
+      hyphens: none !important;
+      word-break: normal !important;
+      letter-spacing: -0.01em !important;
+      white-space: normal !important;
+    }
+    .approach-tilt__desc {
+      font-size: var(--fs-body) !important;
+      line-height: 1.65 !important;
+    }
+    .approach-buzz__intro {
+      font-size: var(--fs-body) !important;
+      line-height: 1.68 !important;
+    }
+
+    /* ── 6. Track Record — animated rows (JS below sets .tr-visible) ── */
+    .tr-row {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease !important;
+    }
+    .tr-row.tr-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    .tr-num {
+      transition: color 0.45s ease !important;
+      color: rgba(10,10,10,0.22) !important;
+    }
+    .tr-row.tr-active .tr-num {
+      color: var(--fgc-accent) !important;
+    }
+    .tr-label {
+      transition: color 0.45s ease !important;
+      color: rgba(0,0,0,0.25) !important;
+    }
+    .tr-row.tr-active .tr-label {
+      color: rgba(0,0,0,0.55) !important;
+    }
+
+    /* ── 7. Clients — Harvey.ai large cycling text ── */
+    .we-block--clients {
+      min-height: 88vh !important;
+      overflow: hidden !important;
+    }
+    .clients-sticky {
+      gap: clamp(2rem, 4vw, 5rem) !important;
+      align-items: center !important;
+      padding: 0 clamp(24px, 4vw, 60px) !important;
+    }
+    .clients-lhs {
+      width: clamp(160px, 18vw, 240px) !important;
+      flex-shrink: 0 !important;
+    }
+    .clients-label {
+      font-size: clamp(1.6rem, 2.8vw, 3.5rem) !important;
+      font-weight: 300 !important;
+      text-transform: none !important;
+      letter-spacing: -0.02em !important;
+      color: rgba(0,0,0,0.7) !important;
+      line-height: 1.25 !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+    .clients-cycle-wrap {
+      overflow: hidden !important;
+      flex: 1 1 0 !important;
+      min-width: 0 !important;
+    }
+    .client-item {
+      font-size: clamp(1.1rem, 2vw, 2.5rem) !important;
+      font-weight: 300 !important;
+      white-space: normal !important;
+      word-break: normal !important;
+      overflow-wrap: break-word !important;
+      letter-spacing: -0.025em !important;
+      line-height: 1.2 !important;
+      max-width: 100% !important;
+    }
+
+    /* ── 8. Misc body text consistency ── */
+    .shed-subhead {
+      font-size: clamp(1.35rem, 2.1vw, 1.95rem) !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.01em !important;
+    }
+    .shed-blurb {
+      font-size: clamp(1.3rem, 2vw, 1.9rem) !important;
+    }
+    .abm-n {
+      font-size: 2.2rem !important;
+      font-weight: 300 !important;
+    }
+
+    /* ── 9. Team section — 3-col grid, more space, no all-caps ── */
+    .team-block {
+      padding: clamp(3rem, 6vh, 5rem) clamp(24px, 5vw, 80px) !important;
+    }
+    .team-grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: clamp(16px, 2vw, 28px) !important;
+    }
+    .team-card {
+      aspect-ratio: 3 / 4 !important;
+    }
+    .team-role {
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      font-family: var(--font) !important;
+      font-size: clamp(10px, 0.8vw, 13px) !important;
+      color: rgba(242,239,230,0.75) !important;
+    }
+    .team-name {
+      font-size: clamp(15px, 1.3vw, 20px) !important;
+      line-height: 1.25 !important;
+    }
+
+    /* ── 10. Footer: lowercase T&C, social in column (label then icons in row) ── */
+    .we-footer-meta span {
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      font-family: var(--font) !important;
+    }
+    .we-footer {
+      gap: clamp(2rem, 5vw, 4rem) !important;
+      align-items: flex-start !important;
+      padding-top: clamp(1.5rem, 3vh, 2.5rem) !important;
+      border-top: 1px solid rgba(0,0,0,0.1) !important;
+    }
+    /* Label on its own line, all 3 icons on the next line */
+    .we-footer-social {
+      display: grid !important;
+      grid-template-columns: repeat(3, auto) !important;
+      grid-template-rows: auto auto !important;
+      gap: 10px 18px !important;
+      justify-items: start !important;
+      align-items: center !important;
+    }
+    .we-footer-social-label {
+      grid-column: 1 / -1 !important;
+      white-space: nowrap !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      font-family: var(--font) !important;
+      font-size: 0.82rem !important;
+      color: rgba(0,0,0,0.5) !important;
+    }
+    .we-footer-social a {
+      display: inline-flex !important;
+      align-items: center !important;
+    }
+    /* ── 11. Newsletter button: clean styling, no caps ── */
+    .brief-view-btn {
+      display: none !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      font-family: var(--font) !important;
+      font-size: var(--fs-body) !important;
+      padding: 0.55rem 1.4rem !important;
+      background: none !important;
+      border: 1px solid rgba(0,0,0,0.25) !important;
+      color: rgba(0,0,0,0.7) !important;
+      cursor: pointer !important;
+    }
+    .brief-view-btn:hover {
+      background: #0a0a0a !important;
+      color: #fff !important;
+      border-color: #0a0a0a !important;
+    }
+  </style>
+
+  <!-- ═══════════ TRACK RECORD: count-up + scroll spotlight ═══════════ -->
+  <script>
+  (function(){
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.tr-row'));
+    if (!rows.length) return;
+
+    var stats = [
+      { prefix: '',  value: 30,   suffix: '+',  format: false },
+      { prefix: '',  value: 1000, suffix: '+',  format: true  },
+      { prefix: '$', value: 20,   suffix: 'B+', format: false }
+    ];
+
+    var DURATION  = 1800;
+    var HOLD      = 5000;
+    var ROW_DELAY = 160;
+
+    function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
+
+    function runCycle(els) {
+      els.forEach(function(el, i){
+        var s = stats[i];
+        if (el && s) el.textContent = s.prefix + (s.format ? (0).toLocaleString() : 0) + s.suffix;
+      });
+      els.forEach(function(el, i){
+        var s = stats[i];
+        if (!el || !s) return;
+        setTimeout(function(){
+          var start = null;
+          function tick(ts){
+            if (!start) start = ts;
+            var progress = Math.min((ts - start) / DURATION, 1);
+            var val = Math.floor(easeOut(progress) * s.value);
+            el.textContent = s.prefix + (s.format ? val.toLocaleString() : val) + s.suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }, i * ROW_DELAY);
+      });
+      var totalCycle = DURATION + (rows.length - 1) * ROW_DELAY + HOLD;
+      setTimeout(function(){ runCycle(els); }, totalCycle);
+    }
+
+    /* ── Scroll-driven spotlight: one orange row at a time ── */
+    function updateSpotlight() {
+      var probe = window.innerHeight * 0.42;
+      var bestIdx = -1;
+      var bestDist = Infinity;
+      rows.forEach(function(row, i){
+        var r = row.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return; // off-screen
+        var mid = r.top + r.height / 2;
+        var dist = Math.abs(mid - probe);
+        if (dist < bestDist){ bestDist = dist; bestIdx = i; }
+      });
+      rows.forEach(function(row, i){
+        row.classList.toggle('tr-active', i === bestIdx);
+      });
+    }
+
+    var rafPending = false;
+    function onScroll(){
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(function(){ rafPending = false; updateSpotlight(); });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    /* ── Reveal + count-up on first entry ── */
+    var triggered = false;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting || triggered) return;
+        triggered = true;
+        rows.forEach(function(row, i){
+          setTimeout(function(){ row.classList.add('tr-visible'); }, i * ROW_DELAY);
+        });
+        var els = rows.map(function(row){ return row.querySelector('.tr-num'); });
+        setTimeout(function(){ runCycle(els); }, 0);
+        updateSpotlight();
+      });
+    }, { threshold: 0.2 });
+
+    rows.forEach(function(row){ obs.observe(row); });
+  })();
+  </script>
+
   <!-- (legacy template scripts removed — intro + interactions are handled inline) -->
+
+  <!-- ═══════════ SCROLL PROGRESS BAR ═══════════ -->
+  <style>
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--fgc-accent);
+      z-index: 99999;
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
+    /* Parallax approach cards */
+    .approach-tilt {
+      will-change: transform;
+    }
+    /* Brief cards: lift on hover */
+    .brief-card {
+      transition: transform 0.4s cubic-bezier(0.2,0.9,0.2,1), box-shadow 0.4s ease !important;
+    }
+    .brief-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 24px 48px -16px rgba(0,0,0,0.18) !important;
+    }
+    /* Reveal items slide up */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2,0.9,0.2,1);
+    }
+    .is-revealed .reveal-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-item { transition-delay: calc(var(--i, 1) * 0.1s); }
+    /* Team cards staggered reveal */
+    .team-card {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2,0.9,0.2,1);
+    }
+    .team-block.is-revealed .team-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <div id="scroll-progress"></div>
+
+  <script>
+  (function(){
+    /* ── Scroll progress bar ── */
+    var bar = document.getElementById('scroll-progress');
+    function updateProgress(){
+      var scrolled = window.scrollY;
+      var total = document.documentElement.scrollHeight - window.innerHeight;
+      if (bar && total > 0) bar.style.width = (scrolled / total * 100) + '%';
+    }
+
+    /* ── Parallax: approach cards drift at different rates as you scroll ── */
+    var tilts = Array.prototype.slice.call(document.querySelectorAll('.approach-tilt'));
+    var rates = [0.04, -0.05, 0.035, -0.045]; // alternating drift direction
+
+    /* ── Team cards stagger via delay ── */
+    var teamCards = Array.prototype.slice.call(document.querySelectorAll('.team-card'));
+    teamCards.forEach(function(card, i){
+      card.style.transitionDelay = (i * 0.07) + 's';
+    });
+
+    /* ── Brief cards: subtle parallax depth ── */
+    var briefCards = Array.prototype.slice.call(document.querySelectorAll('.brief-card'));
+
+    function onScroll(){
+      var scrollY = window.scrollY;
+      updateProgress();
+
+      /* Approach card parallax */
+      tilts.forEach(function(el, i){
+        var rect = el.getBoundingClientRect();
+        var centerY = rect.top + rect.height / 2 - window.innerHeight / 2;
+        var rate = rates[i] || 0.04;
+        var tiltVal = el.style.getPropertyValue('--tilt') || '0deg';
+        el.style.transform = 'translateY(' + (centerY * rate) + 'px) rotate(' + tiltVal + ')';
+      });
+    }
+
+    var rafPending = false;
+    window.addEventListener('scroll', function(){
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(function(){ rafPending = false; onScroll(); });
+    }, { passive: true });
+
+    updateProgress();
+  })();
+  </script>
 
   <!-- ═══════════ SCROLL REVEAL ═══════════ -->
   <script>
@@ -1825,7 +2301,7 @@
     }, { threshold: 0.12 });
 
     function init() {
-      document.querySelectorAll('.we-block--reveal').forEach(function (block) {
+      document.querySelectorAll('.we-block--reveal, .team-block').forEach(function (block) {
         io.observe(block);
       });
     }
@@ -1892,7 +2368,7 @@
   (function () {
     var viewBtn  = document.getElementById('brief-view-btn');
     var gridView = document.getElementById('brief-grid-view');
-    var briefOuter = document.getElementById('brief');
+    var briefOuter = document.querySelector('.brief-outer');
     var isGrid = false;
 
     function buildGrid() {
@@ -2464,6 +2940,234 @@
     };
 
     applyAll();
+  })();
+  </script>
+
+  <!-- ═══════════ DISRUPTIVE MOTION LAYER ═══════════ -->
+  <style>
+    /* ── Value marquee ticker — top of About section ── */
+    #fgc-ticker {
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      margin-bottom: clamp(2rem, 4vh, 3.5rem);
+      border-top: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      /* Break out of parent block padding to span full content-column width */
+      margin-left: calc(-1 * clamp(24px, 5vw, 80px));
+      margin-right: calc(-1 * clamp(24px, 5vw, 80px));
+      background: transparent;
+      z-index: 2;
+    }
+    #fgc-ticker-track {
+      display: inline-flex;
+      gap: 3.5rem;
+      animation: fgcTicker 22s linear infinite;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+      font-family: var(--font);
+    }
+    #fgc-ticker-track .tk-dot { color: var(--fgc-accent); margin-right: 0.5em; }
+    @keyframes fgcTicker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    #fgc-ticker:hover #fgc-ticker-track { animation-play-state: paused; }
+
+    /* ── Service rows: animated left accent border ── */
+    .we-row {
+      border-left: 2px solid transparent;
+      transition: border-left-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease !important;
+    }
+    .we-row.is-open {
+      border-left-color: var(--fgc-accent) !important;
+    }
+
+    /* ── Track record: active row left border ── */
+    .tr-row {
+      padding-left: 1rem;
+      border-left: 2px solid transparent;
+      transition: border-left-color 0.4s ease, opacity 0.6s ease, transform 0.6s ease, padding 0.4s ease !important;
+    }
+    .tr-row.tr-active {
+      border-left-color: var(--fgc-accent) !important;
+      padding-left: 1.5rem !important;
+    }
+
+    /* ── Approach spine: pulse ── */
+    .approach-spine {
+      animation: spinePulse 4s ease-in-out infinite;
+    }
+    @keyframes spinePulse {
+      0%, 100% { opacity: 0.55; }
+      50%       { opacity: 1;    }
+    }
+
+    /* ── Section label: orange underline draws in on reveal ── */
+    .we-section-label, .we-block-label {
+      position: relative;
+      display: inline-block;
+    }
+    .we-section-label::after, .we-block-label::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      height: 1.5px;
+      width: 0;
+      background: var(--fgc-accent);
+      transition: width 1s cubic-bezier(0.16,1,0.3,1) 0.15s;
+    }
+    .is-revealed .we-section-label::after,
+    .is-revealed .we-block-label::after { width: 100%; }
+
+    /* ── Contact email: underline draws on hover ── */
+    .we-contact-email {
+      background-image: linear-gradient(var(--fgc-accent), var(--fgc-accent));
+      background-size: 0 1px;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      transition: background-size 0.4s ease, opacity 0.3s !important;
+    }
+    .we-contact-email:hover {
+      background-size: 100% 1px;
+      opacity: 1 !important;
+    }
+
+    /* ── Team cards: lift + glow on hover ── */
+    .team-card {
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2,0.9,0.2,1),
+                  box-shadow 0.4s ease !important;
+    }
+    .team-block.is-revealed .team-card:hover {
+      transform: translateY(-7px) scale(1.025) !important;
+      box-shadow: 0 22px 44px -14px rgba(0,0,0,0.25) !important;
+      z-index: 3;
+    }
+
+    /* ── Brief card: enhanced hover ── */
+    .brief-card {
+      transition: transform 0.4s cubic-bezier(0.2,0.9,0.2,1),
+                  box-shadow 0.4s ease,
+                  border-color 0.3s ease !important;
+    }
+    .brief-card:hover {
+      transform: translateY(-8px) !important;
+      box-shadow: 0 28px 56px -18px rgba(0,0,0,0.2) !important;
+    }
+
+    /* ── Stats: large number hover brightens ── */
+    .we-stat { transition: background 0.3s ease; }
+    .we-stat:hover .we-stat-n { color: var(--fgc-accent) !important; transition: color 0.3s ease; }
+
+    /* ── Footer logo: subtle float ── */
+    .we-footer-logo-img {
+      animation: logoFloat 6s ease-in-out infinite;
+    }
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-4px); }
+    }
+  </style>
+
+  <script>
+  (function(){
+
+    /* ── Value ticker — top of About section, 7 FGC service areas ── */
+    (function(){
+      var about = document.getElementById('about');
+      if (!about) return;
+      var ITEMS = [
+        'Wealth Planning',
+        'Real Estate Structuring',
+        'Tax Strategy',
+        'M&A Advisory',
+        'Corporate Formation',
+        'Family Office Services',
+        'International Planning',
+      ];
+      var doubled = ITEMS.concat(ITEMS);
+      var inner = doubled.map(function(t){
+        return '<span><span class="tk-dot">◆</span>' + t + '</span>';
+      }).join('');
+      var ticker = document.createElement('div');
+      ticker.id = 'fgc-ticker';
+      ticker.innerHTML = '<div id="fgc-ticker-track">' + inner + '</div>';
+      /* Insert before the two-column layout — full-width at top of content */
+      var weSection = document.querySelector('.section-content');
+      if (weSection) weSection.insertAdjacentElement('afterbegin', ticker);
+      else about.insertAdjacentElement('beforebegin', ticker);
+    })();
+
+    /* ── Magnetic hover: subtle element drift toward cursor ── */
+    (function(){
+      var targets = document.querySelectorAll('#nav-hamburger, .brief-view-btn, .we-contact-email');
+      targets.forEach(function(el){
+        el.addEventListener('mousemove', function(e){
+          var r = el.getBoundingClientRect();
+          var dx = e.clientX - (r.left + r.width  / 2);
+          var dy = e.clientY - (r.top  + r.height / 2);
+          el.style.transform = 'translate(' + dx * 0.2 + 'px, ' + dy * 0.2 + 'px)';
+        });
+        el.addEventListener('mouseleave', function(){
+          el.style.transition = 'transform 0.5s cubic-bezier(0.2,0.9,0.2,1)';
+          el.style.transform = '';
+          setTimeout(function(){ el.style.transition = ''; }, 500);
+        });
+      });
+    })();
+
+    /* ── Hero heading parallax: slight drift as you scroll ── */
+    (function(){
+      var heading = document.querySelector('.hero-heading');
+      var sub     = document.querySelector('.shed-subhead');
+      if (!heading && !sub) return;
+      window.addEventListener('scroll', function(){
+        requestAnimationFrame(function(){
+          var sy = window.scrollY;
+          if (heading) heading.style.transform = 'translateY(' + sy * 0.07 + 'px)';
+          if (sub)     sub.style.transform     = 'translateY(' + sy * 0.04 + 'px)';
+        });
+      }, { passive: true });
+    })();
+
+    /* ── About statement parallax ── */
+    (function(){
+      var stmt = document.querySelector('.we-statement');
+      if (!stmt) return;
+      window.addEventListener('scroll', function(){
+        requestAnimationFrame(function(){
+          var r = stmt.getBoundingClientRect();
+          var center = r.top + r.height / 2 - window.innerHeight / 2;
+          stmt.style.transform = 'translateY(' + center * 0.035 + 'px)';
+        });
+      }, { passive: true });
+    })();
+
+    /* ── Clients label parallax: drifts at a slower rate than items ── */
+    (function(){
+      var lhs = document.querySelector('.clients-lhs');
+      if (!lhs) return;
+      window.addEventListener('scroll', function(){
+        requestAnimationFrame(function(){
+          var r = lhs.getBoundingClientRect();
+          if (r.bottom < 0 || r.top > window.innerHeight) return;
+          var center = r.top + r.height / 2 - window.innerHeight / 2;
+          lhs.style.transform = 'translateY(' + center * -0.04 + 'px)';
+        });
+      }, { passive: true });
+    })();
+
+    /* ── Nav items: staggered colour fade on hover ── */
+    (function(){
+      var items = document.querySelectorAll('.we-col-nav > li > button');
+      items.forEach(function(btn, i){
+        btn.style.transitionDelay = (i * 0.04) + 's';
+      });
+    })();
+
   })();
   </script>
 
