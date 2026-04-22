@@ -2131,7 +2131,7 @@
       '.we-contact-email', '.we-contact-detail',
       '.approach-buzz__intro', '.approach-tilt__body', '.abt-prefix'
     ];
-    var LS_PREFIX = 'fgc-e3-';
+    var LS_PREFIX = 'fgc-e4-';
     var editables = [];
 
     function buildKey(sel, idxWithinSel) {
@@ -2235,7 +2235,9 @@
 
   <script>
     localStorage.removeItem('fgc-edits-v1');
-    var STORAGE_KEY = 'fgc-edits-v3';
+    localStorage.removeItem('fgc-edits-v2');
+    localStorage.removeItem('fgc-edits-v3');
+    var STORAGE_KEY = 'fgc-edits-v4';
     var editables = Array.from(document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, blockquote'))
       .filter(function(el) { return !el.closest('button, a, [role="button"], .we-col-nav, .we-col-subnav, nav'); });
     var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');

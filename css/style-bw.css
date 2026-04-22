@@ -1133,7 +1133,7 @@ img.team-photo {
 
 /* ── Contact block ──────────────────────────────────────────── */
 .we-block--dark {
-  background: #0a0a0a;
+  background: var(--fgc-accent);
   padding: 60px 20px;
 }
 
@@ -1147,12 +1147,12 @@ img.team-photo {
   font-size: clamp(22px, 1.8vw, 28px);
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: rgba(255,255,255,0.90);
+  color: #fff;
   transition: opacity 0.2s ease;
   line-height: 1.2;
   margin-bottom: clamp(24px, 3vh, 40px);
 }
-.we-contact-email:hover { opacity: 0.5; }
+.we-contact-email:hover { opacity: 0.7; }
 
 .we-contact-details {
   display: flex;
@@ -1163,11 +1163,11 @@ img.team-photo {
 .we-contact-detail {
   display: block;
   font-size: clamp(12px, 0.9vw, 14px);
-  color: rgba(255,255,255,0.50);
+  color: rgba(255,255,255,0.70);
   line-height: 1.6;
   transition: color 0.2s ease;
 }
-a.we-contact-detail:hover { color: rgba(255,255,255,0.80); }
+a.we-contact-detail:hover { color: #fff; }
 
 /* ── Footer ─────────────────────────────────────────────────── */
 .we-footer {
@@ -1175,7 +1175,7 @@ a.we-contact-detail:hover { color: rgba(255,255,255,0.80); }
   align-items: flex-end;
   justify-content: space-between;
   padding: clamp(32px, 4vh, 56px) var(--pad-x) clamp(24px, 3vh, 40px);
-  border-top: 1px solid rgba(0,0,0,0.10);
+  border-top: 1px solid rgba(255,255,255,0.20);
 }
 
 .we-footer-meta {
@@ -1211,7 +1211,7 @@ a.we-contact-detail:hover { color: rgba(255,255,255,0.80); }
 .we-footer-meta span {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
-  color: rgba(0,0,0,0.55);
+  color: rgba(255,255,255,0.65);
   text-transform: uppercase;
   font-family: 'Roboto Mono', monospace;
 }
