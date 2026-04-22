@@ -2129,5 +2129,29 @@
     });
   </script>
 
+  <!-- ── Font size adjuster (editor tool) ── -->
+  <div id="fgc-sizer" style="position:fixed;bottom:24px;left:24px;z-index:9999;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(0,0,0,0.12);border-radius:100px;padding:6px 14px;box-shadow:0 2px 12px rgba(0,0,0,0.1);font-family:var(--font);font-size:11px;letter-spacing:0.08em;color:rgba(0,0,0,0.5);user-select:none;">
+    <span style="text-transform:uppercase;letter-spacing:0.12em;font-size:10px;">Size</span>
+    <button onclick="fgcSizerAdj(-0.05)" style="background:none;border:none;cursor:pointer;font-size:16px;color:rgba(0,0,0,0.5);padding:0 2px;line-height:1;">−</button>
+    <span id="fgc-sizer-pct" style="min-width:36px;text-align:center;font-size:11px;">100%</span>
+    <button onclick="fgcSizerAdj(0.05)" style="background:none;border:none;cursor:pointer;font-size:16px;color:rgba(0,0,0,0.5);padding:0 2px;line-height:1;">+</button>
+  </div>
+  <script>
+    (function(){
+      var scale = parseFloat(localStorage.getItem('fgc-size-scale') || '1');
+      var target = document.querySelector('.we-section');
+      function apply() {
+        if (target) target.style.zoom = scale;
+        document.getElementById('fgc-sizer-pct').textContent = Math.round(scale * 100) + '%';
+        localStorage.setItem('fgc-size-scale', scale);
+      }
+      apply();
+      window.fgcSizerAdj = function(delta) {
+        scale = Math.min(1.5, Math.max(0.6, +(scale + delta).toFixed(2)));
+        apply();
+      };
+    })();
+  </script>
+
 </body>
 </html>
