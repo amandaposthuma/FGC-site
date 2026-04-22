@@ -181,7 +181,6 @@ body::after {
   justify-content: center;
   flex-shrink: 0;
   width: 200px;
-  margin-left: calc(-1 * var(--pad-x));
 }
 
 @media (min-width: 1200px) {
@@ -530,8 +529,9 @@ body::after {
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: center;          /* horizontal center */
-  justify-content: center;      /* vertical center */
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: clamp(20px, 3vw, 48px);
   overflow: hidden;
   z-index: 2;
 }
@@ -682,6 +682,8 @@ body::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  background: var(--bg);
 }
 
 @media (min-width: 1200px) {
