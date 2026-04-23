@@ -1309,7 +1309,7 @@
                 <div class="approach-tilt__head">
                   <span class="approach-tilt__title">Global</span>
                 </div>
-                <p class="approach-tilt__desc">Headquartered in Miami with deep roots in Latin America and a network spanning the world's key financial jurisdictions. We understand the rules of every arena you operate in.</p>
+                <p class="approach-tilt__desc">Headquartered in Miami, with deep roots in Latin America, particularly Brazil, and a network of clients and partners around the world. This gives us the global acumen, jurisdictional knowledge, and language fluency to serve clients wherever they are.</p>
                 <span class="approach-tilt__rule"></span>
               </article>
 
@@ -1635,7 +1635,10 @@
         <div class="we-block brief-outer" id="insights">
           <div class="brief-sticky">
             <div class="brief-sticky-header">
-              <button id="brief-view-btn" class="brief-view-btn">View All Newsletters</button>
+              <button id="brief-view-btn" class="brief-view-btn" title="Toggle view">
+                <span class="bvb-scroll-icon">← Scroll View</span>
+                <span class="bvb-grid-icon">View All</span>
+              </button>
             </div>
 
             <div class="brief-track-wrap">
@@ -1763,12 +1766,12 @@
               </div>
             </div>
 
+            <div class="brief-grid-view" id="brief-grid-view" hidden>
+              <div class="brief-grid"></div>
+            </div>
+
           </div>
 
-        </div>
-
-        <div class="brief-grid-view" id="brief-grid-view" hidden>
-          <div class="brief-grid"></div>
         </div>
 
         <!-- ── Contact ── -->
@@ -1839,7 +1842,7 @@
     /* ── 2. About Us statement — title-sized ── */
     /* ── About Us statement: true title-level size ── */
     .we-statement {
-      font-size: clamp(1.5rem, 2.2vw, 2.8rem) !important;
+      font-size: clamp(2.8rem, 4.5vw, 6rem) !important;
       line-height: 1.15 !important;
       font-weight: 300 !important;
       letter-spacing: -0.02em !important;
@@ -2096,7 +2099,33 @@
       display: inline-flex !important;
       align-items: center !important;
     }
-    /* ── 11. Newsletter button: clean styling, no caps ── */
+    /* ── 11. Newsletter view toggle button ── */
+    /* Swap: in grid mode hide scroll track, show grid in place */
+    .brief--grid-mode .brief-track-wrap { display: none !important; }
+    .brief--grid-mode .brief-grid-view  { display: block !important; }
+    .brief--grid-mode .brief-sticky     { pointer-events: auto !important; opacity: 1 !important; }
+
+    /* Button shows one icon at a time */
+    .brief-view-btn .bvb-scroll-icon { display: none; }
+    .brief-view-btn .bvb-grid-icon   { display: inline-flex; align-items: center; gap: 6px; }
+    .brief--grid-mode .brief-view-btn .bvb-scroll-icon { display: inline-flex; align-items: center; gap: 6px; }
+    .brief--grid-mode .brief-view-btn .bvb-grid-icon   { display: none; }
+
+    /* Grid tile layout inside section */
+    .brief-grid-view {
+      padding: clamp(16px, 3vw, 40px) clamp(24px, 5vw, 80px) clamp(24px, 4vh, 60px) !important;
+      background: transparent !important;
+    }
+    .brief-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+      gap: 16px !important;
+    }
+    .brief-grid .brief-card {
+      width: auto !important;
+      flex: none !important;
+    }
+
     .brief-view-btn {
       display: inline-flex !important;
       text-transform: none !important;
@@ -2400,11 +2429,9 @@
       if (isGrid) {
         briefOuter.classList.add('brief--grid-mode');
         gridView.removeAttribute('hidden');
-        viewBtn.textContent = 'Scroll View';
       } else {
         briefOuter.classList.remove('brief--grid-mode');
         gridView.setAttribute('hidden', '');
-        viewBtn.textContent = 'View All';
       }
     });
   })();
@@ -3116,7 +3143,7 @@
       ];
       var doubled = ITEMS.concat(ITEMS);
       var inner = doubled.map(function(t){
-        return '<span><span class="tk-dot">◆</span>' + t + '</span>';
+        return '<span><span class="tk-dot">■</span>' + t + '</span>';
       }).join('');
       var ticker = document.createElement('div');
       ticker.id = 'fgc-ticker';
@@ -3386,6 +3413,156 @@
 
     document.querySelectorAll('.fgc-word-reveal').forEach(function(el) {
       revealIO.observe(el);
+    });
+
+  })();
+  </script>
+
+  <!-- ═══════════ POP LAYER ═══════════ -->
+  <style>
+
+    /* ── 1. Scroll progress bar ── */
+    #fgc-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--fgc-accent);
+      z-index: 100000;
+      pointer-events: none;
+      transition: width 0.1s linear;
+    }
+
+    /* ── 2. Hero subhead char reveal ── */
+    .shed-subhead .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .shed-subhead.chars-visible .char { opacity: 1; transform: translateY(0); }
+
+    /* ── 3. Section label slide-in ── */
+    .we-col-nav > li > button {
+      transform: translateX(-8px);
+      opacity: 0.001;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.5s ease, color 0.3s ease !important;
+    }
+    .we-col-nav.labels-visible > li > button {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* ── 4. Active nav orange left bar — removed ── */
+
+    /* ── 5. Team card 3D tilt ── */
+    .team-card {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    /* ── 6. Contact email underline wipe ── */
+    .we-contact-email {
+      position: relative;
+      text-decoration: none !important;
+    }
+    .we-contact-email::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0%; height: 1px;
+      background: currentColor;
+      transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .we-contact-email:hover::after { width: 100%; }
+
+    /* ── 7. Ticker separator: orange square ── */
+    #fgc-ticker-track .tk-dot { font-size: 0.55em; vertical-align: middle; }
+
+  </style>
+
+  <script>
+  (function() {
+
+    /* ── 1. Scroll progress bar ── */
+    var bar = document.createElement('div');
+    bar.id = 'fgc-progress';
+    document.body.appendChild(bar);
+    window.addEventListener('scroll', function() {
+      var s = document.documentElement;
+      var pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+      bar.style.width = pct + '%';
+    }, { passive: true });
+
+    /* ── 2. Hero subhead char reveal ── */
+    var subhead = document.querySelector('.shed-subhead');
+    if (subhead) {
+      var text = subhead.textContent;
+      subhead.innerHTML = text.split('').map(function(ch) {
+        return ch === ' ' ? ' ' : '<span class="char">' + ch + '</span>';
+      }).join('');
+      var chars = subhead.querySelectorAll('.char');
+      setTimeout(function() {
+        subhead.classList.add('chars-visible');
+        chars.forEach(function(c, i) {
+          c.style.transitionDelay = (0.8 + i * 0.035) + 's';
+        });
+      }, 300);
+    }
+
+    /* ── 3. Section labels slide in once ── */
+    var navList = document.querySelector('.we-col-nav');
+    if (navList) {
+      setTimeout(function() { navList.classList.add('labels-visible'); }, 600);
+    }
+
+    /* ── 4. Active nav orange bar — driven by existing IntersectionObserver scroll ── */
+    /* Already handled by ::before pseudo-element + .active class from existing JS */
+
+    /* ── 5. Team card 3D tilt ── */
+    document.querySelectorAll('.team-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width  - 0.5;
+        var y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = 'perspective(600px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 6) + 'deg) scale(1.02)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = 'perspective(600px) rotateY(0) rotateX(0) scale(1)';
+      });
+    });
+
+    /* ── 6. Contact email letter-scramble on hover ── */
+    var emailEl = document.querySelector('.we-contact-email');
+    if (emailEl) {
+      var originalText = emailEl.textContent.trim();
+      var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      var scrambleTimer = null;
+      emailEl.addEventListener('mouseenter', function() {
+        var steps = 0;
+        var maxSteps = 10;
+        clearInterval(scrambleTimer);
+        scrambleTimer = setInterval(function() {
+          steps++;
+          if (steps >= maxSteps) { emailEl.textContent = originalText; clearInterval(scrambleTimer); return; }
+          emailEl.textContent = originalText.split('').map(function(ch, i) {
+            if (ch === '@' || ch === '.' || ch === ' ' || ch === '↗') return ch;
+            return steps / maxSteps > i / originalText.length
+              ? ch
+              : chars[Math.floor(Math.random() * chars.length)];
+          }).join('');
+        }, 45);
+      });
+      emailEl.addEventListener('mouseleave', function() {
+        clearInterval(scrambleTimer);
+        emailEl.textContent = originalText;
+      });
+    }
+
+    /* ── 7. Ticker: replace ◆ with solid orange square ■ ── */
+    document.querySelectorAll('#fgc-ticker-track .tk-dot').forEach(function(dot) {
+      dot.textContent = '■';
     });
 
   })();
