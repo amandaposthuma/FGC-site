@@ -1895,26 +1895,29 @@
 
     /* ── 5. Approach section — overflow fix + wider / larger cards ── */
     .approach-buzz {
-      grid-template-columns: minmax(0, 0.68fr) minmax(0, 1.32fr) !important;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr) !important;
+      overflow: visible !important;
     }
     .approach-buzz__left {
       overflow: visible !important;
+      z-index: 5 !important;
     }
     /* Allow cycling word to show fully — clip only vertically */
     .abt-cycle {
-      overflow-x: visible !important;
-      overflow-y: clip !important;
-      width: 100% !important;
+      overflow: visible !important;
+      width: auto !important;
     }
     .approach-buzz__title {
-      font-size: clamp(22px, 3vw, 42px) !important;
+      font-size: clamp(20px, 2.4vw, 36px) !important;
       font-weight: 400 !important;
       line-height: 1.1 !important;
       letter-spacing: -0.02em !important;
+      overflow: visible !important;
     }
     .abt-word {
       color: var(--fgc-accent) !important;
       font-weight: 400 !important;
+      white-space: nowrap !important;
     }
     /* Cards: no clipping, full shadows visible */
     .approach-buzz__right {
