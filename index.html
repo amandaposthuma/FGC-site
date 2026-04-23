@@ -2677,7 +2677,7 @@
       '.we-contact-email', '.we-contact-detail',
       '.approach-buzz__intro', '.approach-tilt__body', '.abt-prefix'
     ];
-    var LS_PREFIX = 'fgc-e5-';
+    var LS_PREFIX = 'fgc-e6-';
     var editables = [];
 
     function buildKey(sel, idxWithinSel) {
@@ -2760,7 +2760,7 @@
       var toRemove = [];
       for (var i = 0; i < localStorage.length; i++) {
         var k = localStorage.key(i);
-        if (k && (k.indexOf('fgc-edit-') === 0 || k.indexOf('fgc-e2-') === 0)) toRemove.push(k);
+        if (k && k.indexOf('fgc-e') === 0 && k.indexOf(LS_PREFIX) !== 0) toRemove.push(k);
       }
       toRemove.forEach(function (k) { localStorage.removeItem(k); });
     }
