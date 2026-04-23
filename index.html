@@ -483,11 +483,6 @@
       <div class="bg-frame bf-3"></div>
       <div class="bg-frame bf-4"></div>
       <div class="bg-frame bf-5"></div>
-      <div class="bg-frame bf-6"></div>
-      <div class="bg-frame bf-7"></div>
-      <div class="bg-frame bf-8"></div>
-      <div class="bg-frame bf-9"></div>
-      <div class="bg-frame bf-10"></div>
     </div>
     <div class="shed-vignette" aria-hidden="true"></div>
 
@@ -708,24 +703,19 @@
       opacity:0;
     }
     #hero.hero-shed.revealed .bg-frame{
-      animation: bgCycle 10s infinite;
+      animation: bgCurtain 10s infinite;
     }
     #hero.hero-shed.revealed .bf-1{ animation-delay: 0s; }
-    #hero.hero-shed.revealed .bf-2{ animation-delay: 1s; }
-    #hero.hero-shed.revealed .bf-3{ animation-delay: 2s; }
-    #hero.hero-shed.revealed .bf-4{ animation-delay: 3s; }
-    #hero.hero-shed.revealed .bf-5{ animation-delay: 4s; }
-    #hero.hero-shed.revealed .bf-6{ animation-delay: 5s; }
-    #hero.hero-shed.revealed .bf-7{ animation-delay: 6s; }
-    #hero.hero-shed.revealed .bf-8{ animation-delay: 7s; }
-    #hero.hero-shed.revealed .bf-9{ animation-delay: 8s; }
-    #hero.hero-shed.revealed .bf-10{ animation-delay: 9s; }
-    @keyframes bgCycle{
-      0%   { opacity:1; transform: scale(1.04); }
-      8%   { opacity:1; transform: scale(1.00); }
-      21%  { opacity:0; }
-      98%  { opacity:0; }
-      100% { opacity:1; transform: scale(1.06); }
+    #hero.hero-shed.revealed .bf-2{ animation-delay: 2s; }
+    #hero.hero-shed.revealed .bf-3{ animation-delay: 4s; }
+    #hero.hero-shed.revealed .bf-4{ animation-delay: 6s; }
+    #hero.hero-shed.revealed .bf-5{ animation-delay: 8s; }
+    @keyframes bgCurtain{
+      0%   { clip-path: inset(0 0 100% 0); opacity:1; }
+      6%   { clip-path: inset(0 0 0% 0);   opacity:1; }
+      18%  { clip-path: inset(0 0 0% 0);   opacity:1; }
+      22%  { opacity:0; clip-path: inset(0 0 0% 0); }
+      100% { opacity:0; }
     }
     .shed-vignette{
       position:absolute; inset:0; z-index:2; pointer-events:none;
@@ -735,16 +725,11 @@
     }
 
     /* —— Photo placeholders: real editorial imagery (Unsplash B&W-friendly) —— */
-    .ff-1, .bf-1{ background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=2400&q=80'); } /* city night aerial */
-    .ff-2, .bf-2{ background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=2400&q=80'); } /* NYC skyline */
-    .ff-3, .bf-3{ background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2400&q=80'); } /* pen on document */
-    .ff-4, .bf-4{ background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2400&q=80'); } /* business handshake */
-    .ff-5, .bf-5{ background-image: url('https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&w=2400&q=80'); } /* Miami beach aerial */
-    .bf-6{ background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80'); }         /* boardroom table */
-    .bf-7{ background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2400&q=80'); }         /* executive portrait */
-    .bf-8{ background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=80'); }         /* globe from space */
-    .bf-9{ background-image: url('https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?auto=format&fit=crop&w=2400&q=80'); }         /* luxury interior */
-    .bf-10{ background-image: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2400&q=80'); }        /* city aerial */
+    .bf-1{ background-image: url('hero%20photos/image-1776961336566.png'); }
+    .bf-2{ background-image: url('hero%20photos/image-1776961342822.png'); }
+    .bf-3{ background-image: url('hero%20photos/image-1776961346345.png'); }
+    .bf-4{ background-image: url('hero%20photos/image-1776961352323.png'); }
+    .bf-5{ background-image: url('hero%20photos/image-1776961357879.png'); }
     .ff-6      { background-image: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2400&q=80'); }
     .ff-7      { background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=2400&q=80'); }
     .ff-8      { background-image: url('https://images.unsplash.com/photo-1519619091416-f5d7e5200702?auto=format&fit=crop&w=2400&q=80'); }
@@ -1617,7 +1602,7 @@
                   list.offsetHeight; // force reflow before next transition
                 }, 700);
               }
-            }, 2600);
+            }, 1000);
           }
 
           if (document.readyState === 'loading') {
