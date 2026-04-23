@@ -1301,7 +1301,7 @@
                 <div class="approach-tilt__head">
                   <span class="approach-tilt__title">Integrated</span>
                 </div>
-                <p class="approach-tilt__desc">Every decision considers the whole picture of your wealth across jurisdictions, entities, and generations. A tax decision shapes your corporate structure, which shapes your real estate strategy — we account for all of it.</p>
+                <p class="approach-tilt__desc">We believe that a tax decision shapes your corporate structure, which shapes your real estate strategy, and so on. This is why our approach is integrated by design. We consider the whole picture of each client's wealth, build a strategy that fits their needs, and see it through from planning to execution.</p>
                 <span class="approach-tilt__rule"></span>
               </article>
 
@@ -1309,7 +1309,7 @@
                 <div class="approach-tilt__head">
                   <span class="approach-tilt__title">Global</span>
                 </div>
-                <p class="approach-tilt__desc">Headquartered in Miami, with deep roots in Latin America, particularly Brazil, and a network of clients and partners around the world. This gives us the global acumen, jurisdictional knowledge, and language fluency to serve clients wherever they are.</p>
+                <p class="approach-tilt__desc">We have a global footprint: headquartered in Miami, with deep roots in Latin America, particularly Brazil, and a network of clients and partners around the world. This gives us the global acumen, jurisdictional knowledge, and language fluency to serve clients wherever they are.</p>
                 <span class="approach-tilt__rule"></span>
               </article>
 
@@ -1317,7 +1317,7 @@
                 <div class="approach-tilt__head">
                   <span class="approach-tilt__title">Relationship&#8209;Driven</span>
                 </div>
-                <p class="approach-tilt__desc">One relationship, one point of contact. FGC builds relationships, not transactions — we orchestrate across your lawyers, accountants, and advisors so you never have to manage the complexity yourself.</p>
+                <p class="approach-tilt__desc">We orchestrate across your lawyers, accountants, and other professionals to deliver you simple solutions, no matter how complex the underlying structure. That is what we mean by one relationship: one point of contact and one integrated strategy.</p>
                 <span class="approach-tilt__rule"></span>
               </article>
 
@@ -1325,7 +1325,7 @@
                 <div class="approach-tilt__head">
                   <span class="approach-tilt__title">Long-Term</span>
                 </div>
-                <p class="approach-tilt__desc">We guide our clients through every chapter of their lives. When your circumstances shift, so does our strategy. Always tailored, never templated, built for the long term.</p>
+                <p class="approach-tilt__desc">We guide our clients through every chapter. When their lives shift, so does our strategy.</p>
                 <span class="approach-tilt__rule"></span>
               </article>
             </div>
@@ -1842,7 +1842,7 @@
     /* ── 2. About Us statement — title-sized ── */
     /* ── About Us statement: true title-level size ── */
     .we-statement {
-      font-size: clamp(2.8rem, 4.5vw, 6rem) !important;
+      font-size: clamp(1.8rem, 2.8vw, 3.4rem) !important;
       line-height: 1.15 !important;
       font-weight: 300 !important;
       letter-spacing: -0.02em !important;
@@ -3533,32 +3533,7 @@
       });
     });
 
-    /* ── 6. Contact email letter-scramble on hover ── */
-    var emailEl = document.querySelector('.we-contact-email');
-    if (emailEl) {
-      var originalText = emailEl.textContent.trim();
-      var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-      var scrambleTimer = null;
-      emailEl.addEventListener('mouseenter', function() {
-        var steps = 0;
-        var maxSteps = 10;
-        clearInterval(scrambleTimer);
-        scrambleTimer = setInterval(function() {
-          steps++;
-          if (steps >= maxSteps) { emailEl.textContent = originalText; clearInterval(scrambleTimer); return; }
-          emailEl.textContent = originalText.split('').map(function(ch, i) {
-            if (ch === '@' || ch === '.' || ch === ' ' || ch === '↗') return ch;
-            return steps / maxSteps > i / originalText.length
-              ? ch
-              : chars[Math.floor(Math.random() * chars.length)];
-          }).join('');
-        }, 45);
-      });
-      emailEl.addEventListener('mouseleave', function() {
-        clearInterval(scrambleTimer);
-        emailEl.textContent = originalText;
-      });
-    }
+    /* ── 6. Email scramble — removed ── */
 
     /* ── 7. Ticker: replace ◆ with solid orange square ■ ── */
     document.querySelectorAll('#fgc-ticker-track .tk-dot').forEach(function(dot) {
