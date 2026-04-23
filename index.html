@@ -203,7 +203,7 @@
       font-size: clamp(1.1rem, 1.5vw, 1.4rem);
       line-height: 1.65;
       color: #333;
-      max-width: 44ch;
+      max-width: none;
       margin: 0 0 clamp(1.75rem, 3.5vh, 2.5rem) 0;
     }
     .approach-buzz__meta{
@@ -625,15 +625,24 @@
       transform: scale(1);
       opacity:1;
     }
+    @keyframes ipp-strobe {
+      0%   { opacity:0; filter: grayscale(1) brightness(4) contrast(2); transform: scale(1.04); }
+      12%  { opacity:1; filter: grayscale(1) brightness(2) contrast(1.6); transform: scale(1.02); }
+      40%  { filter: grayscale(1) brightness(1.1) contrast(1.15); transform: scale(1.005); }
+      100% { filter: grayscale(1) contrast(1.08) brightness(.82); transform: scale(1); }
+    }
     .ipp-img{
       position:absolute; inset:0;
       background-size: cover;
       background-position: center;
       filter: grayscale(1) contrast(1.08) brightness(.82);
       opacity:0;
-      transition: opacity .08s steps(1,end);
+      transition: none;
     }
-    .ipp-img.is-active{ opacity:1; }
+    .ipp-img.is-active{
+      opacity:1;
+      animation: ipp-strobe 0.28s cubic-bezier(.2,.9,.2,1) forwards;
+    }
     /* 10 editorial B&W images — legal, finance, real estate, global cities */
     .ipp-1 { background-image:url('https://images.unsplash.com/photo-1756363212224-dca8af2eac90?auto=format&fit=crop&w=1600&q=80'); } /* dart bullseye */
     .ipp-2 { background-image:url('https://images.unsplash.com/photo-1718809070379-775da172aff0?auto=format&fit=crop&w=1600&q=80'); } /* city skyline night */
@@ -711,21 +720,21 @@
       opacity:0;
     }
     #hero.hero-shed.revealed .bg-frame{
-      animation: bgCycle 20s infinite;
+      animation: bgCycle 10s infinite;
     }
     #hero.hero-shed.revealed .bf-1{ animation-delay: 0s; }
-    #hero.hero-shed.revealed .bf-2{ animation-delay: 2s; }
-    #hero.hero-shed.revealed .bf-3{ animation-delay: 4s; }
-    #hero.hero-shed.revealed .bf-4{ animation-delay: 6s; }
-    #hero.hero-shed.revealed .bf-5{ animation-delay: 8s; }
-    #hero.hero-shed.revealed .bf-6{ animation-delay: 10s; }
-    #hero.hero-shed.revealed .bf-7{ animation-delay: 12s; }
-    #hero.hero-shed.revealed .bf-8{ animation-delay: 14s; }
-    #hero.hero-shed.revealed .bf-9{ animation-delay: 16s; }
-    #hero.hero-shed.revealed .bf-10{ animation-delay: 18s; }
+    #hero.hero-shed.revealed .bf-2{ animation-delay: 1s; }
+    #hero.hero-shed.revealed .bf-3{ animation-delay: 2s; }
+    #hero.hero-shed.revealed .bf-4{ animation-delay: 3s; }
+    #hero.hero-shed.revealed .bf-5{ animation-delay: 4s; }
+    #hero.hero-shed.revealed .bf-6{ animation-delay: 5s; }
+    #hero.hero-shed.revealed .bf-7{ animation-delay: 6s; }
+    #hero.hero-shed.revealed .bf-8{ animation-delay: 7s; }
+    #hero.hero-shed.revealed .bf-9{ animation-delay: 8s; }
+    #hero.hero-shed.revealed .bf-10{ animation-delay: 9s; }
     @keyframes bgCycle{
-      0%   { opacity:1; transform: scale(1.06); }
-      18%  { opacity:1; transform: scale(1.00); }
+      0%   { opacity:1; transform: scale(1.04); }
+      8%   { opacity:1; transform: scale(1.00); }
       21%  { opacity:0; }
       98%  { opacity:0; }
       100% { opacity:1; transform: scale(1.06); }
@@ -738,16 +747,16 @@
     }
 
     /* —— Photo placeholders: real editorial imagery (Unsplash B&W-friendly) —— */
-    .ff-1, .bf-1{ background-image: url('https://images.unsplash.com/photo-1756363212224-dca8af2eac90?auto=format&fit=crop&w=2400&q=80'); } /* dart bullseye */
-    .ff-2, .bf-2{ background-image: url('https://images.unsplash.com/photo-1718809070379-775da172aff0?auto=format&fit=crop&w=2400&q=80'); } /* city skyline night */
-    .ff-3, .bf-3{ background-image: url('https://images.unsplash.com/photo-1758691737492-48e8fdd336f7?auto=format&fit=crop&w=2400&q=80'); } /* team celebrating */
-    .ff-4, .bf-4{ background-image: url('https://images.unsplash.com/photo-1729062188586-0406bfaf5b18?auto=format&fit=crop&w=2400&q=80'); } /* hands together */
-    .ff-5, .bf-5{ background-image: url('https://images.unsplash.com/photo-1688395197725-c29fc740ed1b?auto=format&fit=crop&w=2400&q=80'); } /* woman fist raised */
-    .bf-6{ background-image: url('https://images.unsplash.com/photo-1713946598432-9bb1f09acf9b?auto=format&fit=crop&w=2400&q=80'); }         /* businessman smiling */
-    .bf-7{ background-image: url('https://images.unsplash.com/photo-1631015348651-0e9f3aba25a9?auto=format&fit=crop&w=2400&q=80'); }         /* book pages reading */
-    .bf-8{ background-image: url('https://images.unsplash.com/photo-1729867302128-1448c291cd41?auto=format&fit=crop&w=2400&q=80'); }         /* crowd at event */
-    .bf-9{ background-image: url('https://images.unsplash.com/photo-1729938413350-cfb6fb1c018a?auto=format&fit=crop&w=2400&q=80'); }         /* chess */
-    .bf-10{ background-image: url('https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?auto=format&fit=crop&w=2400&q=80'); }        /* handshake */
+    .ff-1, .bf-1{ background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=2400&q=80'); } /* city night aerial */
+    .ff-2, .bf-2{ background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=2400&q=80'); } /* NYC skyline */
+    .ff-3, .bf-3{ background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2400&q=80'); } /* pen on document */
+    .ff-4, .bf-4{ background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2400&q=80'); } /* business handshake */
+    .ff-5, .bf-5{ background-image: url('https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&w=2400&q=80'); } /* Miami beach aerial */
+    .bf-6{ background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80'); }         /* boardroom table */
+    .bf-7{ background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2400&q=80'); }         /* executive portrait */
+    .bf-8{ background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=80'); }         /* globe from space */
+    .bf-9{ background-image: url('https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?auto=format&fit=crop&w=2400&q=80'); }         /* luxury interior */
+    .bf-10{ background-image: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2400&q=80'); }        /* city aerial */
     .ff-6      { background-image: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2400&q=80'); }
     .ff-7      { background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=2400&q=80'); }
     .ff-8      { background-image: url('https://images.unsplash.com/photo-1519619091416-f5d7e5200702?auto=format&fit=crop&w=2400&q=80'); }
@@ -1960,8 +1969,9 @@
       line-height: 1.65 !important;
     }
     .approach-buzz__intro {
-      font-size: var(--fs-body) !important;
-      line-height: 1.68 !important;
+      font-size: clamp(1.05rem, 1.5vw, 1.35rem) !important;
+      line-height: 1.7 !important;
+      max-width: none !important;
     }
 
     /* ── 6. Track Record — animated rows (JS below sets .tr-visible) ── */
@@ -3234,10 +3244,17 @@
       inset: 0;
       z-index: 9999;
       pointer-events: none;
-      opacity: 0.032;
+      opacity: 0.12;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
       background-repeat: repeat;
       background-size: 200px 200px;
+    }
+
+    /* ── 1b. Dot grid — light dots on grey sections (embossed feel) ── */
+    #services, #track-record, #clients, #contact {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.55) 1px, transparent 1px) !important;
+      background-size: 20px 20px !important;
+      background-color: #f4f3f1 !important;
     }
 
     /* ── 2. ALTERNATING SECTION BACKGROUNDS ── */
