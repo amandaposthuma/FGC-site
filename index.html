@@ -1052,17 +1052,7 @@
       padding: 48px 56px;
     }
     /* G logo mark leads the row */
-    .g-mark-logo{
-      order: -2;
-      flex: 0 0 auto;
-      width: 27px !important;
-      height: 47px !important;
-      mask-size: 136px 47px !important;
-      -webkit-mask-size: 136px 47px !important;
-      mask-position: -32px center !important;
-      -webkit-mask-position: -32px center !important;
-      transition: transform .4s cubic-bezier(.2,.9,.2,1), opacity .3s ease;
-    }
+    .g-mark-logo{ display: none !important; }
     .we-row-n{
       display: none !important;
     }
@@ -2838,7 +2828,7 @@
     .fgc-accent-swatch.active { border-color:#000; }
   </style>
 
-  <div id="fgc-editor">
+  <div id="fgc-editor" style="display:none">
     <div id="fgc-editor-panel">
       <!-- Size -->
       <div class="fgc-ctrl">
