@@ -1749,11 +1749,23 @@
 
         <!-- ── Contact ── -->
         <div class="we-block we-block--dark" id="contact">
-          <a href="mailto:contact@fgcadvisors.com" class="we-contact-email">contact@fgcadvisors.com ↗</a>
-          <div class="we-contact-details">
-            <a href="tel:+13054323009" class="we-contact-detail">+1 305 432 3009</a>
-            <span class="we-contact-detail">1001 Brickell Bay Drive #2110, Miami FL 33131</span>
-            <a href="https://fgcadvisors.com" class="we-contact-detail" target="_blank">fgcadvisors.com</a>
+
+          <!-- Editorial CTA -->
+          <div class="fgc-contact-cta">
+            <p class="fgc-contact-eyebrow">Ready to simplify?</p>
+            <a href="mailto:contact@fgcadvisors.com" class="fgc-contact-big we-contact-email">
+              contact@<wbr>fgcadvisors.com
+              <span class="fgc-contact-arrow">↗</span>
+            </a>
+            <p class="fgc-contact-sub">One email. One relationship. Everything else follows.</p>
+          </div>
+
+          <div class="fgc-contact-meta">
+            <div class="we-contact-details">
+              <a href="tel:+13054323009" class="we-contact-detail">+1 305 432 3009</a>
+              <span class="we-contact-detail">1001 Brickell Bay Drive #2110, Miami FL 33131</span>
+              <a href="https://fgcadvisors.com" class="we-contact-detail" target="_blank">fgcadvisors.com</a>
+            </div>
           </div>
           <div class="we-footer">
             <div class="we-footer-meta">
@@ -3467,6 +3479,165 @@
     /* ── 7. Ticker separator: orange square ── */
     #fgc-ticker-track .tk-dot { font-size: 0.55em; vertical-align: middle; }
 
+    /* ══════════════════════════════════════════
+       MOBILE PASS — max-width: 767px
+       ══════════════════════════════════════════ */
+    @media (max-width: 767px) {
+
+      /* Hide cursor on touch devices */
+      html { cursor: auto !important; }
+      #fgc-cursor, #fgc-cursor-ring { display: none !important; }
+
+      /* Nav: full width, logo left-aligned */
+      .nav-logo {
+        width: auto !important;
+        min-width: 0 !important;
+        justify-content: flex-start !important;
+      }
+
+      /* Hero: stack subhead + blurb vertically, readable size */
+      .shed-bottom {
+        flex-direction: column !important;
+        gap: 16px !important;
+        align-items: flex-start !important;
+      }
+      .shed-blurb {
+        margin-left: 0 !important;
+        text-align: left !important;
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem) !important;
+        max-width: 100% !important;
+      }
+      .shed-subhead {
+        font-size: clamp(1.1rem, 5vw, 1.5rem) !important;
+      }
+
+      /* About statement */
+      .we-statement {
+        font-size: clamp(1.5rem, 6vw, 2rem) !important;
+      }
+
+      /* Sidebar nav: horizontal scroll strip on mobile */
+      .we-col-label {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 12px 20px !important;
+        gap: 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+        scrollbar-width: none !important;
+      }
+      .we-col-label::-webkit-scrollbar { display: none; }
+      .we-col-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 24px !important;
+        flex-wrap: nowrap !important;
+        white-space: nowrap !important;
+      }
+      .we-col-nav > li { margin-bottom: 0 !important; }
+      .we-col-nav > li > button {
+        font-size: 0.82rem !important;
+        transform: none !important;
+        opacity: 1 !important;
+        white-space: nowrap !important;
+        justify-content: flex-start !important;
+      }
+      .we-col-subnav { display: none !important; }
+
+      /* Approach section: single column */
+      .approach-buzz {
+        grid-template-columns: 1fr !important;
+      }
+      .approach-buzz__left {
+        position: static !important;
+        height: auto !important;
+      }
+      .approach-buzz__intro {
+        font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
+      }
+      .approach-buzz__title {
+        font-size: clamp(1.2rem, 5.5vw, 1.8rem) !important;
+      }
+      .approach-tilt {
+        width: 100% !important;
+        margin: 0 !important;
+      }
+      .approach-buzz__right {
+        padding: 0 !important;
+      }
+
+      /* Track Record: stack rows, reduce numbers */
+      .tr-num {
+        font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
+      }
+      .tr-label {
+        font-size: 0.72rem !important;
+        max-width: 55% !important;
+      }
+
+      /* Clients: stack label above cycling text */
+      .clients-sticky {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 0 20px !important;
+      }
+      .clients-lhs {
+        width: 100% !important;
+      }
+      .clients-label {
+        font-size: clamp(0.8rem, 3.5vw, 1rem) !important;
+      }
+      .client-item {
+        font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
+      }
+      .we-block--clients {
+        min-height: 60vh !important;
+      }
+
+      /* Brief cards: full-width on mobile */
+      .brief-track-wrap { overflow-x: auto !important; }
+      .brief-card { min-width: 85vw !important; }
+      .brief-view-btn { font-size: 0.78rem !important; padding: 6px 12px !important; }
+
+      /* Team cards: 1 column */
+      .abm-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* Contact: wrap email CTA */
+      .fgc-contact-big {
+        font-size: clamp(1.6rem, 7vw, 2.8rem) !important;
+      }
+      .we-contact-email {
+        font-size: clamp(1.2rem, 5.5vw, 1.8rem) !important;
+        word-break: break-all !important;
+      }
+
+      /* Dot grid — remove on mobile for performance */
+      #services, #track-record, #clients, #contact {
+        background-image: none !important;
+      }
+
+      /* Section labels slide-in — skip on mobile, show immediately */
+      .we-col-nav > li > button {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+
+      /* Team card tilt — disable on touch */
+      .team-card { transform: none !important; }
+
+      /* Ticker: slightly smaller on mobile */
+      #fgc-ticker { padding: 16px 0 !important; }
+      #fgc-ticker-track { font-size: 10px !important; gap: 2rem !important; }
+
+      /* Progress bar stays */
+    }
+
   </style>
 
   <script>
@@ -3507,8 +3678,9 @@
     /* ── 4. Active nav orange bar — driven by existing IntersectionObserver scroll ── */
     /* Already handled by ::before pseudo-element + .active class from existing JS */
 
-    /* ── 5. Team card 3D tilt ── */
-    document.querySelectorAll('.team-card').forEach(function(card) {
+    /* ── 5. Team card 3D tilt (desktop only) ── */
+    var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    if (!isTouch) document.querySelectorAll('.team-card').forEach(function(card) {
       card.addEventListener('mousemove', function(e) {
         var r = card.getBoundingClientRect();
         var x = (e.clientX - r.left) / r.width  - 0.5;
@@ -3518,14 +3690,145 @@
       card.addEventListener('mouseleave', function() {
         card.style.transform = 'perspective(600px) rotateY(0) rotateX(0) scale(1)';
       });
-    });
+    }); /* end isTouch check */
 
-    /* ── 6. Email scramble — removed ── */
+    /* ── 6. Contact CTA redesign ── */
+    .fgc-contact-cta {
+      padding: clamp(3rem, 8vh, 7rem) 0 clamp(2rem, 5vh, 4rem);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: clamp(2rem, 4vh, 3rem);
+    }
+    .fgc-contact-eyebrow {
+      font-size: clamp(0.7rem, 0.9vw, 0.85rem) !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase !important;
+      color: var(--fgc-accent) !important;
+      margin-bottom: clamp(1rem, 2.5vh, 2rem) !important;
+      font-family: var(--font) !important;
+    }
+    .fgc-contact-big {
+      display: block !important;
+      font-size: clamp(2.2rem, 5.5vw, 7rem) !important;
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.03em !important;
+      line-height: 1.0 !important;
+      color: inherit !important;
+      text-decoration: none !important;
+      margin-bottom: clamp(1.5rem, 3vh, 2.5rem) !important;
+      transition: opacity 0.3s ease !important;
+      word-break: break-word !important;
+    }
+    .fgc-contact-big:hover { opacity: 0.6 !important; }
+    .fgc-contact-arrow {
+      display: inline-block;
+      color: var(--fgc-accent);
+      margin-left: 0.2em;
+      transition: transform 0.3s ease;
+      font-family: var(--font) !important;
+      font-size: 0.6em;
+      vertical-align: super;
+    }
+    .fgc-contact-big:hover .fgc-contact-arrow { transform: translate(4px, -4px); }
+    .fgc-contact-sub {
+      font-size: clamp(0.85rem, 1.1vw, 1.1rem) !important;
+      color: rgba(255,255,255,0.45) !important;
+      letter-spacing: 0.01em !important;
+      font-style: normal !important;
+    }
+    .fgc-contact-meta {
+      padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
+    }
+    /* Override the ::after underline wipe — not needed on the big CTA */
+    .fgc-contact-big::after { display: none !important; }
+
+    /* email scramble — removed */
 
     /* ── 7. Ticker: replace ◆ with solid orange square ■ ── */
     document.querySelectorAll('#fgc-ticker-track .tk-dot').forEach(function(dot) {
       dot.textContent = '■';
     });
+
+    /* ── 8. Hero image preload ── */
+    var heroPhotos = [
+      'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?auto=format&fit=crop&w=2400&q=80',
+      'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=2400&q=80'
+    ];
+    heroPhotos.forEach(function(src) {
+      var img = new Image();
+      img.src = src;
+    });
+
+    /* ── 9. Smooth momentum scroll ── */
+    (function() {
+      var target = 0;
+      var current = 0;
+      var ease = 0.10;
+      var raf;
+      var ticking = false;
+
+      /* Only run on desktop — mobile native scroll is better */
+      if (('ontouchstart' in window) || navigator.maxTouchPoints > 0) return;
+
+      /* Prevent native scroll, intercept wheel */
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+
+      /* Scrollable inner wrapper */
+      var scroller = document.querySelector('.we-section-wrap') || document.querySelector('.we-site') || document.body.parentElement;
+
+      /* Create a scroll container wrapping the main content */
+      var scrollWrap = document.createElement('div');
+      scrollWrap.id = 'fgc-smooth-wrap';
+      scrollWrap.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;overflow-y:scroll;overflow-x:hidden;';
+
+      /* Move body children into scrollWrap */
+      var section = document.querySelector('.we-section') ? document.querySelector('.we-section').closest('section') : null;
+
+      /* Simpler approach: just lerp window.scrollY equivalent using a wrapper */
+      /* Actually use a lightweight lerp on top of native scroll */
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+
+      /* Native scroll + lerp scroll indicator only — avoids breaking existing layout */
+      var lastY = window.scrollY;
+      window.addEventListener('wheel', function(e) {
+        target += e.deltaY * 0.8;
+        target = Math.max(0, Math.min(target, document.body.scrollHeight - window.innerHeight));
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(smoothStep);
+        }
+      }, { passive: true });
+
+      function smoothStep() {
+        current += (target - current) * ease;
+        if (Math.abs(target - current) > 0.5) {
+          window.scrollTo(0, current);
+          requestAnimationFrame(smoothStep);
+        } else {
+          window.scrollTo(0, target);
+          current = target;
+          ticking = false;
+        }
+      }
+
+      /* Keep target in sync if user uses keyboard / scrollbar */
+      window.addEventListener('scroll', function() {
+        if (!ticking) target = window.scrollY;
+      }, { passive: true });
+    })();
 
   })();
   </script>
