@@ -87,7 +87,7 @@
 
     /* Subtle accent dot at the end of the nav logo wordmark */
     .nav-logo { position: relative; }
-    /* (removed redundant orange square — the FGC-logo.png already contains the period mark) */
+    /* (removed redundant orange square — the FGC-logo-black.svg already contains the period mark) */
     /* Top-right fixed FGC logo: white over dark hero, black over light sections */
     #nav:not(.nav--light) .nav-logo img{ filter: invert(1) brightness(1.4); }
     #nav.nav--light .nav-logo img{ filter: brightness(0) saturate(100%); }
@@ -370,8 +370,8 @@
       background-color: currentColor;
       width: 37px;
       height: 64px;
-      -webkit-mask-image: url('FGC-logo.png');
-              mask-image: url('FGC-logo.png');
+      -webkit-mask-image: url('FGC-logo-black.svg');
+              mask-image: url('FGC-logo-black.svg');
       -webkit-mask-size: 186px 64px;
               mask-size: 186px 64px;
       -webkit-mask-position: -44px center;
@@ -390,8 +390,8 @@
       width: 0.58em;
       height: 1em;
       font-size: 0;   /* hide any text content */
-      -webkit-mask-image: url('FGC-logo.png');
-              mask-image: url('FGC-logo.png');
+      -webkit-mask-image: url('FGC-logo-black.svg');
+              mask-image: url('FGC-logo-black.svg');
       -webkit-mask-size: 2.9em 1em;
               mask-size: 2.9em 1em;
       -webkit-mask-position: -0.69em center;
@@ -416,7 +416,7 @@
   <!-- ═══════════ NAVIGATION ═══════════ -->
   <nav id="nav">
     <a href="/" class="nav-logo" aria-label="FGC Advisors home">
-      <img src="FGC-logo.png" alt="FGC." id="nav-logo-img">
+      <img src="FGC-logo-black.svg" alt="FGC." id="nav-logo-img">
     </a>
     <button id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -448,7 +448,7 @@
         <div class="intro-type-stage">
           <div class="intro-type-wrap">
             <div class="intro-logo-mask" id="introLogoMask">
-              <img src="FGC-logo.png" alt="FGC." class="intro-logo-full">
+              <img src="FGC-logo-black.svg" alt="FGC." class="intro-logo-full">
               <!-- Subliminal motion cue: a clockwise-sweeping orange arc anchored
                    under the G, framing the letter from below. Reinforces that the
                    G is a vector / arrow. Fades out when photos begin. -->
@@ -828,7 +828,7 @@
 
       // ───────────────────────── Sequence ─────────────────────────
       // The "typewriter" is actually the real FGC. logo asset revealed left-to-right
-      // via clip-path. Reveal splits are tuned to glyph widths in FGC-logo.png.
+      // via clip-path. Reveal splits are tuned to glyph widths in FGC-logo-black.svg.
       //
       //   0   – 400ms  : black, caret blinking alone
       //   400ms        : "F"    (≈22%)
