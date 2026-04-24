@@ -1558,7 +1558,7 @@
           }
 
           var active = N; // start at middle repetition
-          var OPS = [1, 0.28, 0.11, 0.05, 0.02];
+          var OPS = [1, 0.72, 0.48, 0.28, 0.14];
 
           function applyStyles(animate) {
             var h = allItems[0].offsetHeight;
@@ -1568,7 +1568,7 @@
             if (!animate) list.offsetHeight; // force reflow
             allItems.forEach(function(el, i) {
               var dist = Math.abs(i - active);
-              el.style.opacity = dist < OPS.length ? OPS[dist] : 0.02;
+              el.style.opacity = dist < OPS.length ? OPS[dist] : 0.10;
             });
           }
 
@@ -3432,24 +3432,11 @@
       transition: width 0.1s linear;
     }
 
-    /* ── 2. Hero subhead char reveal ── */
-    .shed-subhead .char {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    .shed-subhead.chars-visible .char { opacity: 1; transform: translateY(0); }
+    /* ── 2. Hero subhead char reveal — removed ── */
 
     /* ── 3. Section label slide-in ── */
     .we-col-nav > li > button {
-      transform: translateX(-8px);
-      opacity: 0.001;
-      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.5s ease, color 0.3s ease !important;
-    }
-    .we-col-nav.labels-visible > li > button {
-      transform: translateX(0);
-      opacity: 1;
+      transition: color 0.3s ease !important;
     }
 
     /* ── 4. Active nav orange left bar — removed ── */
@@ -3653,21 +3640,7 @@
       bar.style.width = pct + '%';
     }, { passive: true });
 
-    /* ── 2. Hero subhead char reveal ── */
-    var subhead = document.querySelector('.shed-subhead');
-    if (subhead) {
-      var text = subhead.textContent;
-      subhead.innerHTML = text.split('').map(function(ch) {
-        return ch === ' ' ? ' ' : '<span class="char">' + ch + '</span>';
-      }).join('');
-      var chars = subhead.querySelectorAll('.char');
-      setTimeout(function() {
-        subhead.classList.add('chars-visible');
-        chars.forEach(function(c, i) {
-          c.style.transitionDelay = (0.8 + i * 0.035) + 's';
-        });
-      }, 300);
-    }
+    /* ── 2. Hero subhead char reveal — removed ── */
 
     /* ── 3. Section labels slide in once ── */
     var navList = document.querySelector('.we-col-nav');
@@ -3767,68 +3740,8 @@
       img.src = src;
     });
 
-    /* ── 9. Smooth momentum scroll ── */
-    (function() {
-      var target = 0;
-      var current = 0;
-      var ease = 0.10;
-      var raf;
-      var ticking = false;
-
-      /* Only run on desktop — mobile native scroll is better */
-      if (('ontouchstart' in window) || navigator.maxTouchPoints > 0) return;
-
-      /* Prevent native scroll, intercept wheel */
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-
-      /* Scrollable inner wrapper */
-      var scroller = document.querySelector('.we-section-wrap') || document.querySelector('.we-site') || document.body.parentElement;
-
-      /* Create a scroll container wrapping the main content */
-      var scrollWrap = document.createElement('div');
-      scrollWrap.id = 'fgc-smooth-wrap';
-      scrollWrap.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;overflow-y:scroll;overflow-x:hidden;';
-
-      /* Move body children into scrollWrap */
-      var section = document.querySelector('.we-section') ? document.querySelector('.we-section').closest('section') : null;
-
-      /* Simpler approach: just lerp window.scrollY equivalent using a wrapper */
-      /* Actually use a lightweight lerp on top of native scroll */
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-
-      /* Native scroll + lerp scroll indicator only — avoids breaking existing layout */
-      var lastY = window.scrollY;
-      window.addEventListener('wheel', function(e) {
-        target += e.deltaY * 0.8;
-        target = Math.max(0, Math.min(target, document.body.scrollHeight - window.innerHeight));
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(smoothStep);
-        }
-      }, { passive: true });
-
-      function smoothStep() {
-        current += (target - current) * ease;
-        if (Math.abs(target - current) > 0.5) {
-          window.scrollTo(0, current);
-          requestAnimationFrame(smoothStep);
-        } else {
-          window.scrollTo(0, target);
-          current = target;
-          ticking = false;
-        }
-      }
-
-      /* Keep target in sync if user uses keyboard / scrollbar */
-      window.addEventListener('scroll', function() {
-        if (!ticking) target = window.scrollY;
-      }, { passive: true });
-    })();
+    /* ── 9. Smooth scroll — CSS only ── */
+    document.documentElement.style.scrollBehavior = 'smooth';
 
   })();
   </script>
