@@ -498,7 +498,7 @@
         <p class="shed-subhead">Simple solutions. One relationship.</p>
       </div>
       <div class="shed-br">
-        <p class="shed-blurb">We are a full-suite advisory serving cross-border families and institutions across every stage of wealth planning and business strategy.</p>
+        <p class="shed-blurb">Full-suite wealth planning advisory serving cross-border families &amp; institutions.</p>
       </div>
     </div>
   </section>
@@ -795,7 +795,7 @@
     }
     .shed-blurb{
       margin:0; font-family:'Montserrat',sans-serif;
-      font-size: clamp(0.85rem, 1.1vw, 1.2rem); line-height:1.6; max-width: 32ch;
+      font-size: clamp(0.85rem, 1.1vw, 1.2rem); line-height:1.6; max-width: 44ch;
       color:rgba(242,239,231,.75);
       margin-left: auto;
       text-align: right;
@@ -2790,8 +2790,9 @@
     editables.forEach(function(el, i) {
       el.contentEditable = 'true';
       el.style.outline = 'none';
-      /* Never restore approach card text — always use the hardcoded HTML version */
+      /* Never restore locked elements — always use hardcoded HTML */
       if (el.classList.contains('approach-tilt__desc')) return;
+      if (el.classList.contains('shed-blurb')) return;
       /* Skip innerHTML restore for the cycling-word heading to preserve the animation spans */
       if (saved[i] !== undefined && !el.querySelector('.abt-cycle')) {
         el.innerHTML = saved[i];
