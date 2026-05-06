@@ -3365,10 +3365,12 @@
 
       /* Clients: stack label above cycling text */
       .clients-sticky {
+        width: 100% !important;
+        align-self: stretch !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 12px !important;
-        padding: 0 20px !important;
+        padding: 0 !important;
       }
       .clients-lhs {
         width: 100% !important;
@@ -3389,7 +3391,8 @@
       }
       .we-block--clients {
         min-height: auto !important;
-        padding-bottom: 2rem !important;
+        padding: 2rem 20px !important;
+        align-items: stretch !important;
       }
 
       /* Brief cards: pause marquee, let user scroll horizontally */
