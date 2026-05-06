@@ -103,7 +103,7 @@
     }
 
     /* ═════════ SIDE NAV: centered nav items ═════════ */
-    .we-col-label{ padding-top: 1rem; }
+    .we-col-label{ padding-top: 0.5rem; }
 
     /* Each nav item is a flex row: [label] ........... [square bullet] */
     .we-col-nav > li > button{
@@ -112,7 +112,7 @@
       gap: 0.7em;
       width:100%;
       text-align:left;
-      padding: 0.38em 0;
+      padding: 0.2em 0;
       position:relative;
     }
 
@@ -478,11 +478,9 @@
 
     <!-- Stage 2: full-bleed B&W photo cycle (2s each) behind big typographic overlay -->
     <div class="shed-bg" id="shedBg" aria-hidden="true">
-      <div class="bg-frame bf-1"></div>
-      <div class="bg-frame bf-2"></div>
-      <div class="bg-frame bf-3"></div>
-      <div class="bg-frame bf-4"></div>
-      <div class="bg-frame bf-5"></div>
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+        <source src="Video%20clips%20-%20site/FGC_clip1_hero.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="shed-vignette" aria-hidden="true"></div>
 
@@ -491,6 +489,11 @@
 
     <!-- Big kinetic title removed per request — hero shows photo only -->
     <h1 class="shed-bigtitle" id="shedBig" aria-hidden="true" hidden></h1>
+
+    <!-- Hero tagline typewriter -->
+    <div class="hero-tagline-wrap">
+      <p class="hero-tagline" id="heroTagline"><span class="hero-tagline-cursor" id="heroTaglineCursor"></span></p>
+    </div>
 
     <!-- Bottom-of-hero meta + scroll cue -->
     <div class="shed-bottom">
@@ -694,6 +697,36 @@
     #hero.hero-shed.revealed .shed-bigtitle,
     #hero.hero-shed.revealed .shed-topline,
     #hero.hero-shed.revealed .shed-bottom{ opacity:1 !important; }
+
+    /* —— Hero tagline typewriter —— */
+    .hero-tagline-wrap{
+      position:absolute; inset:0; z-index:4;
+      display:flex; align-items:center; justify-content:center;
+      pointer-events:none;
+      opacity:0;
+      transition: opacity .5s ease;
+    }
+    #hero.hero-shed.tagline-active .hero-tagline-wrap{ opacity:1; }
+    #hero.hero-shed.tagline-done .hero-tagline-wrap{ opacity:0; transition: opacity .7s ease; }
+    .hero-tagline{
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4.5vw, 5rem);
+      color: #f2efe7;
+      letter-spacing: 0.02em;
+      text-align:center;
+      margin:0; padding:0;
+    }
+    .hero-tagline-cursor{
+      display:inline-block;
+      border-right: 0.08em solid #f2efe7;
+      margin-left: 0.05em;
+      animation: taglineCursorBlink 0.8s steps(2,end) infinite;
+    }
+    .hero-tagline-cursor.cursor-hide{ display:none; }
+    @keyframes taglineCursorBlink{
+      0%,49%  { opacity:1; }
+      50%,100%{ opacity:0; }
+    }
 
     /* —— Stage 2: full-bleed B&W cycle —— */
     .shed-bg{ position:absolute; inset:0; z-index:1; }
@@ -1033,6 +1066,34 @@
           if (navEl) navEl.classList.remove('nav-hidden');
         }
       }, SAFETY_FALLBACK);
+
+      // 8) Hero tagline typewriter — "We go the extra mile."
+      (function(){
+        var taglineEl = document.getElementById('heroTagline');
+        var cursorEl  = document.getElementById('heroTaglineCursor');
+        if (!taglineEl || !cursorEl) return;
+        var TEXT    = 'We go the extra mile.';
+        var CHAR_MS = 85;   // ms per character — slower = more deliberate
+        var HOLD_MS = 2000; // hold 2s after fully typed
+        setTimeout(function(){
+          hero.classList.add('tagline-active');
+          var textNode = document.createTextNode('');
+          taglineEl.insertBefore(textNode, cursorEl);
+          var i = 0;
+          function typeNext(){
+            if (i < TEXT.length){
+              textNode.nodeValue = TEXT.slice(0, ++i);
+              setTimeout(typeNext, CHAR_MS);
+            } else {
+              cursorEl.classList.add('cursor-hide');
+              setTimeout(function(){
+                hero.classList.add('tagline-done');
+              }, HOLD_MS);
+            }
+          }
+          typeNext();
+        }, HERO_REVEAL_AT + 600);
+      })();
     })();
   </script>
 
@@ -1582,15 +1643,10 @@
             setInterval(function() {
               active++;
               applyStyles(true);
-              // After transition ends, silently snap back to same visual position
-              // in the middle repetition — no visible jump, loops forever
               if (active >= N * 2) {
                 setTimeout(function() {
-                  list.style.transition = 'none';
                   active -= N;
-                  var h2 = allItems[0].offsetHeight;
-                  list.style.transform = 'translateY(' + (-(active - RADIUS) * h2) + 'px)';
-                  list.offsetHeight; // force reflow before next transition
+                  applyStyles(false);
                 }, 700);
               }
             }, 1000);
@@ -1753,11 +1809,10 @@
           <!-- Editorial CTA -->
           <div class="fgc-contact-cta">
             <p class="fgc-contact-eyebrow">Ready to simplify?</p>
-            <a href="mailto:contact@fgcadvisors.com" class="fgc-contact-big we-contact-email">
+            <a href="https://mail.google.com/mail/?view=cm&to=contact@fgcadvisors.com" target="_blank" rel="noopener" class="fgc-contact-big we-contact-email">
               contact@<wbr>fgcadvisors.com
               <span class="fgc-contact-arrow">↗</span>
             </a>
-            <p class="fgc-contact-sub">One email. One relationship. Everything else follows.</p>
           </div>
 
           <div class="fgc-contact-meta">
@@ -1850,7 +1905,7 @@
     .we-col-nav > li {
       width: 100% !important;
       text-align: center !important;
-      margin-bottom: clamp(4px, 0.9vh, 10px) !important;
+      margin-bottom: clamp(2px, 0.45vh, 5px) !important;
     }
     .we-col-nav > li > button,
     .we-col-nav > li > button .we-nav-txt {
@@ -1862,10 +1917,10 @@
     }
     .we-col-subnav {
       text-align: center !important;
-      margin-top: 4px !important;
+      margin-top: 2px !important;
     }
     .we-col-subnav li {
-      margin-bottom: 4px !important;
+      margin-bottom: 2px !important;
     }
     .we-col-subnav button {
       font-size: clamp(0.7rem, 0.88vw, 0.82rem) !important;
@@ -2567,217 +2622,6 @@
         window.scrollTo({ top: top, behavior: 'smooth' });
       });
     });
-  })();
-  </script>
-  <style>
-    #edit-toggle-btn {
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
-      z-index: 9999;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: none;
-      background: #3d5450;
-      color: #F2EFE6;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.28);
-      transition: background 0.2s, transform 0.15s;
-    }
-    #edit-toggle-btn:hover {
-      background: #2e3f3c;
-      transform: scale(1.08);
-    }
-
-    #edit-toolbar {
-      position: fixed;
-      bottom: 88px;
-      right: 32px;
-      z-index: 9999;
-      background: #3d5450;
-      color: #F2EFE6;
-      border-radius: 10px;
-      padding: 12px 16px;
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.32);
-      min-width: 220px;
-      font-family: 'Hanken Grotesk', 'Montserrat', sans-serif;
-      font-size: 13px;
-    }
-    #edit-toolbar.visible {
-      display: flex;
-    }
-    #edit-toolbar-label {
-      font-size: 11px;
-      opacity: 0.7;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    #edit-done-btn,
-    #edit-reset-btn {
-      border: none;
-      border-radius: 6px;
-      padding: 7px 14px;
-      cursor: pointer;
-      font-size: 13px;
-      font-family: inherit;
-      transition: opacity 0.15s;
-    }
-    #edit-done-btn {
-      background: #F2EFE6;
-      color: #3d5450;
-      font-weight: 600;
-    }
-    #edit-reset-btn {
-      background: transparent;
-      color: #9AB4B0;
-      border: 1px solid rgba(154,180,176,0.4);
-    }
-    #edit-done-btn:hover { opacity: 0.85; }
-    #edit-reset-btn:hover { opacity: 0.7; }
-
-    body.edit-mode [data-editable] {
-      outline: 1.5px dashed rgba(154,180,176,0.5);
-      outline-offset: 2px;
-      cursor: text;
-      transition: outline-color 0.2s;
-    }
-    body.edit-mode [data-editable]:hover {
-      outline-color: rgba(61,84,80,0.7);
-    }
-    body.edit-mode [data-editable]:focus {
-      outline: 2px solid #3d5450;
-      outline-offset: 2px;
-    }
-  </style>
-
-  <button id="edit-toggle-btn" title="Edit page content" aria-label="Toggle edit mode">✎</button>
-
-  <div id="edit-toolbar">
-    <span id="edit-toolbar-label">Editing — click any text to change it</span>
-    <button id="edit-done-btn">Done</button>
-    <button id="edit-reset-btn">Reset edits</button>
-  </div>
-
-  <script>
-  (function () {
-    var SELECTORS = [
-      '.hero-heading', '.hero-sub',
-      '.we-statement', '.we-body p',
-      '.we-stat-n', '.we-stat-l',
-      '.we-row-name', '.we-row-desc',
-      '.brief-cat', '.brief-card-title',
-      '.brief-stat-val', '.brief-stat-label', '.brief-card-so-what',
-      '.team-name', '.team-role', '.team-bio p',
-      '.we-contact-email', '.we-contact-detail',
-      '.approach-buzz__intro', '.approach-tilt__body', '.abt-prefix'
-    ];
-    var LS_PREFIX = 'fgc-e6-';
-    var editables = [];
-
-    function buildKey(sel, idxWithinSel) {
-      /* Key is scoped to selector + position within that selector.
-         Adding/removing elements in one selector never shifts keys for others. */
-      return LS_PREFIX + sel.replace(/[^a-z0-9]/gi, '_') + '-' + idxWithinSel;
-    }
-
-    function initEditables() {
-      editables = [];
-      SELECTORS.forEach(function (sel) {
-        document.querySelectorAll(sel).forEach(function (el, i) {
-          el.setAttribute('data-editable', '');
-          el.setAttribute('data-ekey', sel + ':' + i);
-          editables.push({ el: el, key: buildKey(sel, i) });
-        });
-      });
-    }
-
-    function loadSaved() {
-      editables.forEach(function (entry) {
-        var saved = localStorage.getItem(entry.key);
-        if (saved !== null) {
-          entry.el.innerHTML = saved;
-        }
-      });
-    }
-
-    function saveAll() {
-      editables.forEach(function (entry) {
-        localStorage.setItem(entry.key, entry.el.innerHTML);
-      });
-    }
-
-    function enterEditMode() {
-      document.body.classList.add('edit-mode');
-      editables.forEach(function (entry) {
-        entry.el.contentEditable = 'true';
-        entry.el.addEventListener('input', saveAll);
-      });
-      document.getElementById('edit-toolbar').classList.add('visible');
-      document.getElementById('edit-toggle-btn').textContent = '✕';
-      document.getElementById('edit-toggle-btn').title = 'Exit edit mode';
-    }
-
-    function exitEditMode() {
-      saveAll();
-      document.body.classList.remove('edit-mode');
-      editables.forEach(function (entry) {
-        entry.el.contentEditable = 'false';
-        entry.el.removeEventListener('input', saveAll);
-      });
-      document.getElementById('edit-toolbar').classList.remove('visible');
-      document.getElementById('edit-toggle-btn').textContent = '✎';
-      document.getElementById('edit-toggle-btn').title = 'Edit page content';
-    }
-
-    var inEditMode = false;
-
-    document.getElementById('edit-toggle-btn').addEventListener('click', function () {
-      inEditMode = !inEditMode;
-      if (inEditMode) enterEditMode(); else exitEditMode();
-    });
-
-    document.getElementById('edit-done-btn').addEventListener('click', function () {
-      inEditMode = false;
-      exitEditMode();
-    });
-
-    document.getElementById('edit-reset-btn').addEventListener('click', function () {
-      if (confirm('Reset all edits and restore original content?')) {
-        editables.forEach(function (entry) {
-          localStorage.removeItem(entry.key);
-        });
-        location.reload();
-      }
-    });
-
-    function purgeOldKeys() {
-      var toRemove = [];
-      for (var i = 0; i < localStorage.length; i++) {
-        var k = localStorage.key(i);
-        if (k && /^fgc-e\d+-/.test(k) && k.indexOf(LS_PREFIX) !== 0) toRemove.push(k);
-      }
-      toRemove.forEach(function (k) { localStorage.removeItem(k); });
-    }
-
-    function run() {
-      purgeOldKeys();
-      initEditables();
-      loadSaved();
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', run);
-    } else {
-      run();
-    }
   })();
   </script>
 
@@ -3672,7 +3516,7 @@
       margin-bottom: clamp(2rem, 4vh, 3rem);
     }
     .fgc-contact-eyebrow {
-      font-size: clamp(0.7rem, 0.9vw, 0.85rem) !important;
+      font-size: clamp(0.9rem, 1.2vw, 1.1rem) !important;
       letter-spacing: 0.2em !important;
       text-transform: uppercase !important;
       color: var(--fgc-accent) !important;
@@ -3681,7 +3525,7 @@
     }
     .fgc-contact-big {
       display: block !important;
-      font-size: clamp(2.2rem, 5.5vw, 7rem) !important;
+      font-size: clamp(2.2rem, 5vw, 6rem) !important;
       font-family: 'Playfair Display', Georgia, serif !important;
       font-weight: 400 !important;
       letter-spacing: -0.03em !important;
