@@ -3380,9 +3380,18 @@
       .brief-card { min-width: 85vw !important; }
       .brief-view-btn { font-size: 0.78rem !important; padding: 6px 12px !important; }
 
-      /* Team cards: 1 column */
-      .abm-grid {
-        grid-template-columns: 1fr !important;
+      /* Team cards: 2 columns on mobile (1fr grid) */
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      /* Prevent any wide content from blowing out the layout */
+      .we-col-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
       }
 
       /* Contact: wrap email CTA */
