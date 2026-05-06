@@ -14,6 +14,9 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/style-bw.css">
 
+  <!-- Plasma shader background -->
+  <script src="shader-hero.js"></script>
+
   <!-- Subtle orange accent overlay (sits on top of style-bw.css) -->
   <style>
     :root{
@@ -476,11 +479,9 @@
     <!-- Stage 1 removed per request: no full-bleed flash between intro and hero -->
     <div class="shed-flash" id="shedFlash" aria-hidden="true" hidden style="display:none"></div>
 
-    <!-- Stage 2: full-bleed B&W photo cycle (2s each) behind big typographic overlay -->
+    <!-- Stage 2: plasma shader background -->
     <div class="shed-bg" id="shedBg" aria-hidden="true">
-      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
-        <source src="Video%20clips%20-%20site/hero_bg.mp4" type="video/mp4">
-      </video>
+      <shader-hero variant="plasma" accent="#c75a1e" intensity="0.9" id="heroShader"></shader-hero>
     </div>
     <div class="shed-vignette" aria-hidden="true"></div>
 
@@ -696,12 +697,19 @@
 
     /* —— Stage 2: full-bleed B&W cycle —— */
     .shed-bg{ position:absolute; inset:0; z-index:1; }
-    .hero-video{
+    /* Shader fills the shed-bg container */
+    #heroShader{
       position:absolute !important;
       top:0 !important; left:0 !important;
       width:100% !important; height:100% !important;
-      object-fit:cover !important;
-      object-position: center bottom !important;
+    }
+    /* Hero text over light plasma — use dark ink instead of white */
+    #hero.hero-shed .shed-subhead,
+    #hero.hero-shed .shed-blurb { color: rgba(10,10,10,0.85) !important; }
+    /* Vignette: softer on light background — just a gentle edge shadow */
+    #hero.hero-shed .shed-vignette {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.15) 100%) !important;
     }
     .bg-frame{
       position:absolute; inset:0; background-size:cover; background-position:center;
