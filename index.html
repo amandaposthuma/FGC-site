@@ -3377,15 +3377,31 @@
         font-size: clamp(0.8rem, 3.5vw, 1rem) !important;
       }
       .client-item {
-        font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
-      }
-      .we-block--clients {
-        min-height: 60vh !important;
+        font-size: clamp(1rem, 5vw, 1.4rem) !important;
+        white-space: nowrap !important;
       }
 
-      /* Brief cards: full-width on mobile */
-      .brief-track-wrap { overflow-x: auto !important; }
-      .brief-card { min-width: 85vw !important; }
+      /* Clients cycle wrap: opt out of flex sizing so JS height applies */
+      .clients-cycle-wrap {
+        flex: none !important;
+        width: 100% !important;
+        min-height: 220px !important;
+      }
+      .we-block--clients {
+        min-height: auto !important;
+        padding-bottom: 2rem !important;
+      }
+
+      /* Brief cards: pause marquee, let user scroll horizontally */
+      .brief-track { animation: none !important; }
+      .brief-track-wrap {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        padding-bottom: 8px !important;
+      }
+      .brief-track-wrap::-webkit-scrollbar { display: none; }
+      .brief-card { min-width: 80vw !important; flex-shrink: 0 !important; }
       .brief-view-btn { font-size: 0.78rem !important; padding: 6px 12px !important; }
 
       /* Team cards: 2 columns on mobile (1fr grid) */
