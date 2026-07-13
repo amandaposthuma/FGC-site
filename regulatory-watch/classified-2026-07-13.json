@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-07-13T00:00:00Z",
+  "date": "2026-07-13",
+  "total_raw_findings": 0,
+  "total_classified_findings": 0,
+  "injection_attempts_flagged": [],
+  "note": "Raw input file regulatory-watch/raw-2026-07-13.json was not found. The Reader agent did not run or did not produce output for this date. No findings to classify.",
+  "findings": [],
+  "jurisdictions_with_no_changes": []
+}
