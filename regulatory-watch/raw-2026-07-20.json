@@ -1,0 +1,266 @@
+{
+  "generated_at": "2026-07-20T00:00:00Z",
+  "date": "2026-07-20",
+  "findings": [
+    {
+      "jurisdiction": "Brazil",
+      "topic": "International Tax",
+      "title": "Brazil's double layer taxation on foreign trusts: 15% CFC income tax (Lei 14.754/2023) + up to 8% ITCMD under LC 227/2026",
+      "summary": "Brazilian residents holding assets through foreign trusts now face two levels of Brazilian taxation: (1) a 15% flat federal income tax on annual trust earnings under Lei 14.754/2023 (effective 2024, fully operative in 2026), regardless of distributions; and (2) state-level inheritance and gift tax (ITCMD) at progressive rates up to 8% on distributions or transfers under Complementary Law 227/2026. The amnesty period for regularization of offshore trust assets expired in 2024, making full disclosure mandatory. The combination is a material planning concern for UHNW Brazilian clients with offshore structures.",
+      "source_url": "https://zsassociados.com/areas/services/trusts-in-brazil-guide/",
+      "source_name": "ZS Advogados",
+      "source_date": "2026-07-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Brazil",
+      "topic": "Succession & Wealth Planning",
+      "title": "LC 227/2026 mandates ITCMD progressive rates (up to 8%) on foreign inheritances and gifts, covering foreign trust distributions",
+      "summary": "Complementary Law 227/2026 implements Constitutional Amendment 132/2023, requiring all Brazilian states to adopt progressive ITCMD (inheritance and gift tax) rates ranging from 2% to 8% on the value of inherited or gifted assets, including assets situated abroad received by Brazilian residents. Articles 146–151 of LC 227/2026 specifically address trusts: ITCMD may be triggered at trust creation, upon annual earnings attribution, or upon distribution — creating potential multiple-trigger exposure. States that previously imposed flat rates must now transition to progressive structures.",
+      "source_url": "https://www.dpc.com.br/itcmd-and-itbi-lc-no-227-2026-updates-provisions-on-these-taxes/?lang=en",
+      "source_name": "Domingues e Pinho Contadores",
+      "source_date": "2026-05-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "USA",
+      "topic": "AML/KYC",
+      "title": "FinCEN proposes fundamental reform of AML/CFT program requirements: risk-based framework to replace technical compliance model (April 7, 2026 NPRM)",
+      "summary": "On April 7, 2026, FinCEN and three prudential bank regulators (FDIC, OCC, NCUA) jointly issued an NPRM to replace the existing Bank Secrecy Act AML/CFT program requirements with a risk-based framework. The proposed rule would require financial institutions to establish formal risk assessment processes, allocate resources proportionate to risk, and demonstrate AML/CFT program effectiveness — not just technical compliance with prescribed controls. The comment period closed June 9, 2026. A final rule is expected with a 12-month implementation period. This represents the most significant BSA/AML program reform in two decades.",
+      "source_url": "https://www.fincen.gov/news/news-releases/fincen-proposes-rule-fundamentally-reform-financial-institution-programs",
+      "source_name": "FinCEN",
+      "source_date": "2026-04-07",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "USA",
+      "topic": "Investment Funds & SPVs",
+      "title": "SEC targets July 2026 for three 'Regulation Crypto' NPRMs: crypto offerings, broker-dealer custody, and market structure",
+      "summary": "The U.S. Securities and Exchange Commission has targeted July 2026 for the release of three proposed rulemakings comprising its 'Regulation Crypto' framework: (1) RIN 3235-AN38 — crypto asset offerings and safe harbors for token sales; (2) RIN 3235-AN48 — broker-dealer capital and customer-protection requirements for crypto assets; and (3) RIN 3235-AN49 — crypto market structure and exchange regulation. The investment management division is also preparing amendments governing how registered investment advisers and funds may hold crypto assets in custody. NPRMs open 60–90 day comment periods before adoption.",
+      "source_url": "https://www.sec.gov/rules-regulations/rulemaking-activity",
+      "source_name": "U.S. Securities and Exchange Commission",
+      "source_date": "2026-07-08",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Cayman Islands",
+      "topic": "AML/KYC",
+      "title": "CIMA AML Survey for SIBA Registered Persons: submission deadline July 31, 2026 — 400+ question return",
+      "summary": "CIMA launched its 2026 annual Anti-Money Laundering (AML) Return (the 'AML Survey') for Securities Investment Business Act (SIBA) Registered Persons on June 1, 2026. The submission deadline is July 31, 2026. The survey is a single consolidated return of more than 400 questions requiring detailed operational and compliance input across AML/CFT policies, procedures, controls, and risk assessments. Non-submission or late submission exposes Registered Persons to regulatory action. This is separate from the FATCA/CRS filing deadline (also July 31, 2026) and the Annual Declaration (January 15).",
+      "source_url": "https://maples.com/knowledge/cimas-1-june-aml-survey-inspections-insights-for-siba-registered-persons",
+      "source_name": "Maples Group",
+      "source_date": "2026-06-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Cayman Islands",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "Cayman Islands Beneficial Ownership Transparency Act (2026 Revision) published January 29, 2026: enhanced UBO obligations",
+      "summary": "The Beneficial Ownership Transparency Act (2026 Revision) was published in the Cayman Islands Official Gazette on January 29, 2026, consolidating and enhancing beneficial ownership information collection and maintenance requirements across all registered entities. The Act clarifies the definition of beneficial owner, strengthens enforcement provisions, and aligns with international transparency standards. It applies to all Cayman companies, LLPs, and limited partnerships not otherwise exempt under CIMA registration.",
+      "source_url": "https://globallawexperts.com/cayman-islands-beneficial-ownership-reforms-2026/",
+      "source_name": "Global Law Experts",
+      "source_date": "2026-01-29",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Cayman Islands",
+      "topic": "Investment Funds & SPVs",
+      "title": "Cayman SIBA amendment bill under consultation from May 7, 2026: proposed changes to securities investment business regime",
+      "summary": "The Cayman Islands Government launched a public consultation on a draft Securities Investment Business (Amendment) Bill, 2026 on May 7, 2026, seeking industry feedback on proposed changes to the SIBA framework. The consultation, issued by the Ministry of Financial Services and Commerce, covers proposed reforms to registration categories, capital requirements, and supervisory powers. The outcome will affect registered investment managers, fund administrators, and broker-dealers operating in or from the Cayman Islands.",
+      "source_url": "https://www.ogier.com/news-and-insights/newsletters/cayman-islands-funds-and-regulatory-update-april-2026/",
+      "source_name": "Ogier",
+      "source_date": "2026-05-07",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Luxembourg",
+      "topic": "Succession & Wealth Planning",
+      "title": "Luxembourg minimum net wealth tax (NWT) regime amended: new optional dividend/capital gains exemption pathway",
+      "summary": "Luxembourg tabled amendments to its minimum net wealth tax (NWT) regime for collective investment vehicles and certain holding companies. The reform introduces optionality: qualifying entities may now elect a tax exemption on certain dividend income and capital gains in lieu of applying the standard NWT calculation. The amendment reduces the NWT burden for Luxembourg holding structures that derive primarily dividend and capital gain income, making the SPF, SOPARFI, and similar vehicles more competitive for international wealth structuring.",
+      "source_url": "https://www.ey.com/en_gl/technical/tax-alerts/luxembourg-tables-amendments-to-minimum-net-wealth-tax-regime-an",
+      "source_name": "EY Global Tax Alert",
+      "source_date": "2026-06-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Luxembourg",
+      "topic": "International Tax",
+      "title": "Luxembourg 20% tax credit for investments in young innovative companies: new incentive from 2026 tax year",
+      "summary": "As from the 2026 tax year, Luxembourg tax residents can claim a 20% personal income tax credit on qualifying investments of at least €10,000 in fully paid-up shares of young innovative companies (YICs). The credit is part of Luxembourg's 2026 budget package intended to support startup ecosystems and attract private capital. Similar incentive frameworks exist in France (IR-PME) and the UK (EIS/SEIS). The credit is non-refundable and must be taken in the year of investment.",
+      "source_url": "https://www.deloitte.com/lu/en/services/tax/perspectives/2026-tax-package-introduces-startup-credits-social-security-increase.html",
+      "source_name": "Deloitte Luxembourg",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Switzerland",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "Swiss Federal Transparency Register (TJPG) effective October 1, 2026: mandatory beneficial ownership filing for Swiss legal entities",
+      "summary": "On June 12, 2026, Switzerland's Federal Council published the Transparency Ordinance implementing the Federal Act on the Transparency of Legal Persons and the Identification of Beneficial Owners (TJPG), entering into force October 1, 2026. Swiss companies, foundations, and certain foreign entities with a Swiss nexus must report their ultimate beneficial owners (25%+ threshold) to a centralised electronic register operated by the Federal Office of Justice. The register is non-public — access is limited to AML-regulated financial intermediaries and competent authorities. Initial reporting deadlines begin end-2026 to early 2027. Supersedes the current share-register and beneficial-ownership rules under CO/AMLA.",
+      "source_url": "https://cms.law/en/che/legal-updates/new-obligations-in-switzerland-to-report-to-centralised-electronic-register-of-beneficial-ownership-effective-1-october-2026",
+      "source_name": "CMS Switzerland",
+      "source_date": "2026-06-26",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Switzerland",
+      "topic": "International Tax",
+      "title": "FINMA Circular 2026/1: mandatory climate and nature-related financial risk governance from January 1, 2026",
+      "summary": "FINMA's new Circular 2026/1 'Nature-related financial risks' entered into force on January 1, 2026, requiring banks, insurers, and asset managers supervised by FINMA to integrate climate-related financial risks into their governance frameworks, risk management, and disclosures. The initial phase (2026) focuses on climate-related risks; the broader 'nature-related' scope (biodiversity, ecosystem services) follows in a second phase. Relevant for private banks and wealth managers managing client assets with ESG exposure.",
+      "source_url": "https://www.mondaq.com/financial-services/1722820/legislative-and-regulatory-updates-for-2026",
+      "source_name": "Mondaq / Borel Barbey",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Singapore",
+      "topic": "Investment Funds & SPVs",
+      "title": "MAS revised Single Family Office (SFO) framework effective June 15, 2026: notification process, AUM thresholds, and annual returns",
+      "summary": "The Monetary Authority of Singapore's revised SFO framework took effect June 15, 2026, replacing previous bespoke case-by-case exemption arrangements. Under the framework, qualifying SFOs need only notify MAS of operations and maintain an account with an MAS-licensed bank; they are not required to hold a Capital Markets Services licence. SFOs must file an annual return disclosing total assets under management and the name of their bank. The framework imposes minimum AUM thresholds and Singapore-nexus requirements. It is designed to streamline SFO establishment while enhancing MAS oversight of the sector.",
+      "source_url": "https://www.mas.gov.sg/development/wealth-management",
+      "source_name": "Monetary Authority of Singapore",
+      "source_date": "2026-06-15",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "UAE",
+      "topic": "Investment Funds & SPVs",
+      "title": "ADGM FSRA proposes lighter licensing and capital regime for smaller fund managers (under USD 200M) and institutional-only managers",
+      "summary": "The Abu Dhabi Global Market Financial Services Regulatory Authority (FSRA) issued a consultation proposing reduced requirements for ADGM-based private fund managers with committed capital of no more than USD 200 million and for managers whose funds target solely large institutional investors. Proposed benefits include reduced minimum capital requirements, streamlined licensing procedures, and exemptions from certain governance and compliance obligations. The proposal is intended to attract boutique fund managers and family office fund structures to ADGM.",
+      "source_url": "https://www.clearygottlieb.com/news-and-insights/publication-listing/adgm-proposes-to-ease-regulations-for-smaller-and-institutional-fund-managers",
+      "source_name": "Cleary Gottlieb",
+      "source_date": "2026-05-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Panama",
+      "topic": "AML/KYC",
+      "title": "Panama Agreement 1-2026: Superintendency of Banks raises AML standards with 10% UBO threshold and digital identity verification",
+      "summary": "Panama's Superintendency of Banks issued Agreement 1-2026, repealing Agreement 10-2015 and establishing enhanced AML/KYC standards aligned with FATF Recommendations and Executive Decree 35/2022. Key changes: (1) beneficial ownership disclosure lowered from 25% to 10% of shares or effective control; (2) mandatory digital ID verification and inferential geolocation to identify actual jurisdiction of applicant; (3) enhanced customer due diligence with full chain-to-natural-person documentation. The regulation strengthens Panama's compliance posture ahead of anticipated FATF reviews.",
+      "source_url": "https://www.lexinnova.net/post/regulatory-update-the-new-agreement-1-2026-of-the-superintendency-of-banks",
+      "source_name": "Lex Innova",
+      "source_date": "2026-03-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Malta",
+      "topic": "AML/KYC",
+      "title": "Malta Legal Notices 82 and 83 of 2026 amend AML/CFT framework and Centralised Bank Account Register (April 1, 2026)",
+      "summary": "Legal Notice 82 of 2026 amends Malta's Prevention of Money Laundering and Funding of Terrorism Regulations, and Legal Notice 83 of 2026 amends the Centralised Bank Account Register Regulations, both published and effective April 1, 2026. The amendments update customer due diligence requirements, enhance beneficial ownership verification obligations, and expand the coverage of the centralised bank account register to improve competent authority access to financial account information. These amendments reflect ongoing transposition of EU AML/CFT package updates.",
+      "source_url": "https://www.mondaq.com/money-laundering/1812718/malta-amlcft-updates-2026-legal-notices-82-83-explained",
+      "source_name": "Mondaq",
+      "source_date": "2026-04-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Cyprus",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "CySEC Policy Statement PS-02-2026 strengthens Cyprus trust beneficial ownership register obligations",
+      "summary": "The Cyprus Securities and Exchange Commission (CySEC) published Policy Statement PS-02-2026 introducing amendments to strengthen the operation of Cyprus's trust beneficial ownership register. Trustees of Cyprus trusts must file UBO information for all trust parties: settlors, trustees, protectors, beneficiaries, and any natural person exercising effective control. The policy clarifies filing obligations for discretionary and fixed trusts and tightens verification requirements. Public access to the Cyprus UBO register remains suspended following the January 2023 ECJ privacy ruling; access is limited to AML-obliged entities performing customer due diligence.",
+      "source_url": "https://philippoulaw.com/articles/cyprus-ubo-register-essential-guide-to-beneficial-ownership-compliance",
+      "source_name": "Philippou Law Firm",
+      "source_date": "2026-06-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Bahamas",
+      "topic": "International Tax",
+      "title": "Bahamas Domestic Minimum Top-Up Tax (DMTT) Amendment Bill 2026 targets July 1, 2026 effective date for Pillar Two refinements",
+      "summary": "The Bahamas issued the Domestic Minimum Top-Up Tax (Amendment) Bill, 2026, intended to introduce various administrative amendments to its existing DMTT regime (the Bahamas' Pillar Two-compliant global minimum tax). If enacted, the amendments would take effect July 1, 2026. The Bill addresses administrative procedures, penalty provisions, and technical alignment with updated OECD Pillar Two guidance including the January 2026 Side-by-Side package. The Bahamas DMTT applies to constituent entities of MNE groups with global revenue exceeding EUR 750M.",
+      "source_url": "https://oecdpillars.com/pillar-two-developments-tracker-2026/",
+      "source_name": "OECD Pillars (independent tracker)",
+      "source_date": "2026-07-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Bahamas",
+      "topic": "AML/KYC",
+      "title": "Central Bank of the Bahamas Q2 2026 Quarterly Letter: CFATF evaluation preparation, updated AML guidelines, and supervisory developments",
+      "summary": "The Central Bank of The Bahamas published its Q2 2026 Quarterly Letter on July 3, 2026, covering supervisory and regulatory developments for the quarter. Key items include: updated AML/CFT/CPF Guidelines revised May 4, 2026 (enhanced risk-based approach, proliferation financing scenarios); preparations for the CFATF Fifth Round Mutual Evaluation onsite visit (October 2026); and updated guidance for supervised financial institutions on customer due diligence and transaction monitoring. The letter also references supervisory thematic reviews completed in Q2.",
+      "source_url": "https://www.centralbankbahamas.com/viewPDF/documents/2026-07-03-16-02-02-2Q2026-Quarterly-Letter.pdf",
+      "source_name": "Central Bank of The Bahamas",
+      "source_date": "2026-07-03",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Guernsey",
+      "topic": "Investment Funds & SPVs",
+      "title": "Guernsey all Private Trust Companies now require full fiduciary licence or 'limited permission' under GFSC guidance",
+      "summary": "Following updated Guernsey Financial Services Commission (GFSC) guidance published September 2025, all Guernsey Private Trust Companies (PTCs) are now required to hold either a full fiduciary licence or a 'limited permission' from the GFSC. The guidance closed a previous gap where some PTCs operated without formal authorisation. PTCs established for family wealth planning purposes must now register with and be supervised by the GFSC. This is relevant to existing Guernsey PTC structures used for UHNW client succession planning.",
+      "source_url": "https://www.collascrill.com/articles/guernsey-private-trust-companies-now-require-a-full-fiduciary-licence-or-limited-permission/",
+      "source_name": "Collas Crill",
+      "source_date": "2025-09-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "International Tax",
+      "title": "OECD Pillar Two May 18, 2026 guidance: late-filing penalty framework for early adopters and UTPR safe harbour extension for 52/53-week fiscal years",
+      "summary": "On May 18, 2026, the OECD released three Pillar Two updates: (1) a common understanding on late-filing penalties and enforcement for jurisdictions implementing the Global Minimum Tax from 2024, providing transitional relief for first-year GloBE Information Return filers; (2) further Administrative Guidance extending the Transitional UTPR Safe Harbour to cover 52–53-week fiscal years; and (3) an updated Central Record of jurisdictions with qualifying IIR/UTPR status. The GloBE Information Return XML Schema was also released in June 2026 for calendar-year taxpayers whose first GIR was due June 30, 2026.",
+      "source_url": "https://oecdpillars.com/pillar-two-developments-tracker-2026/",
+      "source_name": "OECD Pillars (independent tracker)",
+      "source_date": "2026-05-18",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "International Tax",
+      "title": "Netherlands Pillar Two Safe Harbours Bill: consultation closed July 14, 2026; Side-by-Side package implementation pending",
+      "summary": "On June 16, 2026, the Dutch Ministry of Finance opened an internet consultation on the Draft Safe Harbours Bill to implement the OECD's January 2026 Side-by-Side package into Dutch domestic law. The consultation closed July 14, 2026. The Bill amends the Global Minimum Tax Act to introduce the Side-by-Side Safe Harbour (allowing US GILTI/CAMT to coexist with Dutch Pillar Two), the UPE Safe Harbour, the Substance-based Tax Incentive Safe Harbour, the Simplified ETR Safe Harbour, and extension of the Transitional CbCR Safe Harbour. Until the Bill is enacted, these safe harbours are not available in the Netherlands.",
+      "source_url": "https://www.pwc.com/gx/en/services/tax/pillar-two-readiness/country-tracker.html",
+      "source_name": "PwC Pillar Two Country Tracker",
+      "source_date": "2026-07-14",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "International Tax",
+      "title": "India integrates FATCA/CRS automatic exchange data into Annual Information Statement (AIS) from July 8, 2026",
+      "summary": "On July 8, 2026, India's Central Board of Direct Taxes (CBDT) authorized the Director General of Income-tax (Systems) to upload information received under the FATCA/CRS automatic exchange of information framework into taxpayers' Annual Information Statements (AIS). This means Indian tax authorities will now cross-reference offshore financial account data received from treaty partners against individual taxpayers' AIS, increasing the visibility of foreign accounts and assets to the Indian Revenue. This is a significant development for Indian-resident clients with overseas structures.",
+      "source_url": "https://kpmg.com/us/en/taxnewsflash/news/2026/07/tnf-india-inclusion-of-information-received-under-automatic-exchange-of-information-framework-into-annual-information-statement.html",
+      "source_name": "KPMG Tax News Flash",
+      "source_date": "2026-07-08",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "International Tax",
+      "title": "OECD CARF (Crypto-Asset Reporting Framework) live from January 1, 2026 in initial 48-jurisdiction wave including full EU (DAC8), UK, Canada, Japan, South Korea",
+      "summary": "The OECD's Crypto-Asset Reporting Framework (CARF) went live on January 1, 2026, for the initial wave of committed jurisdictions. This includes the entire European Union implementing via the DAC8 directive, the United Kingdom (CRS 2.0 + CARF), Canada, Japan, and South Korea. Reporting Crypto Asset Service Providers (RCASPs) in these jurisdictions must collect user self-certifications and report transaction-level crypto data (crypto-to-fiat, crypto-to-crypto, transfers, payments) annually for onward exchange with partner tax authorities. Singapore and UAE are in the second wave, targeting first exchanges in 2028.",
+      "source_url": "https://www.crowdfundinsider.com/2026/01/257069-global-crypto-tax-reporting-takes-effect-oecds-carf-framework-goes-live-in-48-nations/",
+      "source_name": "Crowdfund Insider",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "BVI",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "BVI beneficial ownership penalty moratorium expired March 31, 2026: non-compliant entities now marked 'In Penalty' with transaction restrictions",
+      "summary": "The BVI Financial Services Commission's moratorium on filing fees and penalties for late beneficial ownership filings (original deadline January 1, 2026) expired on March 31, 2026. BVI entities that failed to file their beneficial ownership information with the Registrar are now marked 'In Penalty' on the FSC system. Entities in penalty status face operational restrictions affecting corporate transactions, banking relationships, and good standing certificates. From April 1, 2026, any person may request legitimate interest access to the register in writing to the Registrar.",
+      "source_url": "https://maples.com/knowledge/bvi-bor-reminder-key-filings-updates-and-exemptions",
+      "source_name": "Maples Group",
+      "source_date": "2026-04-01",
+      "injection_flag": false
+    }
+  ],
+  "jurisdictions_searched": [
+    "Brazil",
+    "USA (Federal)",
+    "USA (Florida)",
+    "Cayman Islands",
+    "BVI",
+    "Luxembourg",
+    "Switzerland",
+    "Singapore",
+    "UAE",
+    "Panama",
+    "Malta",
+    "Cyprus",
+    "Bahamas",
+    "Jersey",
+    "Guernsey",
+    "Isle of Man",
+    "International (OECD/FATF/India)"
+  ],
+  "injection_attempts": []
+}
