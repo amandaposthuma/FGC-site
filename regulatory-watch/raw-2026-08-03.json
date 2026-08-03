@@ -1,0 +1,256 @@
+{
+  "generated_at": "2026-08-03T00:00:00Z",
+  "date": "2026-08-03",
+  "findings": [
+    {
+      "jurisdiction": "Cayman Islands",
+      "topic": "AML/KYC",
+      "title": "CIMA Publishes Final AML/CFT/CPF Compliance Rule and Sanctions Rule – Effective September 18, 2026",
+      "summary": "On July 20, 2026, CIMA published two finalized rules: the Rule on Effective Compliance Programme for the Prevention and Detection of Money Laundering, Terrorist Financing and Proliferation Financing (AML/CFT/CPF Compliance Rule) and the Rule on Compliance with Financial Sanctions and Targeted Financial Sanctions (Sanctions Rule), both effective September 18, 2026. The rules introduce binding compliance, governance, risk-management, and sanctions-screening requirements for all CIMA-registered or licensed financial service providers, including all registered investment funds. Although largely codifying existing practice, the AML Rule introduces certain expanded requirements that regulated entities must implement before the September 18 effective date.",
+      "source_url": "https://www.walkersglobal.com/en/Insights/2026/07/Cayman-Islands-new-AML-Rule-and-new-Sanctions-Rule",
+      "source_name": "Walkers Global",
+      "source_date": "2026-07-20",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Cayman Islands",
+      "topic": "AML/KYC",
+      "title": "Cayman CRS 2025 Filing Deadline July 31, 2026 – DITC Portal Closure and Schema Transition",
+      "summary": "Cayman Financial Institutions must file their 2025 CRS Returns and Declarations by July 31, 2026. Following this deadline, the DITC Portal will temporarily close in early August 2026 to facilitate the transition from CRS XML Schema v2.0 to v3.0. The new CRS reporting deadline for the 2026 reporting period shifts to June 30, 2027, and the DITC is expected to release updated CRS 3.0 guidance to industry in Q3 2026.",
+      "source_url": "https://www.walkersglobal.com/en/Insights/2026/06/Update-on-Cayman-Islands-CRS-self-certifications-and-reporting",
+      "source_name": "Walkers Global",
+      "source_date": "2026-07-31",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Switzerland",
+      "topic": "Investment Funds & SPVs",
+      "title": "FINMA Publishes New Liquidity Ordinance for Banks and Securities Firms (July 7, 2026)",
+      "summary": "On July 7, 2026, FINMA published its new Ordinance on the Liquidity of Banks and Securities Firms, which will replace the previous Circular 2015/2 on liquidity risks for banks. The ordinance modernises liquidity risk measurement and stress-testing requirements, aligning Swiss standards more closely with Basel III final rules. Financial institutions will need to assess their compliance posture ahead of the implementation date.",
+      "source_url": "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma/",
+      "source_name": "FINMA",
+      "source_date": "2026-07-07",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Switzerland",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "FINMA Welcomes Swiss Working Group on Optimisation of Financial Market Regulation (July 1, 2026)",
+      "summary": "On July 1, 2026, FINMA welcomed the Swiss government's announcement of a working group to optimise financial market regulation, aiming to reduce regulatory burden while maintaining supervisory effectiveness. This signals a potential rationalisation of Swiss financial regulation over the next 12–24 months. The initiative follows earlier moves to introduce the Federal UBO Register (LETA, effective October 1, 2026) and could affect future FINMA ordinances.",
+      "source_url": "https://www.finma.ch/en/news/2026/07/20260701-mm-regopt/",
+      "source_name": "FINMA",
+      "source_date": "2026-07-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Switzerland",
+      "topic": "AML/KYC",
+      "title": "FINMA Revised AML Ordinance (AMLO-FINMA) – Consultation Closed June 2026, Final Rules Pending",
+      "summary": "FINMA's consultation on the revised Anti-Money Laundering Ordinance (AMLO-FINMA) closed June 9, 2026, following a May 12 launch. The revision introduces strengthened requirements for understanding client structure, payable-through and sub-accounts held for individuals, and new sanctions/embargo compliance obligations under the Embargo Act. The final ordinance is expected later in 2026 and is calibrated to meet FATF's 2027 evaluation of Switzerland.",
+      "source_url": "https://cms.law/en/che/legal-updates/Switzerland-revises-FINMA-Anti-Money-Laundering-Ordinance-main-changes",
+      "source_name": "CMS Switzerland",
+      "source_date": "2026-06-09",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Brazil",
+      "topic": "AML/KYC",
+      "title": "BCB New Capital Requirement Phase-In Begins July 1, 2026",
+      "summary": "As of July 1, 2026, Brazilian financial institutions began the phase-in of new capital thresholds under updated BCB regulations: 25% of the incremental requirement by December 2026, 50% by June 2027, 75% by December 2027, and full compliance by January 2028. This staged transition is relevant to wealth management clients with Brazilian banking relationships and may affect lending conditions.",
+      "source_url": "https://www.globallegalinsights.com/practice-areas/banking-and-finance-laws-and-regulations/brazil/",
+      "source_name": "Global Legal Insights",
+      "source_date": "2026-07-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Brazil",
+      "topic": "Succession & Wealth Planning",
+      "title": "Brazil LC 227/2026 – Mandatory Progressive ITCMD Rates Nationwide by January 2027",
+      "summary": "Lei Complementar 227/2026, signed in January 2026, mandates that all Brazilian states adopt progressive ITCMD (inheritance and gift tax) rates within the constitutional 8% ceiling by January 1, 2027. The law fills the constitutional gap regarding ITCMD on cross-border inheritances and donations that had existed since 1988, and also addresses foreign-held assets subject to Brazilian ITCMD. For wealthy clients with São Paulo-sited assets, the rate will effectively double from the current flat 4% to a progressive scale reaching 8%. The implementing deadline creates a narrow window for proactive succession planning.",
+      "source_url": "https://tersi.adv.br/en/itcmd-in-2026-what-changed-for-gifts-and-inheritances/",
+      "source_name": "Tersi Advogados",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Brazil",
+      "topic": "International Tax",
+      "title": "Brazil 10% Dividend Withholding Tax on Large Distributions – Effective 2026",
+      "summary": "Law 15.270/2025 (income tax reform, effective January 2026) imposes a 10% withholding tax on dividends exceeding R$50,000 in a single month paid to domestic individuals, and on all dividends paid to non-residents regardless of amount. This reversal of Brazil's long-standing dividend exemption is highly relevant for FGC clients holding Brazilian operating companies, private equity interests, or real-estate funds.",
+      "source_url": "https://practiceguides.chambers.com/practice-guides/banking-regulation-2026/brazil",
+      "source_name": "Chambers and Partners",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Singapore",
+      "topic": "AML/KYC",
+      "title": "MAS Issues Risk-Proportionate Source of Wealth Guidance – Circular AMLD 05/2026 (May 25, 2026)",
+      "summary": "On May 25, 2026, the Monetary Authority of Singapore issued Circular AMLD 05/2026 on Risk-Proportionate Source of Wealth Establishment, guiding financial institutions to avoid unnecessary and excessive steps in KYC/AML documentation and to be more targeted in due diligence. The MAS and the Private Banking Industry Group (PBIG) aim to cut median private banking onboarding time to under one month by end-2026. The circular introduces risk-tiered documentation requirements, simplified verification for established client referrals, and accelerated processes for clients with transparent wealth structures.",
+      "source_url": "https://www.rajahtannasia.com/viewpoints/new-guidance-for-fis-on-establishing-sow-in-a-risk-proportionate-manner-and-improving-private-banking-onboarding-processes-to-achieve-faster-account-opening-by-end-2026/",
+      "source_name": "Rajah & Tann Asia",
+      "source_date": "2026-05-25",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Singapore",
+      "topic": "Investment Funds & SPVs",
+      "title": "MAS Consults on CIS Code Amendments for New Retail Fund Types (July 9, 2026)",
+      "summary": "MAS published a consultation paper on July 9, 2026 proposing amendments to the Code on Collective Investment Schemes (CIS Code) to enable a wider range of new retail fund types through a more streamlined authorisation process. The proposals include facilitating faster approvals for fund products that may not fit existing investment guidelines, while maintaining appropriate retail investor safeguards.",
+      "source_url": "https://www.mas.gov.sg/news/media-releases/2026/mas-proposes-regulatory-changes-to-facilitate-faster-approvals-of-new-fund-types",
+      "source_name": "Monetary Authority of Singapore",
+      "source_date": "2026-07-09",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "AML/KYC",
+      "title": "EU AMLA Publishes Draft RTS on Group-Wide AML/CFT Policies by July 10, 2026 Deadline",
+      "summary": "The European Anti-Money Laundering Authority (AMLA), which assumed all AML/CFT mandates from the EBA in January 2026, met its July 10, 2026 deadline for draft Regulatory Technical Standards (RTS) on minimum requirements for group-wide AML/CFT policies, procedures, and controls. These binding standards will form part of AMLA's Single Rulebook, which applies across all 27 EU member states from July 10, 2027. Luxembourg, Malta, and Cyprus wealth management structures are directly in scope.",
+      "source_url": "https://www.freshfields.com/en/our-thinking/blogs/risk-and-compliance/unveiling-amlas-blueprint-a-snapshot-of-the-2026-2028-work-programme-and-key-re-102mm45",
+      "source_name": "Freshfields",
+      "source_date": "2026-07-10",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Luxembourg",
+      "topic": "Investment Funds & SPVs",
+      "title": "Luxembourg Carried Interest Tax Regime Adopted by Parliament – Effective Fiscal Year 2026",
+      "summary": "On January 22, 2026, the Luxembourg Parliament adopted the law modernising and clarifying the carried interest tax regime. From fiscal year 2026, contractual carried interest is taxed as extraordinary income at one quarter of the global rate (maximum 11.45%), while participation-linked carried interest qualifies for capital gains treatment with full exemption if the AIF participation is held over six months and does not exceed 10%. The regime covers employees, investment advisers, board members, and consultants involved in AIF management.",
+      "source_url": "https://www.aoshearman.com/en/insights/luxembourg-revamps-its-carried-interest-tax-regime",
+      "source_name": "A&O Shearman",
+      "source_date": "2026-01-22",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Luxembourg",
+      "topic": "Investment Funds & SPVs",
+      "title": "Luxembourg AIFMD II Implementation Deadline Passed – April 16, 2026",
+      "summary": "Luxembourg was required to implement Directive (EU) 2024/927 (AIFMD II) by April 16, 2026. AIFMD II introduces new rules on delegation and substance, liquidity management tools, depositary requirements, and loan-originating AIFs. Luxembourg's transposition law is expected to affect fund managers using Luxembourg-domiciled structures for delegation and reverse solicitation arrangements.",
+      "source_url": "https://practiceguides.chambers.com/practice-guides/investment-funds-2026/luxembourg/trends-and-developments",
+      "source_name": "Chambers and Partners",
+      "source_date": "2026-04-16",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Malta",
+      "topic": "AML/KYC",
+      "title": "Malta FIAU Amends AML Regulations – Legal Notices 82 and 83 of 2026",
+      "summary": "The Malta Financial Intelligence Analysis Unit (FIAU) introduced significant amendments to the Prevention of Money Laundering and Funding of Terrorism Regulations (PMLFTR) and the Centralised Bank Account Register (CBAR) Regulations via Legal Notices 82 and 83 of 2026. Key changes include periodic penalty payments designed to pressure entities into corrective action where material AML/CFT deficiencies persist, and enhanced supervisory enforcement tools reflecting Malta's post-FATF grey-list strengthening obligations.",
+      "source_url": "https://www.mondaq.com/money-laundering/1807710/how-maltas-amlcft-enforcement-framework-is-changing",
+      "source_name": "Mondaq / Camilleri Preziosi",
+      "source_date": "2026-04-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "International Tax",
+      "title": "CRS Amendments Applicable from January 1, 2026 – XML Schema 3.0 Exchange from 2027",
+      "summary": "OECD amendments to the Common Reporting Standard (CRS), adopted in August 2022 and extending scope to electronic money products and central bank digital currencies, are now applicable from January 1, 2026. Implementation of CRS XML Schema 3.0 for actual exchange is scheduled for 2027; 68% of jurisdictions plan to exchange under the amended CRS from that date. Remaining jurisdictions are in a transitional period of one to three years. Cayman (DITC schema transition in Q3 2026) is directly in scope.",
+      "source_url": "https://www.oecd.org/en/topics/sub-issues/international-standards-on-tax-transparency/tax-transparency-resource-centre.html",
+      "source_name": "OECD",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "USA",
+      "topic": "International Tax",
+      "title": "US Treasury and IRS Post 2026 Regulatory Agenda for OBBBA Implementation (July 3, 2026)",
+      "summary": "On July 3, 2026, the US Treasury Department published its 2026 Agency Rule List, highlighting deregulation initiatives and guidance needed to implement the One Big Beautiful Bill Act (OBBBA). The agenda includes Revenue Procedure 2026-25, which provides a safe harbor from gift tax consequences on contributions to new 'Trump Accounts' (a federal tax-deferred savings vehicle for children launched July 2026), and anticipated guidance on the new $15 million permanent estate/gift tax exemption.",
+      "source_url": "https://kpmg.com/us/en/taxnewsflash/news/2026/07/treasury-list-tax-regulatory-items.html",
+      "source_name": "KPMG Tax News Flash",
+      "source_date": "2026-07-03",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "UAE",
+      "topic": "Investment Funds & SPVs",
+      "title": "DIFC Variable Capital Company (VCC) Regulations 2026 Introduced",
+      "summary": "The DIFC introduced Variable Capital Company (VCC) Regulations 2026, establishing NAV-based share capital, umbrella and cell fund structures, asset ring-fencing between cells, and a flexible framework for proprietary investment vehicles operating within DIFC. The VCC structure is aimed at family office and private equity use cases requiring segregated compartments and flexible capital management, positioning DIFC more competitively against Singapore's VCC regime.",
+      "source_url": "https://taxadepts.com/difc-announces-variable-capital-company-regulations-2026",
+      "source_name": "ADEPTS Tax / DIFC",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "BVI",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "BVI BOI Penalty Moratorium Ended March 31, 2026 – Four-Tier Penalty Regime Now Fully Active",
+      "summary": "The BVI FSC's moratorium on filing fees and penalties for late beneficial ownership information (BOI) submissions ended March 31, 2026. As of April 1, 2026, the full four-tier penalty regime is active: fines of US$10,000–US$75,000 depending on nature, duration, and impact of the contravention. The legitimate interest access regime also opened April 1, 2026, allowing AML-obligated persons to request UBO information under a 25% threshold. BVI companies registered after January 2, 2025 must file BOI within 30 days of formation.",
+      "source_url": "https://astra-trust.com/reforms-to-bvi-beneficial-ownership-rules-what-you-need-to-know-in-2026/",
+      "source_name": "Astra Trust",
+      "source_date": "2026-04-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Jersey",
+      "topic": "Succession & Wealth Planning",
+      "title": "Trusts (Jersey) Amendment Law 2026 – In Force March 20, 2026",
+      "summary": "The Trusts (Jersey) Amendment Law 2026 came into force on March 20, 2026, modernising Jersey trust law in two key areas: (1) clarification of beneficiaries' right to terminate a trust under the rule in Saunders v Vautier, and (2) updated priority rules for claims between trustees and secured lenders. The amendments address uncertainties arising from the Rusnano Guernsey decision and the Z Trusts litigation, providing greater legal certainty for wealth structuring through Jersey trusts.",
+      "source_url": "https://www.careyolsen.com/insights/briefings/2026-trusts-jersey-law-amendment-what-practitioners-need-know",
+      "source_name": "Carey Olsen",
+      "source_date": "2026-03-20",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Isle of Man",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "Isle of Man Verification of Entity Registration Bill 2026 Passes Tynwald",
+      "summary": "The Verification of Entity Registration Bill 2026 has completed its passage through Tynwald, strengthening the Isle of Man's beneficial ownership framework and its response to financial crime. The bill complements the 2026 amendment reducing the UBO registration threshold from 'more than 25%' to '25% or more', and introduces more detailed, judgment-based control assessments for trusts and foundations. Nominated officers must adopt the new process by September 15, 2026.",
+      "source_url": "https://charterhouseiom.com/beneficial-ownership-faq/",
+      "source_name": "Charterhouse Lombard / Isle of Man Government",
+      "source_date": "2026-07-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Panama",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "Panama Agreement 1-2026 – Digital ID Verification and Expanded UBO Obligations",
+      "summary": "Panama's Superintendency of Banks issued Agreement 1-2026, which regulates digital identity verification processes, reinforces the Risk-Based Approach to AML, and broadens UBO due diligence by requiring identification of individuals owning 10% or more of shares (reduced from 25%) or exercising effective control. Full chain-of-ownership documentation to the ultimate natural person is mandatory. The Agreement aligns with Panama's ongoing efforts to remain off FATF grey lists following its removal in 2023.",
+      "source_url": "https://www.lexinnova.net/post/regulatory-update-the-new-agreement-1-2026-of-the-superintendency-of-banks",
+      "source_name": "Lex Innova / SBP",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Bahamas",
+      "topic": "AML/KYC",
+      "title": "Bahamas Central Bank Releases TF and PF National Risk Assessments – July 2026",
+      "summary": "The Central Bank of The Bahamas released the Summary of Findings of the Terrorist Financing National Risk Assessment (TFNRA) 2024 and the Proliferation Financing National Risk Assessment (PFNRA) 2025 in July 2026, informing updated AML/CFT/CPF obligations for supervised financial institutions. The Bahamas CFATF Mutual Evaluation is also scheduled for Q4 2026, which may result in updated regulatory requirements.",
+      "source_url": "https://www.centralbankbahamas.com/viewPDF/documents/2026-07-03-16-02-02-2Q2026-Quarterly-Letter.pdf",
+      "source_name": "Central Bank of The Bahamas",
+      "source_date": "2026-07-17",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "International Tax",
+      "title": "OECD Pillar Two – US SbS Safe Harbor Active; GIR Filings Due June 30, 2026",
+      "summary": "The OECD Pillar Two Side-by-Side (SbS) Safe Harbor, agreed January 5, 2026, is in effect for fiscal years beginning on or after January 1, 2026. It exempts US-parented multinational groups from the Income Inclusion Rule and Undertaxed Profits Rule. GloBE Information Return (GIR) filings for calendar-year taxpayers were due June 30, 2026. Approximately 140 jurisdictions have enacted or are implementing the 15% global minimum tax; US groups must still assess applicability of Undertaxed Profits Rule top-up in non-safe-harbor jurisdictions.",
+      "source_url": "https://oecdpillars.com/pillar-two-developments-tracker-2026/",
+      "source_name": "OECDpillars.com",
+      "source_date": "2026-07-01",
+      "injection_flag": false
+    }
+  ],
+  "jurisdictions_searched": [
+    "Brazil",
+    "USA (Federal)",
+    "USA (Florida)",
+    "Cayman Islands",
+    "BVI",
+    "Luxembourg",
+    "Switzerland",
+    "Singapore",
+    "UAE",
+    "Panama",
+    "Malta",
+    "Cyprus",
+    "Bahamas",
+    "Jersey",
+    "Guernsey",
+    "Isle of Man",
+    "International (OECD/EU)"
+  ],
+  "injection_attempts": []
+}
