@@ -1,0 +1,166 @@
+{
+  "generated_at": "2026-09-28T14:00:00Z",
+  "date": "2026-09-28",
+  "findings": [
+    {
+      "jurisdiction": "Brazil",
+      "topic": "AML/KYC",
+      "title": "BCB Resolutions 588 and 589 (September 24, 2026): Self-Custody Reporting at $10K and Unauthorized VASP Dealings Cutoff",
+      "summary": "On 24 September 2026 the Banco Central do Brasil published Resolutions 588 and 589. Resolution 588 amends the AML rulebook to require BCB-authorised exchanges to report all transfers to or from a self-custody wallet of US$10,000 or more to COAF (Brazil's AML watchdog) from 1 October 2026; the rule creates a reporting obligation, not a ban. Resolution 589 amends the VASP framework: dealings with BCB-unauthorised virtual asset service providers are prohibited from 6 November 2026 (the original October 1 deadline has been moved), and new supervisory data requirements covering customer balances, custody positions, proof of reserves, and assets committed to staking take effect 1 January 2027. Both resolutions are directly relevant to any wealth management client using Brazilian crypto intermediaries.",
+      "source_url": "https://www.tftc.io/brazil-self-custody-reporting-resolution-588-589-bcb",
+      "source_name": "TFTC / BCB",
+      "source_date": "2026-09-24",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "USA",
+      "topic": "AML/KYC",
+      "title": "SEC Issues Risk Alert on Investment Adviser Annual Compliance Review Deficiencies (September 14, 2026)",
+      "summary": "On 14 September 2026 the SEC Division of Examinations issued a Risk Alert documenting widespread deficiencies in SEC-registered investment advisers' annual compliance reviews under Rule 206(4)-7 of the Investment Advisers Act. The most common deficiencies are: (i) compliance policies lacking sufficient direction on testing methodology or documentation; (ii) reviews that deviate from the adviser's own written procedures; and (iii) evaluations of outdated or superseded policies rather than current practices. The Alert signals the SEC's 2026 exam priority of scrutinising the effectiveness of RIA Compliance Programs, not merely their existence. Wealth managers should treat the Alert as an exam preparation checklist.",
+      "source_url": "https://www.sec.gov/compliance/risk-alerts/examinations-observations-regarding-investment-adviser-annual-compliance-review-091426",
+      "source_name": "SEC Division of Examinations",
+      "source_date": "2026-09-14",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "USA",
+      "topic": "Investment Funds & SPVs",
+      "title": "SEC Announces 37% Reduction in Registration Fee Rates — Effective October 1, 2026",
+      "summary": "On 21 August 2026, the SEC announced a 37% reduction in securities registration and filing fee rates, from $138.10 to $87.00 per million dollars, effective 1 October 2026 for fiscal year 2027. The reduction applies to registrations under Securities Act Section 6(b), share repurchases under Exchange Act Section 13(e), and proxy solicitations and tender offers under Section 14(g). This is the second consecutive annual decrease in SEC filing fee rates. While not a structural regulatory change, the reduction directly affects transaction cost planning for capital raises, M&A structures, and tender offers involving US securities.",
+      "source_url": "https://www.wsgr.com/en/insights/sec-announces-37-decrease-in-registration-fee-rates-effective-october-1-2026.html",
+      "source_name": "Wilson Sonsini / SEC",
+      "source_date": "2026-08-21",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "USA",
+      "topic": "Investment Funds & SPVs",
+      "title": "SEC Creates New Financial Reporting and Accounting Unit Within Division of Enforcement",
+      "summary": "In September 2026 the SEC announced the establishment of a dedicated Financial Reporting and Accounting Unit within its Division of Enforcement, focused on accounting fraud, earnings manipulation, and auditing misconduct. This unit concentrates the SEC's existing financial reporting investigative expertise into a single team and signals heightened enforcement attention on financial statement integrity, particularly for registered investment advisers, fund managers, and SPV structures where valuation and reporting practices come under scrutiny. Separately, the SEC also issued two no-action letters (for eToro USA Securities and Alpaca Securities, dated 17 September 2026) providing clarification on broker-dealer obligations for fintech platforms.",
+      "source_url": "https://www.dorsey.com/newsresources/publications/client-alerts/2026/9/sec-risk-alert-compliance-review",
+      "source_name": "Dorsey & Whitney / SEC",
+      "source_date": "2026-09-22",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "UAE",
+      "topic": "Investment Funds & SPVs",
+      "title": "DFSA CP173 Consultation on DIFC Funds Regime Overhaul Closed September 7, 2026",
+      "summary": "The Dubai Financial Services Authority's Consultation Paper No. 173, published 7 July 2026, proposed the most comprehensive overhaul of the DIFC collective investment funds framework since 2010. The 62-day consultation closed on 7 September 2026. Key proposals include: replacing prescriptive fund-type classifications (Money Market, Private Equity, Credit) with a risk-and-activity-based approach; introducing an Employee Co-Investment vehicle framework; removing the External Fund Manager regime; and increasing flexibility for hybrid and multi-strategy funds. The DFSA has indicated a three-month implementation period after finalisation; no final rules have yet been published as of 28 September 2026. Wealth managers with DIFC-domiciled funds should monitor for the final rules expected in Q4 2026 or Q1 2027.",
+      "source_url": "https://www.dfsa.ae/news/dfsa-proposes-significant-updates-its-collective-investment-fund-framework",
+      "source_name": "DFSA / Norton Rose Fulbright",
+      "source_date": "2026-09-07",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Panama",
+      "topic": "International Tax",
+      "title": "Panama Executive Decree 25 of 2026: FATCA/CRS Controlling Persons Threshold Cut from 25% to 10%",
+      "summary": "Panama's Executive Decree 25 of 2026, signed 29 June 2026, reduced the ownership threshold for identifying 'Controlling Persons' under FATCA and CRS from 25% to 10%, amending Executive Decree No. 124 of 2017. The change aligns Panama with FATF recommendations and its own domestic beneficial ownership framework, and effectively expands the universe of natural persons whose financial account information must be reported to FATCA partner countries and CRS participating jurisdictions. Trust settlors and foundation founders continue to be treated as controlling persons regardless of percentage. KPMG reported this change in August 2026; STEP has flagged it as a material expansion of information exchange scope for clients with Panama structures.",
+      "source_url": "https://kpmg.com/us/en/taxnewsflash/news/2026/08/tnf-panama-ownership-threshold-for-controlling-persons-reduced-under-fatca-and-crs.html",
+      "source_name": "KPMG / Panama Government",
+      "source_date": "2026-06-29",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Cayman Islands",
+      "topic": "AML/KYC",
+      "title": "Cayman DITC: CRS Compliance Form Due 15 September 2026; Deadline Shift from 2027 Onwards",
+      "summary": "The Cayman Islands Department for International Tax Cooperation confirmed that the CRS Compliance Form for the 2025 reporting year was due by 15 September 2026, and the FATCA/CRS XML reporting deadline for 2025 data was 31 July 2026. From the 2027 reporting cycle, both the CRS XML submission deadline and the CRS Compliance Form deadline will shift to 30 June (from 31 July and 15 September respectively). The Cayman DITC also confirmed that the CRS 2.0 Trade Testing Programme ran from 1 September to 18 September 2026, allowing financial institutions to validate updated XML schema submissions, and that CRS XML Schema version 3.0 is required for all submissions relating to 2025 reporting year data.",
+      "source_url": "https://www.ditc.ky/press/industry-advisory/crs-jurisdictions-lists-and-2026-reporting-deadlines/",
+      "source_name": "Cayman Islands DITC",
+      "source_date": "2026-09-15",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "USA",
+      "topic": "Succession & Wealth Planning",
+      "title": "US Federal Estate and Gift Tax Exemption Permanently Raised to $15 Million Per Person from 2026",
+      "summary": "The One Big Beautiful Bill Act, signed into law on 4 July 2025, permanently raised the federal estate and gift tax exemption to $15 million per person ($30 million per married couple) effective 1 January 2026, with annual inflation adjustments from 2027. The generation-skipping tax (GST) exemption also increased to $15 million. The annual gift tax exclusion remains at $19,000 per donee ($38,000 for married couples) for 2026. The permanent increase (as opposed to the prior scheduled 2026 sunset of the TCJA exemption) fundamentally alters estate planning strategy for ultra-high-net-worth clients: fewer estates will be subject to federal estate tax, but state estate taxes (e.g., New York at $7.35M) and offshore inheritance tax exposure remain live planning issues.",
+      "source_url": "https://www.thrivent.com/insights/estate-planning/estate-tax-changes-for-2026-and-beyond",
+      "source_name": "Thrivent / IRS",
+      "source_date": "2026-01-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Luxembourg",
+      "topic": "International Tax",
+      "title": "Luxembourg Draft Bill 8676: Single Tax Class Reform (Tarif U) Proposed for 2028",
+      "summary": "On 6 January 2026, the Luxembourg Government introduced Draft Bill 8676 proposing a fundamental reform of personal income taxation, replacing the current multi-class system (Class 1, Class 1a, Class 2) with a single unified tax class (Tarif U) effective from tax year 2028. The reform aims to create a more equitable and administratively simpler system. While the effective date is 2028, the bill creates near-term planning considerations for Luxembourg-resident family office professionals, management company employees receiving carried interest, and cross-border wealth structures relying on Luxembourg's current tax treatment of non-resident beneficiaries. The bill is currently in parliamentary review; significant amendments are expected.",
+      "source_url": "https://www.pwc.lu/en/newsletter/2026/draft-bill-8676.html",
+      "source_name": "PwC Luxembourg / Luxembourg Government",
+      "source_date": "2026-01-06",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Cayman Islands",
+      "topic": "Company Formation & Beneficial Ownership",
+      "title": "Cayman Economic Substance Act 2026 Revision Published; CRS Now Covers Digital Assets",
+      "summary": "The International Tax Co-operation (Economic Substance) Act (2026 Revision), published 5 February 2026, consolidates prior amendments without substantive changes to the economic substance regime itself. More significantly, the CRS 2.0 update effective 1 January 2026 brings digital assets — including payment tokens, utility tokens, certain NFTs, security tokens, and electronic money products — within scope of the Cayman CRS reporting regime. Financial institutions must appoint a Principal Point of Contact with physical presence in the Cayman Islands by 31 January 2027. Wealth managers should assess whether client digital asset holdings or custodians create new CRS reporting obligations for Cayman entities.",
+      "source_url": "https://maples.com/knowledge/crs-and-economic-substance-updates-for-the-cayman-islands",
+      "source_name": "Maples Group / Cayman DITC",
+      "source_date": "2026-02-05",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Singapore",
+      "topic": "Investment Funds & SPVs",
+      "title": "MAS Stablecoin Consultation Feedback Deadline: October 16, 2026",
+      "summary": "MAS published its consultation paper on 1 September 2026 proposing legislative amendments to the Payment Services Act 2019 to introduce a statutory stablecoin regulatory framework. A new licensing regime is proposed for Singapore-incorporated issuers of single-currency stablecoins (SCS) pegged to SGD or any G10 currency; a separate 'recognition regime' would cover foreign SCS issuers meeting equivalent standards. MAS would gain powers to designate systemically significant stablecoins for enhanced oversight. The feedback deadline is 16 October 2026, meaning this is an active consultation this week. Wealth managers and family offices using stablecoins for treasury management or cross-border settlement through Singapore entities should engage or monitor the outcome.",
+      "source_url": "https://fintech.global/2026/09/01/singapores-mas-proposes-stablecoin-legislative-changes/",
+      "source_name": "Fintech Global / MAS",
+      "source_date": "2026-09-01",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "International Tax",
+      "title": "OECD September 2026 GloBE Information Return Finalised and Published",
+      "summary": "The OECD/G20 Inclusive Framework released the finalised GloBE Information Return (GIR) in September 2026 as part of the Pillar Two consistency package. The updated GIR applies to fiscal years beginning on or after 31 December 2025 and must be used for all Pillar Two top-up tax filings in compliant jurisdictions. The document also contains the framework for a full legislative peer review of domestic minimum top-up taxes (QDMTTs), enabling the Inclusive Framework to assess whether a jurisdiction's local rules qualify for the QDMTT Safe Harbour. New administrative guidance on Explicitly Conditional Taxes (excluded from Covered Taxes) and QDMTT Safe Harbour application where entities use local financial accounting standards under different fiscal periods was also published. This is directly applicable to MNE groups with entities in Luxembourg, Ireland, Singapore, the Netherlands, and other low-rate jurisdictions.",
+      "source_url": "https://taxnews.ey.com/news/2026-0226-oecd-releases-side-by-side-package-on-pillar-two-global-minimum-tax-detailed-review",
+      "source_name": "EY / OECD",
+      "source_date": "2026-09-11",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "Isle of Man",
+      "topic": "AML/KYC",
+      "title": "Isle of Man Treasury Publishes Updated Sanctions Regime Information (September 2026)",
+      "summary": "The Isle of Man Financial Services Authority announced in September 2026 that the Isle of Man Treasury Customs and Immigration Division has published new and updated information regarding applicable sanctions regimes. The IoM FSA has notified regulated financial institutions, trust companies, and fund administrators based in the Island. Separately, the IoM FSA Chief Executive participated in the Global Sustainable Insurance Summit in Dublin on 17 September 2026. The IoM government also published revised financial regulations in the 2026 Government Financial Regulations document. No material structural changes to the IoM regulatory framework for financial services were identified this week.",
+      "source_url": "https://www.iomfsa.im/fsa-news/",
+      "source_name": "Isle of Man FSA",
+      "source_date": "2026-09-22",
+      "injection_flag": false
+    },
+    {
+      "jurisdiction": "International",
+      "topic": "AML/KYC",
+      "title": "CARF: First Automatic Exchange of Crypto-Asset Reporting Framework Data Expected September 2027",
+      "summary": "The OECD Crypto-Asset Reporting Framework (CARF) entered initial implementation across 48 participating jurisdictions from 1 January 2026, alongside CRS 2.0. CARF requires crypto-asset service providers (CASPs) to collect and report information on customers' crypto-asset transactions, holdings, and transfers, with the first automatic exchange of CARF data expected in September 2027 for data collected during 2026. The scope covers exchange transactions, transfers, and certain retail payments in crypto assets. Cayman-based CARF reporters must comply from 1 January 2026; Cayman DITC issued reporting guidance in late 2025. This is a material new compliance burden for family offices and wealth structures using crypto asset service providers.",
+      "source_url": "https://aztec.group/us/insights/fatca-and-crs-reporting-crs-update/",
+      "source_name": "Aztec Group / OECD",
+      "source_date": "2026-09-01",
+      "injection_flag": false
+    }
+  ],
+  "jurisdictions_searched": [
+    "Brazil",
+    "USA (Federal)",
+    "USA (Florida)",
+    "Cayman Islands",
+    "BVI",
+    "Luxembourg",
+    "Switzerland",
+    "Singapore",
+    "UAE (DIFC/ADGM)",
+    "Panama",
+    "Malta",
+    "Cyprus",
+    "Bahamas",
+    "Jersey",
+    "Guernsey",
+    "Isle of Man",
+    "International (OECD/FATF)"
+  ],
+  "injection_attempts": []
+}
