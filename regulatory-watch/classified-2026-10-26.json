@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-10-26T13:20:00Z",
+  "date": "2026-10-26",
+  "total_raw_findings": 0,
+  "total_classified_findings": 0,
+  "injection_attempts_flagged": [],
+  "findings": [],
+  "jurisdictions_with_no_changes": [],
+  "notes": "raw-2026-10-26.json was not present in regulatory-watch/. The Reader agent does not appear to have run for this date. No findings to classify."
+}
